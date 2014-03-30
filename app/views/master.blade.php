@@ -47,6 +47,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
+                        <?php echo link_to_action('HomeController@index', 'Site'); ?>                       
+                    </li>
+                    <li class="">
                         <?php echo link_to_action('PartiesController@index', 'Parties'); ?>                       
                     </li>
                     <li>

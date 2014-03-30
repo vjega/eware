@@ -8,6 +8,11 @@
 }
 
 
+.container{
+	width:100% !important;
+	max-width:100% ;
+}
+
 .form-control{
 	padding:3px 5px;
 	height:100%;
