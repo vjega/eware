@@ -47,7 +47,10 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="#">Site</a>
+                        <?php echo link_to_action('PartiesController@index', 'Parties'); ?>                       
+                    </li>
+                    <li>
+                        <?php echo link_to_action('ProductsController@index', 'Products'); ?>                       
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Location <b class="caret"></b></a>
