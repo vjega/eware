@@ -12,7 +12,7 @@
 */
 
 
-Route::resource('product', 'ProductController');
+Route::resource('products', 'ProductsController');
 
 Route::get('/', function()
 {

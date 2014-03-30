@@ -17,3 +17,7 @@
         
       </form>
 @stop
+
+@section('script')
+
+@stop

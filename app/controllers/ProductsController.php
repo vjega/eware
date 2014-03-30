@@ -1,6 +1,6 @@
 <?php
 
-class ProductController extends \BaseController {
+class ProductsController extends \BaseController {
 	
 
 	/**
@@ -10,7 +10,7 @@ class ProductController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('product.index');
+		return View::make('products.index');
 	}
 
 	/**
@@ -20,14 +20,14 @@ class ProductController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('product.new');
+		return View::make('products.new');
 	}
 
 	public function show($id)
 	{
 		//
 		//
-		return View::make('product.show');
+		return View::make('products.show');
 	}
 
 	/**
@@ -39,7 +39,7 @@ class ProductController extends \BaseController {
 	public function edit($id)
 	{
 		//
-		//return View::make('product.show');
+		//return View::make('products.show');
 	}
 
 	

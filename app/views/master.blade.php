@@ -14,6 +14,10 @@
     <meta name="viewport" content="width=device-width">
     {{ HTML::style('css/bootstrap.min.css') }}
     {{ HTML::style('css/font-awesome.min.css') }}
+
+    <!-- Jqgrid -->
+    {{ HTML::style('plugins/jquery.jqGrid-4.6.0/ui.jqgrid.css') }}
+
     {{ HTML::style('css/main.css') }}
     
     <style>
@@ -157,10 +161,17 @@
         @yield('content')
     </div>
     <!-- /container -->
+
     
     {{ HTML::script('js/vendor/jquery-1.10.1.min.js') }}
     {{ HTML::script('js/vendor/bootstrap.min.js') }}
+
+    <!-- Jqgrid -->
+    {{ HTML::script('plugins/jquery.jqGrid-4.6.0/i18n/grid.locale-en.js') }}
+    {{ HTML::script('plugins/jquery.jqGrid-4.6.0/jquery.jqGrid.min.js') }}
     {{ HTML::script('js/main.js') }}
+
+    @yield('script')
 
 </body>
 
