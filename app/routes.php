@@ -17,6 +17,8 @@ Route::resource('products', 'ProductsController');
 Route::resource('parties', 'PartiesController');
 
 
+Route::resource('sites', 'HomeController');
+
 Route::get('/', function()
 {
 	return View::make('login');

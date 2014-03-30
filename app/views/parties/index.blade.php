@@ -153,7 +153,7 @@
 var panelWidth = jQuery(".panel").width()-30;
 jQuery("#productList").jqGrid({ 
 	datatype: "local",
-	height: 250,
+	height: 375,
 	width: panelWidth,
 	colNames:['Party Code','Party Name', 'Country', 'City', 'Address', 'Fax Number', 'Telephone Number', 'Postal Code', 'Contact Name', 'Credit Limit', 'Payment Terms', 'Business Hour', 'Party service Level', 'Order Priority', 'Services Provided', 'Created Date'],
 	colModel:[
