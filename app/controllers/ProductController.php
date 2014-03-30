@@ -1,6 +1,7 @@
 <?php
 
 class ProductController extends \BaseController {
+	
 
 	/**
 	 * Display a listing of the resource.
@@ -9,7 +10,7 @@ class ProductController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View:make('product.index');
+		return View::make('product.index');
 	}
 
 	/**
@@ -19,14 +20,14 @@ class ProductController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View:make('product.new');
+		return View::make('product.new');
 	}
 
 	public function show($id)
 	{
 		//
 		//
-		return View:make('product.show');
+		return View::make('product.show');
 	}
 
 	/**
@@ -38,7 +39,7 @@ class ProductController extends \BaseController {
 	public function edit($id)
 	{
 		//
-		//return View:make('product.show');
+		//return View::make('product.show');
 	}
 
 	
