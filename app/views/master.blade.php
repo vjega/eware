@@ -22,8 +22,8 @@
     
     <style>
     body {
-        padding-top: 50px;
-        padding-bottom: 20px;
+        padding-top: 70px;
+        padding-bottom: 10px;
     }
     </style>
     {{ HTML::script('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') }}
@@ -160,6 +160,8 @@
     <div class="container">        
         @yield('content')
     </div>
+
+    @yield('popups')
     <!-- /container -->
 
     
