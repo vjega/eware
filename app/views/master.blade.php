@@ -16,7 +16,8 @@
     {{ HTML::style('css/font-awesome.min.css') }}
 
     <!-- Jqgrid -->
-    {{ HTML::style('plugins/jquery.jqGrid-4.6.0/ui.jqgrid.css') }}
+	{{ HTML::style('plugins/jquery-ui-1.10.4.custom/css/smoothness/jquery-ui-1.10.4.custom.css') }}
+    {{ HTML::style('plugins/jquery.jqGrid-4.6.0/css/ui.jqgrid.css') }}
 
     {{ HTML::style('css/main.css') }}
     
@@ -167,8 +168,8 @@
     {{ HTML::script('js/vendor/bootstrap.min.js') }}
 
     <!-- Jqgrid -->
-    {{ HTML::script('plugins/jquery.jqGrid-4.6.0/i18n/grid.locale-en.js') }}
-    {{ HTML::script('plugins/jquery.jqGrid-4.6.0/jquery.jqGrid.min.js') }}
+    {{ HTML::script('plugins/jquery.jqGrid-4.6.0/js/i18n/grid.locale-en.js') }}
+    {{ HTML::script('plugins/jquery.jqGrid-4.6.0/js/jquery.jqGrid.min.js') }}
     {{ HTML::script('js/main.js') }}
 
     @yield('script')
