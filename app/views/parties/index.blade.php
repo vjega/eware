@@ -44,26 +44,26 @@
 var panelWidth = jQuery(".panel").width()-30;
 jQuery("#productList").jqGrid({ 
 	datatype: "local",
-	height: 250,
+	height: 400,
 	width: panelWidth,
 	colNames:['Party Code','Party Name', 'Country', 'City', 'Address', 'Fax Number', 'Telephone Number', 'Postal Code', 'Contact Name', 'Credit Limit', 'Payment Terms', 'Business Hour', 'Party service Level', 'Order Priority', 'Services Provided', 'Created Date'],
 	colModel:[
-		{name:'username'},
-		{name:'fname'},
-		{name:'lname'},
-		{name:'email'},
-		{name:'warehouse'},
-		{name:'status'},
-		{name:'exp_on'},
-		{name:'created_at'},
-		{name:'username'},
-		{name:'fname'},
-		{name:'lname'},
-		{name:'email'},
-		{name:'warehouse'},
-		{name:'status'},
-		{name:'exp_on'},
-		{name:'created_at'}
+		{name:'party_code'},
+		{name:'party_name'},
+		{name:'country'},
+		{name:'city'},
+		{name:'address'},
+		{name:'fax_number'},
+		{name:'telephone_number'},
+		{name:'postal_code'},
+		{name:'contact_name'},
+		{name:'credit_limit'},
+		{name:'payment_terms'},
+		{name:'business_hour'},
+		{name:'party_service_level'},
+		{name:'order_priority'},
+		{name:'services_provided'},
+		{name:'created_date'}
 	], 
 	rowNum:10, 
 	rowList:[10,20,30], 
@@ -73,16 +73,19 @@ jQuery("#productList").jqGrid({
 	loadonce: true
 });
 var mydata = [
-	{username:"Loram",fname:"Loram",lname:"Loram",email:"Loram",warehouse:"Loram",status:"Loram",exp_on:"Loram",created_at:"Loram"},
-	{username:"Loram",fname:"Loram",lname:"Loram",email:"Loram",warehouse:"Loram",status:"Loram",exp_on:"Loram",created_at:"Loram"},
-	{username:"Loram",fname:"Loram",lname:"Loram",email:"Loram",warehouse:"Loram",status:"Loram",exp_on:"Loram",created_at:"Loram"},
-	{username:"Loram",fname:"Loram",lname:"Loram",email:"Loram",warehouse:"Loram",status:"Loram",exp_on:"Loram",created_at:"Loram"},
-	{username:"Loram",fname:"Loram",lname:"Loram",email:"Loram",warehouse:"Loram",status:"Loram",exp_on:"Loram",created_at:"Loram"},
-	{username:"Loram",fname:"Loram",lname:"Loram",email:"Loram",warehouse:"Loram",status:"Loram",exp_on:"Loram",created_at:"Loram"},
-	{username:"Loram",fname:"Loram",lname:"Loram",email:"Loram",warehouse:"Loram",status:"Loram",exp_on:"Loram",created_at:"Loram"},
-	{username:"Loram",fname:"Loram",lname:"Loram",email:"Loram",warehouse:"Loram",status:"Loram",exp_on:"Loram",created_at:"Loram"},
-	{username:"Loram",fname:"Loram",lname:"Loram",email:"Loram",warehouse:"Loram",status:"Loram",exp_on:"Loram",created_at:"Loram"},
-	{username:"Loram",fname:"Loram",lname:"Loram",email:"Loram",warehouse:"Loram",status:"Loram",exp_on:"Loram",created_at:"Loram"}
+	{party_code:"8748",party_name:"Reliance",country:"india",city:"ludhiana",address:"#3324, nehru street",fax_number:"022-6374858",telephone_number:"022-6474533",postal_code:"1000435",contact_name:"John chinathambi",credit_limit:"70000000",payment_terms:"never pay",business_hour:"22:00 - 2:00 UTC",party_service_level:"Low",order_priority:"Very Low",services_provided:"Forwared",created_date:"00-00-0000 00:00"},
+	{party_code:"8748",party_name:"Reliance",country:"india",city:"ludhiana",address:"#3324, nehru street",fax_number:"022-6374858",telephone_number:"022-6474533",postal_code:"1000435",contact_name:"John chinathambi",credit_limit:"70000000",payment_terms:"never pay",business_hour:"22:00 - 2:00 UTC",party_service_level:"Low",order_priority:"Very Low",services_provided:"Forwared",created_date:"00-00-0000 00:00"},
+	{party_code:"8748",party_name:"Reliance",country:"india",city:"ludhiana",address:"#3324, nehru street",fax_number:"022-6374858",telephone_number:"022-6474533",postal_code:"1000435",contact_name:"John chinathambi",credit_limit:"70000000",payment_terms:"never pay",business_hour:"22:00 - 2:00 UTC",party_service_level:"Low",order_priority:"Very Low",services_provided:"Forwared",created_date:"00-00-0000 00:00"},
+	{party_code:"8748",party_name:"Reliance",country:"india",city:"ludhiana",address:"#3324, nehru street",fax_number:"022-6374858",telephone_number:"022-6474533",postal_code:"1000435",contact_name:"John chinathambi",credit_limit:"70000000",payment_terms:"never pay",business_hour:"22:00 - 2:00 UTC",party_service_level:"Low",order_priority:"Very Low",services_provided:"Forwared",created_date:"00-00-0000 00:00"},
+	{party_code:"8748",party_name:"Reliance",country:"india",city:"ludhiana",address:"#3324, nehru street",fax_number:"022-6374858",telephone_number:"022-6474533",postal_code:"1000435",contact_name:"John chinathambi",credit_limit:"70000000",payment_terms:"never pay",business_hour:"22:00 - 2:00 UTC",party_service_level:"Low",order_priority:"Very Low",services_provided:"Forwared",created_date:"00-00-0000 00:00"},
+	{party_code:"8748",party_name:"Reliance",country:"india",city:"ludhiana",address:"#3324, nehru street",fax_number:"022-6374858",telephone_number:"022-6474533",postal_code:"1000435",contact_name:"John chinathambi",credit_limit:"70000000",payment_terms:"never pay",business_hour:"22:00 - 2:00 UTC",party_service_level:"Low",order_priority:"Very Low",services_provided:"Forwared",created_date:"00-00-0000 00:00"},
+	{party_code:"8748",party_name:"Reliance",country:"india",city:"ludhiana",address:"#3324, nehru street",fax_number:"022-6374858",telephone_number:"022-6474533",postal_code:"1000435",contact_name:"John chinathambi",credit_limit:"70000000",payment_terms:"never pay",business_hour:"22:00 - 2:00 UTC",party_service_level:"Low",order_priority:"Very Low",services_provided:"Forwared",created_date:"00-00-0000 00:00"},
+	{party_code:"8748",party_name:"Reliance",country:"india",city:"ludhiana",address:"#3324, nehru street",fax_number:"022-6374858",telephone_number:"022-6474533",postal_code:"1000435",contact_name:"John chinathambi",credit_limit:"70000000",payment_terms:"never pay",business_hour:"22:00 - 2:00 UTC",party_service_level:"Low",order_priority:"Very Low",services_provided:"Forwared",created_date:"00-00-0000 00:00"},
+	{party_code:"8748",party_name:"Reliance",country:"india",city:"ludhiana",address:"#3324, nehru street",fax_number:"022-6374858",telephone_number:"022-6474533",postal_code:"1000435",contact_name:"John chinathambi",credit_limit:"70000000",payment_terms:"never pay",business_hour:"22:00 - 2:00 UTC",party_service_level:"Low",order_priority:"Very Low",services_provided:"Forwared",created_date:"00-00-0000 00:00"},
+	{party_code:"8748",party_name:"Reliance",country:"india",city:"ludhiana",address:"#3324, nehru street",fax_number:"022-6374858",telephone_number:"022-6474533",postal_code:"1000435",contact_name:"John chinathambi",credit_limit:"70000000",payment_terms:"never pay",business_hour:"22:00 - 2:00 UTC",party_service_level:"Low",order_priority:"Very Low",services_provided:"Forwared",created_date:"00-00-0000 00:00"},
+	{party_code:"8748",party_name:"Reliance",country:"india",city:"ludhiana",address:"#3324, nehru street",fax_number:"022-6374858",telephone_number:"022-6474533",postal_code:"1000435",contact_name:"John chinathambi",credit_limit:"70000000",payment_terms:"never pay",business_hour:"22:00 - 2:00 UTC",party_service_level:"Low",order_priority:"Very Low",services_provided:"Forwared",created_date:"00-00-0000 00:00"},
+	{party_code:"8748",party_name:"Reliance",country:"india",city:"ludhiana",address:"#3324, nehru street",fax_number:"022-6374858",telephone_number:"022-6474533",postal_code:"1000435",contact_name:"John chinathambi",credit_limit:"70000000",payment_terms:"never pay",business_hour:"22:00 - 2:00 UTC",party_service_level:"Low",order_priority:"Very Low",services_provided:"Forwared",created_date:"00-00-0000 00:00"},
+	{party_code:"8748",party_name:"Reliance",country:"india",city:"ludhiana",address:"#3324, nehru street",fax_number:"022-6374858",telephone_number:"022-6474533",postal_code:"1000435",contact_name:"John chinathambi",credit_limit:"70000000",payment_terms:"never pay",business_hour:"22:00 - 2:00 UTC",party_service_level:"Low",order_priority:"Very Low",services_provided:"Forwared",created_date:"00-00-0000 00:00"},
 ];
 	for(var i=0;i<=mydata.length;i++)
 		$("#productList").addRowData(i+1,mydata[i]);
