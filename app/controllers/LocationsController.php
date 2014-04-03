@@ -9,7 +9,7 @@ class LocationsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('Locations.index');
 	}
 
 	/**

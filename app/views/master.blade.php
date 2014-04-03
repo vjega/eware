@@ -44,7 +44,7 @@
                 </button>
                 <a class="navbar-brand" href="#">E-Ware House</a>
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse nav-collapse collapse navbar-header">
                 <ul class="nav navbar-nav">
                     <li class="active">
                         <?php echo link_to_action('HomeController@index', 'Site'); ?>                       
@@ -56,7 +56,7 @@
                         <?php echo link_to_action('ProductsController@index', 'Products'); ?>                       
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Location <b class="caret"></b></a>
+                        <?php echo link_to_action('LocationsController@index', 'Locations'); ?>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="#">Groups</a>
