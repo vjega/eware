@@ -44,7 +44,7 @@
                 </button>
                 <a class="navbar-brand" href="#">E-Ware House</a>
             </div>
-            <div class="navbar-collapse nav-collapse collapse navbar-header">
+            <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
                         <?php echo link_to_action('HomeController@index', 'Site'); ?>                       
@@ -59,10 +59,10 @@
                         <?php echo link_to_action('LocationsController@index', 'Locations'); ?>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">Groups</a>
+                        <?php echo link_to_action('GroupsController@index', 'Groups'); ?>
                             </li>
                             <li>
-                                <a href="#">Zones</a>
+                        <?php echo link_to_action('ZonesController@index', 'Zones'); ?>
                             </li>
                         </ul>
                     </li>
@@ -102,7 +102,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inbound <b class="caret"></b>
+                        <?php echo link_to_action('InboundsController@index', 'Inbounds'); ?>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
@@ -120,7 +120,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Outbound <b class="caret"></b>
+                        <?php echo link_to_action('OutboundsController@index', 'Outbounds'); ?>
                         </a>
                         <ul class="dropdown-menu">
                             <li>

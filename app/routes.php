@@ -18,7 +18,18 @@ Route::resource('parties', 'PartiesController');
 
 Route::resource('Locations', 'LocationsController');
 
+Route::resource('skus', 'SkusController');
+
+Route::resource('inbounds', 'InboundsController');
+
+Route::resource('outbounds', 'OutboundsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('zones', 'ZonesController');
+
 Route::resource('sites', 'HomeController');
+
 
 Route::get('/', function()
 {
