@@ -15,6 +15,8 @@ Route::resource('companies', 'CompaniesController');
 
 Route::resource('sites', 'SitesController');
 
+Route::resource('uoms', 'UomController');
+
 Route::resource('products', 'ProductsController');
 
 Route::resource('parties', 'PartiesController');
@@ -44,4 +46,5 @@ Route::group(array('prefix' => 'api/v1'), function()
 {
     Route::resource('companies', 'CompanyAPIController');
     Route::resource('sites', 'SiteAPIController');
+    Route::resource('uoms', 'UomAPIController');
 });
