@@ -47,92 +47,73 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <?php echo link_to_action('HomeController@index', 'Site'); ?>                       
+                        <?php echo link_to_action('CompaniesController@index', 'Company'); ?>                       
                     </li>
                     <li class="">
-                        <?php echo link_to_action('PartiesController@index', 'Parties'); ?>                       
-                    </li>
-                    <li>
-                        <?php echo link_to_action('ProductsController@index', 'Products'); ?>                       
+                        <?php echo link_to_action('SitesController@index', 'Sites'); ?>                       
                     </li>
                     <li class="dropdown">
-                        <?php echo link_to_action('LocationsController@index', 'Locations'); ?>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Masters <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                        <?php echo link_to_action('GroupsController@index', 'Groups'); ?>
+                                <a href="#">Client Master</a>
                             </li>
                             <li>
-                        <?php echo link_to_action('ZonesController@index', 'Zones'); ?>
+                                <a href="#">SKU Product Master</a>
+                            </li>
+                            <li>
+                                <a href="#">Location Master</a>
+                            </li>
+                            <li>
+                                <a href="#">UOM Master</a>
+                            </li>
+                            <li>
+                                <a href="#">UOM Conversion Master</a>
+                            </li>
+                            <li>
+                                <a href="#">Reason Code Master</a>
                             </li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">SKU <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transactions <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">SKU</a>
+                                <a href="#">Adjustment</a>
                             </li>
                             <li>
-                                <a href="#">UOM/SIZE</a>
+                                <a href="#">Location Transfer - Movement</a>
+                            </li>
+                            <li>
+                                <a href="#">Location Details</a>
+                            </li>
+                            <li>
+                                <a href="#">Stock Take -Cycle count</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inbound <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Receipt</a>
+                            </li>
+                            <li>
+                                <a href="#">Confirm SRV Putaway</a>
                             </li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vendor <b class="caret"></b>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Outbound <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">Vendors</a>
+                                <a href="#">Issue</a>
                             </li>
                             <li>
-                                <a href="#">Master</a>
+                                <a href="#">Enquiry</a>
                             </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Consignee <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">Consignee</a>
-                            </li>
-                            <li>
-                                <a href="#">Master</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <?php echo link_to_action('InboundsController@index', 'Inbounds'); ?>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">Receipts</a>
-                            </li>
-                            <li>
-                                <a href="#">ASN / PO</a>
-                            </li>
-                            <li>
-                                <a href="#">GRN</a>
-                            </li>
-                            <li>
-                                <a href="#">Put Away</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <?php echo link_to_action('OutboundsController@index', 'Outbounds'); ?>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">Pick List</a>
-                            </li>
-                            <li>
-                                <a href="#">Order</a>
-                            </li>
-                            <li>
-                                <a href="#">Process</a>
-                            </li>
-
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -140,22 +121,31 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">PDF</a>
+                                <a href="#">Report 1</a>
                             </li>
                             <li>
-                                <a href="#">Excel</a>
+                                <a href="#">Report 2</a>
                             </li>
-
                         </ul>
                     </li>
-                </ul>
-
-                <!-- User Navs -->
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="./">Hi Hameed</a>
+                    <li class="dropdown" >
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">System <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Users</a>
+                            </li>
+                            <li>
+                                <a href="#">Roles</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li><a href="#"><i class="fa fa-cogs"></i></a>
+                
+                <!-- User Navs -->
+            
+                <ul class="nav navbar-nav navbar-right ">
+                    <li class="active">
+                        <a href="./">Hi Hameed</a>
                     </li>
                 </ul>
 

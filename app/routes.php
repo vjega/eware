@@ -11,6 +11,9 @@
 |
 */
 
+Route::resource('companies', 'CompaniesController');
+
+Route::resource('sites', 'SitesController');
 
 Route::resource('products', 'ProductsController');
 
@@ -28,10 +31,17 @@ Route::resource('groups', 'GroupsController');
 
 Route::resource('zones', 'ZonesController');
 
-Route::resource('sites', 'HomeController');
+#Route::resource('sites', 'HomeController');
 
 
 Route::get('/', function()
 {
 	return View::make('login');
+});
+
+// Route group for API versioning
+Route::group(array('prefix' => 'api/v1'), function()
+{
+    Route::resource('companies', 'CompanyAPIController');
+    Route::resource('sites', 'SiteAPIController');
 });
