@@ -56,7 +56,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Masters <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">Client Master</a>
+		                        <?php echo link_to_action('ClientsController@index', 'Client Master'); ?>                       
                             </li>
                             <li>
                                 <a href="#">SKU Product Master</a>
@@ -65,7 +65,7 @@
                                 <a href="#">Location Master</a>
                             </li>
                             <li>
-                                <a href="#">UOM Master</a>
+		                        <?php echo link_to_action('UomController@index', 'UOM Master'); ?>                       
                             </li>
                             <li>
                                 <a href="#">UOM Conversion Master</a>
