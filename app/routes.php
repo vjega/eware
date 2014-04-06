@@ -17,13 +17,14 @@ Route::resource('sites', 'SitesController');
 
 	Route::resource('clients', 'ClientsController');
 	Route::resource('skuproducts', 'SKUProductsController');
+	Route::resource('locations', 'LocationsController');
 	Route::resource('uoms', 'UomController');
 
 Route::resource('products', 'ProductsController');
 
 Route::resource('parties', 'PartiesController');
 
-Route::resource('Locations', 'LocationsController');
+//Route::resource('Locations', 'LocationsController');
 
 Route::resource('skus', 'SkusController');
 
@@ -49,6 +50,7 @@ Route::group(array('prefix' => 'api/v1'), function()
     Route::resource('companies', 'CompanyAPIController');
     Route::resource('clients', 'ClientsAPIController');
 	Route::resource('skuproducts', 'SKUProductsAPIController');
+	Route::resource('locations', 'LocationsAPIController');
     Route::resource('sites', 'SiteAPIController');
     Route::resource('uoms', 'UomAPIController');
 });
