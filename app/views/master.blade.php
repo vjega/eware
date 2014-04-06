@@ -59,10 +59,10 @@
 		                        <?php echo link_to_action('ClientsController@index', 'Client Master'); ?>                       
                             </li>
                             <li>
-                                <a href="#">SKU Product Master</a>
+		                        <?php echo link_to_action('SKUProductsController@index', 'SKU Product Master'); ?>                       
                             </li>
                             <li>
-                                <a href="#">Location Master</a>
+		                        <?php echo link_to_action('LocationsController@index', 'Location Master'); ?>                       
                             </li>
                             <li>
 		                        <?php echo link_to_action('UomController@index', 'UOM Master'); ?>                       

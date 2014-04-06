@@ -1,5 +1,1 @@
-@layout('master')
-
-@section('content')
-	Show Product
-@stop
+/Applications/MAMP/htdocs/eware/app/views/companies/show.blade.php

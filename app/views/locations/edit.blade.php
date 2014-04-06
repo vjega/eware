@@ -1,5 +1,1 @@
-@layout('master')
-
-@section('content')
-	Edit A Product
-@stop 
+/Applications/MAMP/htdocs/eware/app/views/companies/edit.blade.php
