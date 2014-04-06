@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class AddVotesToUserTable extends Migration {
+class CreateClientsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,12 @@ class AddVotesToUserTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('users', function(Blueprint $table)
-		{
-			//
+		Schema::create('clients', function(Blueprint $table) {
+			$table->increments('id');
+			$table->timestamps();
 		});
 	}
+
 
 	/**
 	 * Reverse the migrations.
@@ -25,10 +26,7 @@ class AddVotesToUserTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('users', function(Blueprint $table)
-		{
-			//
-		});
+		Schema::drop('clients');
 	}
 
 }
