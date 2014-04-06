@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Company Code</label>
                         <div class="col-sm-8">
-                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
+                            <input type="hidden" class="form-control" id="id" value="" placeholder="">
                             <input type="text" class="form-control" id="company_code" name="company_code" value="" placeholder="Enter Site Name e.g. Acme Corp.">
                         </div>
                     </div>

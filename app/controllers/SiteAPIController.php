@@ -28,28 +28,28 @@ class SiteAPIController extends \BaseController {
         $site = new Site;
         $site->company_code = $postObj->company_code;
         $site->name         = $postObj->name;
-        $site->country          = $postObj->country;
+        $site->country      = $postObj->country;
         $site->region       = $postObj->region;
-        $site->city        = $postObj->city;
-        $site->currency        = $postObj->currency;
-        $site->addrs1   = $postObj->addrs1;
-        $site->addrs2  = $postObj->addrs2;
-        $site->addrs3  = $postObj->addrs3;
-        $site->email = $postObj->email;
+        $site->city         = $postObj->city;
+        $site->currency     = $postObj->currency;
+        $site->addrs1       = $postObj->addrs1;
+        $site->addrs2       = $postObj->addrs2;
+        $site->addrs3       = $postObj->addrs3;
+        $site->email        = $postObj->email;
         $site->website      = $postObj->website;
-        $site->tel_no1 = $postObj->tel_no1;
+        $site->tel_no1      = $postObj->tel_no1;
         $site->tel_no2      = $postObj->tel_no2;
-        $site->fax_no   = $postObj->fax_no;
-        $site->postal_code   = $postObj->postal_code;
-        $site->biz_type   = $postObj->biz_type;
-        $site->biz_hours   = $postObj->biz_hours;
-        $site->credit_limit   = $postObj->credit_limit;
-        $site->priority   = $postObj->priority;
-        $site->zonal_level   = $postObj->zonal_level;
-        $site->vendor_file = '';
-        $site->customer_file = '';
+        $site->fax_no       = $postObj->fax_no;
+        $site->postal_code  = $postObj->postal_code;
+        $site->biz_type     = $postObj->biz_type;
+        $site->biz_hours    = $postObj->biz_hours;
+        $site->credit_limit = $postObj->credit_limit;
+        $site->priority     = $postObj->priority;
+        $site->zonal_level  = $postObj->zonal_level;
+        $site->vendor_file  = '';
+        $site->customer_file       = '';
         $site->support_source_file = '';
-        $site->threepl_file = '';
+        $site->threepl_file        = '';
         $site->save(); 
         return $site->id;
 
@@ -57,36 +57,43 @@ class SiteAPIController extends \BaseController {
 
     public function show($id)
     {
-        $company = Company::find($id);
-        return $company;
+        $site = Site::find($id);
+        return $site;
     }
 
     public function update($id)
     {
-        $company = Company::find($id);
+        $site = Site::find($id);
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
-        $company->name          = $postObj->name;
-        $company->country_code  = $postObj->country;
-        $company->city          = $postObj->city;
-        $company->address       = $postObj->address;
-        $company->fax_no        = $postObj->fax_no;
-        $company->tel_no        = $postObj->telno;
-        $company->postal_code   = $postObj->postal_code;
-        $company->contact_name  = $postObj->cont_name;
-        $company->credit_limit  = $postObj->credit_limit;
-        $company->payment_terms = $postObj->paymnt_terms;
-        $company->biz_hour      = $postObj->opening_hours;
-        $company->party_service_level = $postObj->order_priority;
-        $company->order_priority      = $postObj->order_priority;
-        $company->services_provided   = $postObj->service_provided;
-        return $company->id;
+        $site->company_code = $postObj->company_code;
+        $site->name         = $postObj->name;
+        $site->country      = $postObj->country;
+        $site->region       = $postObj->region;
+        $site->city         = $postObj->city;
+        $site->currency     = $postObj->currency;
+        $site->addrs1       = $postObj->addrs1;
+        $site->addrs2       = $postObj->addrs2;
+        $site->addrs3       = $postObj->addrs3;
+        $site->email        = $postObj->email;
+        $site->website      = $postObj->website;
+        $site->tel_no1      = $postObj->tel_no1;
+        $site->tel_no2      = $postObj->tel_no2;
+        $site->fax_no       = $postObj->fax_no;
+        $site->postal_code  = $postObj->postal_code;
+        $site->biz_type     = $postObj->biz_type;
+        $site->biz_hours    = $postObj->biz_hours;
+        $site->credit_limit = $postObj->credit_limit;
+        $site->priority     = $postObj->priority;
+        $site->zonal_level  = $postObj->zonal_level;
+        $site->save();
+        return $site->id;
     }
 
     public function destroy($id)
     {
         $ids = explode(',',$id);
-        Company::destroy($ids);
+        Site::destroy($ids);
         return "true";
     }
 }
