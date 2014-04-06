@@ -15,7 +15,9 @@ Route::resource('companies', 'CompaniesController');
 
 Route::resource('sites', 'SitesController');
 
-Route::resource('uoms', 'UomController');
+Route::resource('clients', 'ClientsController');
+
+	Route::resource('uoms', 'UomController');
 
 Route::resource('products', 'ProductsController');
 
@@ -45,6 +47,7 @@ Route::get('/', function()
 Route::group(array('prefix' => 'api/v1'), function()
 {
     Route::resource('companies', 'CompanyAPIController');
+    Route::resource('clients', 'ClientsAPIController');
     Route::resource('sites', 'SiteAPIController');
     Route::resource('uoms', 'UomAPIController');
 });
