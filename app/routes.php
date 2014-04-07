@@ -15,7 +15,7 @@ Route::resource('companies', 'CompaniesController');
 
 Route::resource('sites', 'SitesController');
 
-/****** MASTERS SUBMENU STARTS HERE ******/
+	/****** MASTERS SUBMENU ROUTES STARTS HERE ******/
 
 	Route::resource('clients', 'ClientsController');
 	Route::resource('skuproducts', 'SKUProductsController');
@@ -24,16 +24,21 @@ Route::resource('sites', 'SitesController');
 	Route::resource('uomconversion', 'UOMConversionController');
 	Route::resource('reasoncodes', 'ReasonCodesController');
 
-/****** MASTERS SUBMENU ENDS HERE ******/
+	/****** MASTERS SUBMENU ROUTES ENDS HERE ******/
 
-/****** INBOUND SUBMENU STARTS HERE ******/
+	/****** INBOUND SUBMENU ROUTES STARTS HERE ******/
 
 	Route::resource('inboundreceipts', 'InboundReceiptsController');
 	Route::resource('confirmsrvs', 'ConfirmSRVsController');
 
+	/****** INBOUND SUBMENU ROUTES ENDS HERE ******/
 
-/****** INBOUND SUBMENU ENDS HERE ******/
+	/****** OUTBOUND SUBMENU ROUTES STARTS HERE ******/
 
+	Route::resource('outboundissues', 'OutboundIssuesController');
+	//Route::resource('confirmsrvs', 'ConfirmSRVsController');
+
+	/****** OUTBOUND SUBMENU ROUTES ENDS HERE ******/
 
 Route::resource('products', 'ProductsController');
 
@@ -65,7 +70,7 @@ Route::group(array('prefix' => 'api/v1'), function()
     Route::resource('companies', 'CompanyAPIController');
     Route::resource('sites', 'SiteAPIController');
 		
-		/****** MASTERS SUBMENU STARTS HERE ******/
+		/****** MASTERS SUBMENU ROUTES STARTS HERE ******/
 		
 		Route::resource('clients', 'ClientsAPIController');
 		Route::resource('skuproducts', 'SKUProductsAPIController');
@@ -74,13 +79,21 @@ Route::group(array('prefix' => 'api/v1'), function()
 		Route::resource('uomconversion', 'UOMConversionAPIController');
 		Route::resource('reasoncodes', 'ReasonCodesAPIController');
 		
-		/****** MASTERS SUBMENU ENDS HERE ******/
+		/****** MASTERS SUBMENU ROUTES ENDS HERE ******/
 	
-		/****** INBOUND SUBMENU STARTS HERE ******/
+		/****** INBOUND SUBMENU ROUTES STARTS HERE ******/
 		
 		Route::resource('inboundreceipts', 'InboundReceiptsAPIController');
 		Route::resource('confirmsrvs', 'ConfirmSRVsAPIController');
 		
-		/****** INBOUND SUBMENU ENDS HERE ******/
+		/****** INBOUND SUBMENU ROUTES ENDS HERE ******/
+		
+		/****** OUTBOUND SUBMENU ROUTES STARTS HERE ******/		
+
+		Route::resource('outboundissues', 'outboundissuesAPIController');
+		//Route::resource('confirmsrvs', 'ConfirmSRVsAPIController');
+
+		/****** OUTBOUND SUBMENU ROUTES ENDS HERE ******/		
+
 		
 });
