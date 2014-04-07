@@ -69,7 +69,7 @@ Route::group(array('prefix' => 'api/v1'), function()
 {
     Route::resource('companies', 'CompanyAPIController');
     Route::resource('sites', 'SiteAPIController');
-		
+
 		/****** MASTERS SUBMENU ROUTES STARTS HERE ******/
 		
 		Route::resource('clients', 'ClientsAPIController');
@@ -93,7 +93,5 @@ Route::group(array('prefix' => 'api/v1'), function()
 		Route::resource('outboundissues', 'outboundissuesAPIController');
 		//Route::resource('confirmsrvs', 'ConfirmSRVsAPIController');
 
-		/****** OUTBOUND SUBMENU ROUTES ENDS HERE ******/		
-
-		
+		/****** OUTBOUND SUBMENU ROUTES ENDS HERE ******/
 });
