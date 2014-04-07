@@ -1,6 +1,6 @@
 <?php
 
-class LocationsController extends \BaseController {
+class SKUProductsController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,7 +9,7 @@ class LocationsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('locations.index');
+		return View::make('skuproducts.index');
 	}
 
 }
