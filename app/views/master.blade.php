@@ -109,10 +109,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-		                        <?php echo link_to_action('OutboundIssuesController@index', 'Issue'); ?>   							
+		                        <?php echo link_to_action('OutboundIssuesController@index', 'Issue'); ?>						
                             </li>
                             <li>
-                                <a href="#">Enquiry</a>
+								<?php echo link_to_action('OutboundEnquiresController@index', 'Enquiry'); ?>
                             </li>
                         </ul>
                     </li>
