@@ -36,7 +36,7 @@ Route::resource('sites', 'SitesController');
 	/****** OUTBOUND SUBMENU ROUTES STARTS HERE ******/
 
 	Route::resource('outboundissues', 'OutboundIssuesController');
-	//Route::resource('confirmsrvs', 'ConfirmSRVsController');
+	Route::resource('outboundenquires', 'OutboundEnquiresController');
 
 	/****** OUTBOUND SUBMENU ROUTES ENDS HERE ******/
 
@@ -91,7 +91,7 @@ Route::group(array('prefix' => 'api/v1'), function()
 		/****** OUTBOUND SUBMENU ROUTES STARTS HERE ******/		
 
 		Route::resource('outboundissues', 'outboundissuesAPIController');
-		//Route::resource('confirmsrvs', 'ConfirmSRVsAPIController');
+		Route::resource('outboundenquires', 'OutboundEnquiresAPIController');
 
 		/****** OUTBOUND SUBMENU ROUTES ENDS HERE ******/
 });
