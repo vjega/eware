@@ -97,10 +97,10 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inbound <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">Receipt</a>
+		                        <?php echo link_to_action('InboundReceiptsController@index', 'Receipt'); ?>   							
                             </li>
                             <li>
-                                <a href="#">Confirm SRV Putaway</a>
+		                        <?php echo link_to_action('ConfirmSRVsController@index', 'Confirm SRV Putaway'); ?>   							
                             </li>
                         </ul>
                     </li>
