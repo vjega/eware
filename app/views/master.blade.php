@@ -71,7 +71,7 @@
 		                        <?php echo link_to_action('UOMConversionController@index', 'UOM Conversion Master'); ?>   							
                             </li>
                             <li>
-                                <a href="#">Reason Code Master</a>
+		                        <?php echo link_to_action('ReasonCodesController@index', 'Reason Code Master'); ?>   							
                             </li>
                         </ul>
                     </li>

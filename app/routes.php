@@ -20,6 +20,7 @@ Route::resource('sites', 'SitesController');
 	Route::resource('locations', 'LocationsController');
 	Route::resource('uoms', 'UomController');
 	Route::resource('uomconversion', 'UOMConversionController');
+	Route::resource('reasoncodes', 'ReasonCodesController');
 
 Route::resource('products', 'ProductsController');
 
@@ -55,4 +56,5 @@ Route::group(array('prefix' => 'api/v1'), function()
 		Route::resource('locations', 'LocationsAPIController');
 		Route::resource('uoms', 'UomAPIController');
 		Route::resource('uomconversion', 'UOMConversionAPIController');
+		Route::resource('reasoncodes', 'ReasonCodesAPIController');
 });
