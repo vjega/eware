@@ -29,7 +29,7 @@ Route::resource('sites', 'SitesController');
 /****** INBOUND SUBMENU STARTS HERE ******/
 
 	Route::resource('inboundreceipts', 'InboundReceiptsController');
-	//Route::resource('skuproducts', 'SKUProductsController');
+	Route::resource('confirmsrvs', 'ConfirmSRVsController');
 
 
 /****** INBOUND SUBMENU ENDS HERE ******/
@@ -75,10 +75,11 @@ Route::group(array('prefix' => 'api/v1'), function()
 		Route::resource('reasoncodes', 'ReasonCodesAPIController');
 		
 		/****** MASTERS SUBMENU ENDS HERE ******/
-
+	
 		/****** INBOUND SUBMENU STARTS HERE ******/
 		
 		Route::resource('inboundreceipts', 'InboundReceiptsAPIController');
+		Route::resource('confirmsrvs', 'ConfirmSRVsAPIController');
 		
 		/****** INBOUND SUBMENU ENDS HERE ******/
 		

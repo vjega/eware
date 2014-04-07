@@ -100,7 +100,7 @@
 		                        <?php echo link_to_action('InboundReceiptsController@index', 'Receipt'); ?>   							
                             </li>
                             <li>
-                                <a href="#">Confirm SRV Putaway</a>
+		                        <?php echo link_to_action('ConfirmSRVsController@index', 'Confirm SRV Putaway'); ?>   							
                             </li>
                         </ul>
                     </li>
