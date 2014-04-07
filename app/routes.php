@@ -19,6 +19,7 @@ Route::resource('sites', 'SitesController');
 	Route::resource('skuproducts', 'SKUProductsController');
 	Route::resource('locations', 'LocationsController');
 	Route::resource('uoms', 'UomController');
+	Route::resource('uomconversion', 'UOMConversionController');
 
 Route::resource('products', 'ProductsController');
 
@@ -48,9 +49,10 @@ Route::get('/', function()
 Route::group(array('prefix' => 'api/v1'), function()
 {
     Route::resource('companies', 'CompanyAPIController');
-    Route::resource('clients', 'ClientsAPIController');
-	Route::resource('skuproducts', 'SKUProductsAPIController');
-	Route::resource('locations', 'LocationsAPIController');
     Route::resource('sites', 'SiteAPIController');
-    Route::resource('uoms', 'UomAPIController');
+		Route::resource('clients', 'ClientsAPIController');
+		Route::resource('skuproducts', 'SKUProductsAPIController');
+		Route::resource('locations', 'LocationsAPIController');
+		Route::resource('uoms', 'UomAPIController');
+		Route::resource('uomconversion', 'UOMConversionAPIController');
 });
