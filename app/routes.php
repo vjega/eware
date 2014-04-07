@@ -51,10 +51,10 @@ Route::group(array('prefix' => 'api/v1'), function()
 {
     Route::resource('companies', 'CompanyAPIController');
     Route::resource('sites', 'SiteAPIController');
-		Route::resource('clients', 'ClientsAPIController');
-		Route::resource('skuproducts', 'SKUProductsAPIController');
-		Route::resource('locations', 'LocationsAPIController');
-		Route::resource('uoms', 'UomAPIController');
-		Route::resource('uomconversion', 'UOMConversionAPIController');
-		Route::resource('reasoncodes', 'ReasonCodesAPIController');
+	Route::resource('clients', 'ClientsAPIController');
+	Route::resource('skuproducts', 'SKUProductsAPIController');
+	Route::resource('locations', 'LocationsAPIController');
+	Route::resource('uoms', 'UomAPIController');
+	Route::resource('uomconversion', 'UOMConversionAPIController');
+	Route::resource('reasoncodes', 'ReasonCodesAPIController');
 });

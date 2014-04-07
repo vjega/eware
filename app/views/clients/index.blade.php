@@ -8,9 +8,9 @@
             <div id="clientsPager"></div>
         </div>
         <div class="panel-footer">
-            <button class="btn btn-inverse" data-toggle="modal" id="showCompanyPop">New Client</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="editCompanyPop">Edit Selected Client</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="delCompany">Delete Selected Client</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="showclientPop">New Client</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="editclientPop">Edit Selected Client</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="delclient">Delete Selected Client</button>
         </div>
     </div>
 @stop
@@ -19,14 +19,14 @@
 <!-- Add/edit popups -->
 @section('popups')
 <!-- add / Edit -->
-<div class="modal fade" id="addCompany" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="addClient" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Add/Edit Client</h4>
       </div>
-      <form class="form-horizontal" role="form" name="addcompanyfrm" id="addcompanyfrm">
+      <form class="form-horizontal" role="form" name="addclientfrm" id="addclientfrm">
       <div class="modal-body">      
             <div class="row">
                 <div class="col-sm-6">
@@ -34,7 +34,7 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="code" name="code" value="" placeholder="Enter Client Code e.g. ACMC">
+                            <input type="text" class="form-control" id="client_code" name="client_code" value="" placeholder="Enter Client Code e.g. ACMC">
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Country</label>
                         <div class="col-sm-8">
-                            <select name="country" id="country_code">
+                            <select name="country" id="country">
                                 <option>India</option>
                                 <option>Singapore</option>
                                 <option>Malaysia</option>
@@ -104,7 +104,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Tel Number</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tel_no" value="" name="telno" placeholder="Tel Number eg. 91-44-244-65788">
+                            <input type="text" class="form-control" id="tel_no" value="" name="tel_no" placeholder="Tel Number eg. 91-44-244-65788">
                         </div>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Contact Name</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="contact_name" value="" name="cont_name" placeholder="John Doe">  
+                        <input type="text" class="form-control" id="contact_name" value="" name="contact_name" placeholder="John Doe">  
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Credit Limit</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="credit_limit" value="" name="credit_limit" placeholder="Postal Code">    
+                        <input type="text" class="form-control" id="credit_limit" value="" name="credit_limit" placeholder="0.00">    
                         </div>
                     </div>
                 </div>
@@ -141,7 +141,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Payment Terms</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="payment_terms" value="" name="paymnt_terms" placeholder="John Doe">  
+                        <input type="text" class="form-control" id="paymnt_terms" value="" name="paymnt_terms" placeholder="90 Day Credit">  
                         </div>
                     </div>
                 </div>
@@ -149,9 +149,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Opening Hours</label>
+                        <label for="" class="col-sm-4 control-label">business Hours</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="biz_hour" value="" name="opening_hours" placeholder="Postal Code">    
+                        <input type="text" class="form-control" id="biz_hour" value="" name="biz_hour" placeholder="Business Hours">    
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Service Level</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="party_service_level" value="" name="service_level" placeholder="">  
+                        <input type="text" class="form-control" id="party_service_level" value="" name="party_service_level" placeholder="">  
                         </div>
                     </div>
                 </div>
@@ -186,8 +186,8 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-company">Save Company</button>
-        <button type="button" class="btn btn-primary" id="post-company">Update Company</button>
+        <button type="button" class="btn btn-primary" id="save_client">Save Company</button>
+        <button type="button" class="btn btn-primary" id="post_client">Update Company</button>
       </div>
     </div>
 </div>
@@ -217,20 +217,20 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
-    $("#save-company").click(function(){
-        save_company();
+    $("#save_client").click(function(){
+        save_client();
     });
-    $("#showCompanyPop").click(function(){
+    $("#showclientPop").click(function(){
         show_add_modal();
     });
-    $("#editCompanyPop").click(function(){
+    $("#editclientPop").click(function(){
         show_edit_modal();
     });
-    $("#delCompany").click(function(){
-        del_company();
+    $("#delclient").click(function(){
+        del_client();
     });
-    $("#post-company").click(function(){
-        update_company();
+    $("#post_client").click(function(){
+        update_client();
     });
 });
 
@@ -268,43 +268,43 @@ jQuery("#clientsList").jqGrid({
     loadonce: true
 });
 
-var save_company = function() {
+var save_client = function() {
     $.ajax({
         type: "POST",
-        data: {'data':serilaizeJson("#addcompanyfrm")},
-        url: "api/v1/companies",
+        data: {'data':serilaizeJson("#addclientfrm")},
+        url: "api/v1/clients",
     }).done(function(data){
         if(data) {
-            $('#addCompany').modal('hide');
+            $('#addClient').modal('hide');
             location.reload();
         }
     });
     
 };
 
-var update_company = function() {
+var update_client = function() {
     $.ajax({
         type: "PATCH",
-        data: {'data': serilaizeJson("#addcompanyfrm") },
-        url: "api/v1/companies/"+$("#id").val(),
+        data: {'data': serilaizeJson("#addclientfrm") },
+        url: "api/v1/clients/"+$("#id").val(),
     }).done(function(data){
         if(data) {
-            $('#addCompany').modal('hide');
+            $('#addclient').modal('hide');
             location.reload();
         }
     });
     
 };
 
-var del_company = function() {
+var del_client = function() {
     var checkboxes = [];
-    $("input.companybox:checked").each(function(){
+    $("input.clientbox:checked").each(function(){
         checkboxes.push($(this).prop('id'));
     })
     $.ajax({
         type: "DELETE",
         data: {'data':'data'},
-        url: "api/v1/companies/"+checkboxes.join(','),
+        url: "api/v1/clients/"+checkboxes.join(','),
     }).done(function(data){
         if (data==="true") {
             location.reload();
@@ -314,18 +314,18 @@ var del_company = function() {
 };
 
 var show_add_modal = function () {
-    $("#post-company").hide();
-    $("#save-company").show();
-    $('#addcompanyfrm').each(function() {
+    $("#post_client").hide();
+    $("#save_client").show();
+    $('#addclientfrm').each(function() {
         this.reset();
     });
-    $('#addCompany').modal('show');
+    $('#addClient').modal('show');
 }
 
 var show_edit_modal = function () {
-    $("#save-company").hide();
-    $("#post-company").show();
-    var reclen = $("input.companybox:checked").length;
+    $("#save_client").hide();
+    $("#post_client").show();
+    var reclen = $("input.clientbox:checked").length;
     if (reclen === 0) {
         alert("Please Select an entry to edit");
         return false;
@@ -336,14 +336,14 @@ var show_edit_modal = function () {
     }
     $.ajax({
         type: "GET",
-        url: "api/v1/companies/"+$("input.companybox:checked").prop('id'),
+        url: "api/v1/clients/"+$("input.clientbox:checked").prop('id'),
     }).done(function(data){
         for(var item in data){
             if (data.hasOwnProperty(item)) {
                 $('#'+item).val(data[item]);
             }
         };
-        $('#addCompany').modal('show');
+        $('#addClient').modal('show');
     });
 }
 
