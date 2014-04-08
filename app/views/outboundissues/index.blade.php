@@ -101,6 +101,7 @@
                         <label for="" class="col-sm-4 control-label">Forwarder Code</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control" id="forwarder_code" value="" name="forwarder_code" placeholder="">  
+
                         </div>
                     </div>
                 </div>
