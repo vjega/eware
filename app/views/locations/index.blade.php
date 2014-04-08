@@ -8,9 +8,9 @@
             <div id="locationPager"></div>
         </div>
         <div class="panel-footer">
-            <button class="btn btn-inverse" data-toggle="modal" id="showCompanyPop">New Location</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="editCompanyPop">Edit Selected Location</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="delCompany">Delete Selected Location</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="showLocationPop">New Location</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="editLocationPop">Edit Selected Location</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="delLocation">Delete Selected Location</button>
         </div>
     </div>
 @stop
@@ -19,31 +19,30 @@
 <!-- Add/edit popups -->
 @section('popups')
 <!-- add / Edit -->
-<div class="modal fade" id="addCompany" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="addLocation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add/Edit Client</h4>
+        <h4 class="modal-title" id="myModalLabel">Add/Edit Location</h4>
       </div>
-      <form class="form-horizontal" role="form" name="addcompanyfrm" id="addcompanyfrm">
+      <form class="form-horizontal" role="form" name="addlocationfrm" id="addlocationfrm">
       <div class="modal-body">      
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Client Code</label>
-                        <div class="col-sm-8">
-                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="code" name="code" value="" placeholder="Enter Client Code e.g. ACMC">
+                        <label for="" class="col-sm-6 control-label">Location Number</label>
+                        <div class="col-sm-6">
+                            <input type="hidden" class="form-control" id="id" value="" placeholder="">
+                            <input type="text" class="form-control" id="location_no" name="location_no" value="" placeholder="Enter Location Number e.g. ACMC">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Company Name </label>
-                        <div class="col-sm-8">
-                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Enter Company Name e.g. Acme Corp.">
+                        <label for="" class="col-sm-6 control-label">Warehouse Name</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="warehouse_name" name="warehouse_name" value="" placeholder="Enter warehouse_name Name e.g. Acme Corp.">
                         </div>
                     </div>
                 </div>
@@ -52,9 +51,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Country</label>
-                        <div class="col-sm-8">
-                            <select name="country" id="country_code">
+                        <label for="" class="col-sm-6 control-label">Location Area</label>	 
+                        <div class="col-sm-6">
+                            <select name="location_area" id="location_area">
                                 <option>India</option>
                                 <option>Singapore</option>
                                 <option>Malaysia</option>
@@ -65,9 +64,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">City</label>
-                        <div class="col-sm-8">
-                            <select name="city" id="city">
+                        <label for="" class="col-sm-6 control-label">Location Type</label>
+                        <div class="col-sm-6">
+                            <select name="location_type" id="location_type">
                                 <option>Singapore</option>
                                 <option>Chennai</option>
                                 <option>Mumbai</option>
@@ -80,104 +79,51 @@
             </div>
            
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">Address</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" id="address" name="address" placeholder="Type Company Address Here"></textarea>
+                        <label for="" class="col-sm-6 control-label">Bin Number</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" value="" id="bin_number" name="bin_number" placeholder="Type Bin Number Here" />
                         </div>
                     </div>
                 </div>
                 
-            </div>
-
-            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Fax Number</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control" id="fax_no" name="fax_no" value="" placeholder="Fax Number">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Tel Number</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tel_no" value="" name="telno" placeholder="Tel Number eg. 91-44-244-65788">
+                        <label for="" class="col-sm-6 control-label">Maximum Volume</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="maximum_volume" name="maximum_volume" value="" placeholder="Type Maximum Volume Here">
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="row">
+				
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Postal Code</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="postal_code" value="" name="postal_code" placeholder="Postal Code">    
+                        <label for="" class="col-sm-6 control-label">Minimum Volume</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="minimum_volume" value="" name="minimum_volume" placeholder="Type Minimum Volume Here">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Contact Name</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="contact_name" value="" name="cont_name" placeholder="John Doe">  
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Credit Limit</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="credit_limit" value="" name="credit_limit" placeholder="Postal Code">    
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Payment Terms</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="payment_terms" value="" name="paymnt_terms" placeholder="John Doe">  
+                        <label for="" class="col-sm-6 control-label">Location Condition</label>
+                        <div class="col-sm-6">
+                        <input type="text" class="form-control" id="location_condition" value="" name="location_condition" placeholder="Type Location Condition Here">    
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Opening Hours</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="biz_hour" value="" name="opening_hours" placeholder="Postal Code">    
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Service Level</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="party_service_level" value="" name="service_level" placeholder="">  
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Order Priority</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="order_priority" value="" name="order_priority" placeholder="Order Priority">    
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Service Provided</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="services_provided" value="" name="service_provided" placeholder="">  
+                        <label for="" class="col-sm-6 control-label">Location Indicator</label>
+                        <div class="col-sm-6">
+                        <input type="text" class="form-control" id="location_indicator" value="" name="location_indicator" placeholder="Type Location Indicator Here">  
                         </div>
                     </div>
                 </div>
@@ -186,8 +132,8 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-company">Save Company</button>
-        <button type="button" class="btn btn-primary" id="post-company">Update Company</button>
+        <button type="button" class="btn btn-primary" id="save-location">Save Company</button>
+        <button type="button" class="btn btn-primary" id="post-location">Update Company</button>
       </div>
     </div>
 </div>
@@ -217,20 +163,20 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
-    $("#save-company").click(function(){
-        save_company();
+    $("#save-location").click(function(){
+        save_location();
     });
-    $("#showCompanyPop").click(function(){
+    $("#showLocationPop").click(function(){
         show_add_modal();
     });
-    $("#editCompanyPop").click(function(){
+    $("#editLocationPop").click(function(){
         show_edit_modal();
     });
-    $("#delCompany").click(function(){
-        del_company();
+    $("#delLocation").click(function(){
+        del_location();
     });
-    $("#post-company").click(function(){
-        update_company();
+    $("#post-location").click(function(){
+        update_location();
     });
 });
 
@@ -261,43 +207,43 @@ jQuery("#locationList").jqGrid({
     loadonce: true
 });
 
-var save_company = function() {
+var save_location = function() {
     $.ajax({
         type: "POST",
-        data: {'data':serilaizeJson("#addcompanyfrm")},
-        url: "api/v1/companies",
+        data: {'data':serilaizeJson("#addlocationfrm")},
+        url: "api/v1/locations",
     }).done(function(data){
         if(data) {
-            $('#addCompany').modal('hide');
+            $('#addLocation').modal('hide');
             location.reload();
         }
     });
     
 };
 
-var update_company = function() {
+var update_location = function() {
     $.ajax({
         type: "PATCH",
-        data: {'data': serilaizeJson("#addcompanyfrm") },
-        url: "api/v1/companies/"+$("#id").val(),
+        data: {'data': serilaizeJson("#addlocationfrm") },
+        url: "api/v1/locations/"+$("#id").val(),
     }).done(function(data){
         if(data) {
-            $('#addCompany').modal('hide');
+            $('#addLocation').modal('hide');
             location.reload();
         }
     });
     
 };
 
-var del_company = function() {
+var del_location = function() {
     var checkboxes = [];
-    $("input.companybox:checked").each(function(){
+    $("input.locationbox:checked").each(function(){
         checkboxes.push($(this).prop('id'));
     })
     $.ajax({
         type: "DELETE",
         data: {'data':'data'},
-        url: "api/v1/companies/"+checkboxes.join(','),
+        url: "api/v1/locations/"+checkboxes.join(','),
     }).done(function(data){
         if (data==="true") {
             location.reload();
@@ -307,18 +253,18 @@ var del_company = function() {
 };
 
 var show_add_modal = function () {
-    $("#post-company").hide();
-    $("#save-company").show();
-    $('#addcompanyfrm').each(function() {
+    $("#post-location").hide();
+    $("#save-location").show();
+    $('#addlocationfrm').each(function() {
         this.reset();
     });
-    $('#addCompany').modal('show');
+    $('#addLocation').modal('show');
 }
 
 var show_edit_modal = function () {
-    $("#save-company").hide();
-    $("#post-company").show();
-    var reclen = $("input.companybox:checked").length;
+    $("#save-location").hide();
+    $("#post-location").show();
+    var reclen = $("input.locationbox:checked").length;
     if (reclen === 0) {
         alert("Please Select an entry to edit");
         return false;
@@ -329,14 +275,14 @@ var show_edit_modal = function () {
     }
     $.ajax({
         type: "GET",
-        url: "api/v1/companies/"+$("input.companybox:checked").prop('id'),
+        url: "api/v1/locations/"+$("input.locationbox:checked").prop('id'),
     }).done(function(data){
         for(var item in data){
             if (data.hasOwnProperty(item)) {
                 $('#'+item).val(data[item]);
             }
         };
-        $('#addCompany').modal('show');
+        $('#addLocation').modal('show');
     });
 }
 

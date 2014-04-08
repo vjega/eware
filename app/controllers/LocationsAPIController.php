@@ -16,7 +16,7 @@ class LocationsAPIController extends \BaseController {
         $location['records'] = count($location_arr);
         $location['rows'] = $location_arr;
         foreach ($location['rows'] as $key=>$value) {
-            $location['rows'][$key]['select'] = "<input type='checkbox' id='{$value['id']}' class='companybox' />";
+            $location['rows'][$key]['select'] = "<input type='checkbox' id='{$value['id']}' class='locationbox' />";
         }
         return $location;
     }
@@ -25,58 +25,48 @@ class LocationsAPIController extends \BaseController {
     {
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
-        $company = new Company;
-        $company->name          = $postObj->name;
-        $company->country_code  = $postObj->country;
-        $company->city          = $postObj->city;
-        $company->address       = $postObj->address;
-        $company->fax_no        = $postObj->fax_no;
-        $company->tel_no        = $postObj->telno;
-        $company->postal_code   = $postObj->postal_code;
-        $company->contact_name  = $postObj->cont_name;
-        $company->credit_limit  = $postObj->credit_limit;
-        $company->payment_terms = $postObj->paymnt_terms;
-        $company->biz_hour      = $postObj->opening_hours;
-        $company->party_service_level = $postObj->order_priority;
-        $company->order_priority      = $postObj->order_priority;
-        $company->services_provided   = $postObj->service_provided;
-        $company->save(); 
-        return $company->id;
+        $location = new Location;
+        $location->location_no          = $postObj->location_no;
+        $location->warehouse_name  		= $postObj->warehouse_name;
+        $location->location_area        = $postObj->location_area;
+        $location->location_type       	= $postObj->location_type;
+        $location->bin_number        	= $postObj->bin_number;
+        $location->maximum_volume       = $postObj->maximum_volume;
+        $location->minimum_volume   	= $postObj->minimum_volume;
+        $location->location_condition  	= $postObj->location_condition;
+        $location->location_indicator  	= $postObj->location_indicator;
+        $location->save(); 
+        return $location->id;
     }
 
     public function show($id)
     {
-        $company = Company::find($id);
-        return $company;
+        $location = Location::find($id);
+        return $location;
     }
 
     public function update($id)
     {
-        $company = Company::find($id);
+        $location = Location::find($id);
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
-        $company->name          = $postObj->name;
-        $company->country_code  = $postObj->country;
-        $company->city          = $postObj->city;
-        $company->address       = $postObj->address;
-        $company->fax_no        = $postObj->fax_no;
-        $company->tel_no        = $postObj->telno;
-        $company->postal_code   = $postObj->postal_code;
-        $company->contact_name  = $postObj->cont_name;
-        $company->credit_limit  = $postObj->credit_limit;
-        $company->payment_terms = $postObj->paymnt_terms;
-        $company->biz_hour      = $postObj->opening_hours;
-        $company->party_service_level = $postObj->order_priority;
-        $company->order_priority      = $postObj->order_priority;
-        $company->services_provided   = $postObj->service_provided;
-        $company->save(); 
-        return $company->id;
+        $location->location_no          = $postObj->location_no;
+        $location->warehouse_name  		= $postObj->warehouse_name;
+        $location->location_area        = $postObj->location_area;
+        $location->location_type       	= $postObj->location_type;
+        $location->bin_number        	= $postObj->bin_number;
+        $location->maximum_volume       = $postObj->maximum_volume;
+        $location->minimum_volume   	= $postObj->minimum_volume;
+        $location->location_condition  	= $postObj->location_condition;
+        $location->location_indicator  	= $postObj->location_indicator;
+        $location->save(); 
+        return $location->id;
     }
 
     public function destroy($id)
     {
         $ids = explode(',',$id);
-        Company::destroy($ids);
+        Location::destroy($ids);
         return "true";
     }
 }
