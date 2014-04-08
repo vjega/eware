@@ -224,8 +224,8 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-uom">Save Uom</button>
-        <button type="button" class="btn btn-primary" id="post-uom">Update Uom</button>
+        <button type="button" class="btn btn-primary" id="save-uom">Save Receipt</button>
+        <button type="button" class="btn btn-primary" id="post-uom">Update Receipt</button>
       </div>
     </div>
 </div>
@@ -314,7 +314,7 @@ var save_uom = function() {
     $.ajax({
         type: "POST",
         data: {'data':serilaizeJson("#adduomfrm")},
-        url: "api/v1/uoms",
+        url: "api/v1/inboundreceipts",
     }).done(function(data){
         if(data) {
             $('#addUom').modal('hide');
@@ -328,7 +328,7 @@ var update_uom = function() {
     $.ajax({
         type: "PATCH",
         data: {'data': serilaizeJson("#adduomfrm") },
-        url: "api/v1/uoms/"+$("#id").val(),
+        url: "api/v1/inboundreceipts/"+$("#id").val(),
     }).done(function(data){
         if(data) {
             $('#addUom').modal('hide');
@@ -340,13 +340,13 @@ var update_uom = function() {
 
 var del_uom = function() {
     var checkboxes = [];
-    $("input.uombox:checked").each(function(){
+    $("input.receiptybox:checked").each(function(){
         checkboxes.push($(this).prop('id'));
     })
     $.ajax({
         type: "DELETE",
         data: {'data':'data'},
-        url: "api/v1/uoms/"+checkboxes.join(','),
+        url: "api/v1/inboundreceipts/"+checkboxes.join(','),
     }).done(function(data){
         if (data==="true") {
             location.reload();
@@ -367,7 +367,7 @@ var show_add_modal = function () {
 var show_edit_modal = function () {
     $("#save-uom").hide();
     $("#post-uom").show();
-    var reclen = $("input.uombox:checked").length;
+    var reclen = $("input.receiptybox:checked").length;
     if (reclen === 0) {
         alert("Please Select an entry to edit");
         return false;
@@ -378,7 +378,7 @@ var show_edit_modal = function () {
     }
     $.ajax({
         type: "GET",
-        url: "api/v1/uoms/"+$("input.uombox:checked").prop('id'),
+        url: "api/v1/inboundreceipts/"+$("input.receiptybox:checked").prop('id'),
     }).done(function(data){
         for(var item in data){
             if (data.hasOwnProperty(item)) {
