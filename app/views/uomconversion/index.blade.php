@@ -24,78 +24,25 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add/Edit Uom</h4>
+        <h4 class="modal-title" id="myModalLabel">Add/Edit Uom Conversion Master</h4>
       </div>
       <form class="form-horizontal" role="form" name="adduomfrm" id="adduomfrm">
       <div class="modal-body">      
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">Uom Name </label>
-                        <div class="col-sm-10">
-                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Enter Uom Name e.g. Acme Corp.">
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Country</label>
+                        <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
-                            <select name="country" id="country_code">
-                                <option>India</option>
-                                <option>Singapore</option>
-                                <option>Malaysia</option>
-                                <option>China</option>
-                            </select>
+							<input type="hidden" class="form-control" id="id" value="18" placeholder="">
+                            <input type="email" class="form-control" id="client_code" name="client_code" value="" placeholder="Client Code">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">City</label>
+                        <label for="" class="col-sm-4 control-label">Product Number</label>
                         <div class="col-sm-8">
-                            <select name="city" id="city">
-                                <option>Singapore</option>
-                                <option>Chennai</option>
-                                <option>Mumbai</option>
-                                <option>Kolalambur</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-           
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">Address</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" id="address" name="address" placeholder="Type Uom Address Here"></textarea>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Fax Number</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control" id="fax_no" name="fax_no" value="" placeholder="Fax Number">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Tel Number</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tel_no" value="" name="telno" placeholder="Tel Number eg. 91-44-244-65788">
+                            <input type="text" class="form-control" id="product_number" value="" name="product_number" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -104,35 +51,17 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Postal Code</label>
+                        <label for="" class="col-sm-4 control-label">From Uom</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="postal_code" value="" name="postal_code" placeholder="Postal Code">    
+                        <input type="text" class="form-control" id="from_uom" value="" name="from_uom" placeholder="">    
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Contact Name</label>
+                        <label for="" class="col-sm-4 control-label">Conversion Rate</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="contact_name" value="" name="cont_name" placeholder="John Doe">  
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Credit Limit</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="credit_limit" value="" name="credit_limit" placeholder="Postal Code">    
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Payment Terms</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="payment_terms" value="" name="paymnt_terms" placeholder="John Doe">  
+                        <input type="text" class="form-control" id="conversion_rate" value="" name="conversion_rate" placeholder="Conversion Rate">  
                         </div>
                     </div>
                 </div>
@@ -140,35 +69,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Opening Hours</label>
+                        <label for="" class="col-sm-4 control-label">To Uom</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="biz_hour" value="" name="opening_hours" placeholder="Postal Code">    
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Service Level</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="party_service_level" value="" name="service_level" placeholder="">  
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Order Priority</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="order_priority" value="" name="order_priority" placeholder="Order Priority">    
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Service Provided</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="services_provided" value="" name="service_provided" placeholder="">  
+                        <input type="text" class="form-control" id="to_uom" value="" name="to_uom" placeholder="">    
                         </div>
                     </div>
                 </div>
