@@ -2,15 +2,15 @@
 <!-- Main Content -->
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading"><h3>Issue</h3></div>
+        <div class="panel-heading"><h3>Adjustments</h3></div>
         <div class="panel-body">
-            <table id="outboundIssueList"></table>
-            <div id="outboundIssuePager"></div>
+            <table id="adjustmentList"></table>
+            <div id="adjustmentPager"></div>
         </div>
         <div class="panel-footer">
-            <button class="btn btn-inverse" data-toggle="modal" id="showUomPop">New Outbound Issue</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="editUomPop">Edit Selected Outbound Issue</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="delUom">Delete Selected Outbound Issue</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="showUomPop">New Adjustment</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="editUomPop">Edit Selected Adjustment</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="delUom">Delete Selected Adjustment</button>
         </div>
     </div>
 @stop
@@ -226,40 +226,24 @@ $(document).ready(function(){
 });
 
 var panelWidth = jQuery(".panel").width()-45;
-jQuery("#outboundIssueList").jqGrid({ 
-    url:'api/v1/outboundissues',
+jQuery("#adjustmentList").jqGrid({ 
+    url:'api/v1/adjustments',
     datatype: "json",
     height: 375,
     width: panelWidth,
-	colNames:['<input type="checkbox"/>','Client Code','Order No','Order Date','Issue No','Issue Date','Customer Po','Consignee Code','Forwarder code','Shipment type','Movement type','Status','Details','Product No','Issue price','Discount price','Location No','Product disc','UOM','Order Qty','Issue Qty','Total Issue price','Location Qty'],
+	colNames:['<input type="checkbox"/>','Client Code','Adjustment Date','Adjustment number','Remarks','Reference No','Adjustment View'],
     colModel:[
         {name:'select'},
 		{name:'client_code'},
-		{name:'order_no'},
-		{name:'order_date'},
-		{name:'issue_no'},
-		{name:'issue_date'},
-		{name:'customer_po'},
-		{name:'consignee_code'},
-		{name:'forwarder_code'},
-		{name:'shipment_type'},
-		{name:'movement_type'},
-		{name:'status'},
-		{name:'details'},
-		{name:'product_no'},
-		{name:'issue_price'},
-		{name:'discount_price'},
-		{name:'location_no'},
-		{name:'product_disc'},
-		{name:'uom'},
-		{name:'order_qty'},
-		{name:'issue_qty'},
-		{name:'total_issue_price'},
-		{name:'location_qty'}
+		{name:'adjustment_date'},
+		{name:'adjustment_number'},
+		{name:'remarks'},
+		{name:'reference_no'},
+		{name:'adjustment_view'}
     ], 
     rowNum:10, 
     rowList:[10,20,30], 
-    pager: '#outboundIssuePager', 
+    pager: '#adjustmentPager', 
     viewrecords: true, 
     sortorder: "desc", 
     loadonce: true
