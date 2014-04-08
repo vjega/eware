@@ -318,7 +318,7 @@ jQuery("#outboundIssueList").jqGrid({
     ], 
     rowNum:10, 
     rowList:[10,20,30], 
-    pager: '#reasonCodePager', 
+    pager: '#outboundIssuePager', 
     viewrecords: true, 
     sortorder: "desc", 
     loadonce: true

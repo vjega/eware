@@ -304,7 +304,7 @@ jQuery("#inboundReceiptsList").jqGrid({
     ], 
     rowNum:10, 
     rowList:[10,20,30], 
-    pager: '#reasonCodePager', 
+    pager: '#inboundReceiptsPager', 
     viewrecords: true, 
     sortorder: "desc", 
     loadonce: true

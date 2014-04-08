@@ -2,15 +2,15 @@
 <!-- Main Content -->
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading"><h3>Location Master</h3></div>
+        <div class="panel-heading"><h3>Adjustments</h3></div>
         <div class="panel-body">
-            <table id="locationList"></table>
-            <div id="locationPager"></div>
+            <table id="adjustmentList"></table>
+            <div id="adjustmentPager"></div>
         </div>
         <div class="panel-footer">
-            <button class="btn btn-inverse" data-toggle="modal" id="showCompanyPop">New Location</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="editCompanyPop">Edit Selected Location</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="delCompany">Delete Selected Location</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="showUomPop">New Adjustment</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="editUomPop">Edit Selected Adjustment</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="delUom">Delete Selected Adjustment</button>
         </div>
     </div>
 @stop
@@ -19,31 +19,22 @@
 <!-- Add/edit popups -->
 @section('popups')
 <!-- add / Edit -->
-<div class="modal fade" id="addCompany" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="addUom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add/Edit Client</h4>
+        <h4 class="modal-title" id="myModalLabel">Add/Edit Uom</h4>
       </div>
-      <form class="form-horizontal" role="form" name="addcompanyfrm" id="addcompanyfrm">
+      <form class="form-horizontal" role="form" name="adduomfrm" id="adduomfrm">
       <div class="modal-body">      
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Client Code</label>
-                        <div class="col-sm-8">
+                        <label for="" class="col-sm-2 control-label">Uom Name </label>
+                        <div class="col-sm-10">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="code" name="code" value="" placeholder="Enter Client Code e.g. ACMC">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Company Name </label>
-                        <div class="col-sm-8">
-                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Enter Company Name e.g. Acme Corp.">
+                            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Enter Uom Name e.g. Acme Corp.">
                         </div>
                     </div>
                 </div>
@@ -84,7 +75,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-2 control-label">Address</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="address" name="address" placeholder="Type Company Address Here"></textarea>
+                            <textarea class="form-control" id="address" name="address" placeholder="Type Uom Address Here"></textarea>
                         </div>
                     </div>
                 </div>
@@ -186,8 +177,8 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-company">Save Company</button>
-        <button type="button" class="btn btn-primary" id="post-company">Update Company</button>
+        <button type="button" class="btn btn-primary" id="save-uom">Save Uom</button>
+        <button type="button" class="btn btn-primary" id="post-uom">Update Uom</button>
       </div>
     </div>
 </div>
@@ -217,87 +208,84 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
-    $("#save-company").click(function(){
-        save_company();
+    $("#save-uom").click(function(){
+        save_uom();
     });
-    $("#showCompanyPop").click(function(){
+    $("#showUomPop").click(function(){
         show_add_modal();
     });
-    $("#editCompanyPop").click(function(){
+    $("#editUomPop").click(function(){
         show_edit_modal();
     });
-    $("#delCompany").click(function(){
-        del_company();
+    $("#delUom").click(function(){
+        del_uom();
     });
-    $("#post-company").click(function(){
-        update_company();
+    $("#post-uom").click(function(){
+        update_uom();
     });
 });
 
 var panelWidth = jQuery(".panel").width()-45;
-jQuery("#locationList").jqGrid({ 
-    url:'api/v1/locations',
+jQuery("#adjustmentList").jqGrid({ 
+    url:'api/v1/adjustments',
     datatype: "json",
     height: 375,
     width: panelWidth,
-    colNames:['<input type="checkbox"/>','Location No','Warehouse Name','Location area','Location type','Bin Number','Maximum Volume','Minimum Volume','Location condition','Location Indicator'],
+	colNames:['<input type="checkbox"/>','Client Code','Adjustment Date','Adjustment number','Remarks','Reference No','Adjustment View'],
     colModel:[
         {name:'select'},
-		{name:'location_no'},
-		{name:'warehouse_name'},
-		{name:'location_area'},
-		{name:'location_type'},
-		{name:'bin_number'},
-		{name:'maximum_volume'},
-		{name:'minimum_volume'},
-		{name:'location_condition'},
-		{name:'location_indicator'},
+		{name:'client_code'},
+		{name:'adjustment_date'},
+		{name:'adjustment_number'},
+		{name:'remarks'},
+		{name:'reference_no'},
+		{name:'adjustment_view'}
     ], 
     rowNum:10, 
     rowList:[10,20,30], 
-    pager: '#locationPager', 
+    pager: '#adjustmentPager', 
     viewrecords: true, 
     sortorder: "desc", 
     loadonce: true
 });
 
-var save_company = function() {
+var save_uom = function() {
     $.ajax({
         type: "POST",
-        data: {'data':serilaizeJson("#addcompanyfrm")},
-        url: "api/v1/companies",
+        data: {'data':serilaizeJson("#adduomfrm")},
+        url: "api/v1/uoms",
     }).done(function(data){
         if(data) {
-            $('#addCompany').modal('hide');
+            $('#addUom').modal('hide');
             location.reload();
         }
     });
     
 };
 
-var update_company = function() {
+var update_uom = function() {
     $.ajax({
         type: "PATCH",
-        data: {'data': serilaizeJson("#addcompanyfrm") },
-        url: "api/v1/companies/"+$("#id").val(),
+        data: {'data': serilaizeJson("#adduomfrm") },
+        url: "api/v1/uoms/"+$("#id").val(),
     }).done(function(data){
         if(data) {
-            $('#addCompany').modal('hide');
+            $('#addUom').modal('hide');
             location.reload();
-        }
+        }							
     });
     
 };
 
-var del_company = function() {
+var del_uom = function() {
     var checkboxes = [];
-    $("input.companybox:checked").each(function(){
+    $("input.uombox:checked").each(function(){
         checkboxes.push($(this).prop('id'));
     })
     $.ajax({
         type: "DELETE",
         data: {'data':'data'},
-        url: "api/v1/companies/"+checkboxes.join(','),
+        url: "api/v1/uoms/"+checkboxes.join(','),
     }).done(function(data){
         if (data==="true") {
             location.reload();
@@ -307,18 +295,18 @@ var del_company = function() {
 };
 
 var show_add_modal = function () {
-    $("#post-company").hide();
-    $("#save-company").show();
-    $('#addcompanyfrm').each(function() {
+    $("#post-uom").hide();
+    $("#save-uom").show();
+    $('#adduomfrm').each(function() {
         this.reset();
     });
-    $('#addCompany').modal('show');
+    $('#addUom').modal('show');
 }
 
 var show_edit_modal = function () {
-    $("#save-company").hide();
-    $("#post-company").show();
-    var reclen = $("input.companybox:checked").length;
+    $("#save-uom").hide();
+    $("#post-uom").show();
+    var reclen = $("input.uombox:checked").length;
     if (reclen === 0) {
         alert("Please Select an entry to edit");
         return false;
@@ -329,16 +317,16 @@ var show_edit_modal = function () {
     }
     $.ajax({
         type: "GET",
-        url: "api/v1/companies/"+$("input.companybox:checked").prop('id'),
+        url: "api/v1/uoms/"+$("input.uombox:checked").prop('id'),
     }).done(function(data){
         for(var item in data){
             if (data.hasOwnProperty(item)) {
                 $('#'+item).val(data[item]);
             }
         };
-        $('#addCompany').modal('show');
+        $('#addUom').modal('show');
     });
 }
 
 </script>
-@stop
+@stop	
