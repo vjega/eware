@@ -24,97 +24,25 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add/Edit Uom</h4>
+        <h4 class="modal-title" id="myModalLabel">Add/Edit Outbound Issue</h4>
       </div>
       <form class="form-horizontal" role="form" name="adduomfrm" id="adduomfrm">
       <div class="modal-body">      
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">Uom Name </label>
-                        <div class="col-sm-10">
-                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Enter Uom Name e.g. Acme Corp.">
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Country</label>
+                        <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
-                            <select name="country" id="country_code">
-                                <option>India</option>
-                                <option>Singapore</option>
-                                <option>Malaysia</option>
-                                <option>China</option>
-                            </select>
+                           <input type="hidden" class="form-control" id="id" value="" placeholder="">
+                           <input type="text" class="form-control" id="client_code" name="client_code" value="" placeholder="">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">City</label>
+                        <label for="" class="col-sm-4 control-label">Order No</label>
                         <div class="col-sm-8">
-                            <select name="city" id="city">
-                                <option>Singapore</option>
-                                <option>Chennai</option>
-                                <option>Mumbai</option>
-                                <option>Kolalambur</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-           
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">Address</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" id="address" name="address" placeholder="Type Uom Address Here"></textarea>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Fax Number</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control" id="fax_no" name="fax_no" value="" placeholder="Fax Number">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Tel Number</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tel_no" value="" name="telno" placeholder="Tel Number eg. 91-44-244-65788">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Postal Code</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="postal_code" value="" name="postal_code" placeholder="Postal Code">    
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Contact Name</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="contact_name" value="" name="cont_name" placeholder="John Doe">  
+                           <input type="text" class="form-control" id="order_no" name="order_no" value="" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -122,35 +50,17 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Credit Limit</label>
+                        <label for="" class="col-sm-4 control-label">Order Date</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="credit_limit" value="" name="credit_limit" placeholder="Postal Code">    
+                           <input type="text" class="form-control" id="order_date" name="order_date" value="" placeholder="">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Payment Terms</label>
+                        <label for="" class="col-sm-4 control-label">Issue No</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="payment_terms" value="" name="paymnt_terms" placeholder="John Doe">  
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Opening Hours</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="biz_hour" value="" name="opening_hours" placeholder="Postal Code">    
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Service Level</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="party_service_level" value="" name="service_level" placeholder="">  
+                           <input type="text" class="form-control" id="issue_no" name="issue_no" value="" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -158,17 +68,53 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Order Priority</label>
+                        <label for="" class="col-sm-4 control-label">Issue Date</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="order_priority" value="" name="order_priority" placeholder="Order Priority">    
+                           <input type="text" class="form-control" id="issue_date" name="issue_date" value="" placeholder="">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Service Provided</label>
+                        <label for="" class="col-sm-4 control-label">Customer No</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="services_provided" value="" name="service_provided" placeholder="">  
+                           <input type="text" class="form-control" id="customer_po" name="customer_po" value="" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Consignee Code</label>
+                        <div class="col-sm-8">
+                           <input type="text" class="form-control" id="consignee_code" name="consignee_code" value="" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Forwarder Code No</label>
+                        <div class="col-sm-8">
+                           <input type="text" class="form-control" id="forwarder_code" name="forwarder_code" value="" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">shipment_type</label>
+                        <div class="col-sm-8">
+                           <input type="text" class="form-control" id="shipment_type" name="shipment_type" value="" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Movement Type</label>
+                        <div class="col-sm-8">
+                           <input type="text" class="form-control" id="movement_type" name="movement_type" value="" placeholder="">
                         </div>
                     </div>
                 </div>
