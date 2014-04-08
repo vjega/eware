@@ -16,7 +16,7 @@ class InboundReceiptsAPIController extends \BaseController {
         $inboundreceipt['records'] = count($inboundreceipt_arr);
         $inboundreceipt['rows'] = $inboundreceipt_arr;
         foreach ($inboundreceipt['rows'] as $key=>$value) {
-            $inboundreceipt['rows'][$key]['select'] = "<input type='checkbox' id='{$value['id']}' class='companybox' />";
+            $inboundreceipt['rows'][$key]['select'] = "<input type='checkbox' id='{$value['id']}' class='receiptybox' />";
         }
         return $inboundreceipt;
     }
@@ -25,58 +25,70 @@ class InboundReceiptsAPIController extends \BaseController {
     {
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
-        $company = new Company;
-        $company->name          = $postObj->name;
-        $company->country_code  = $postObj->country;
-        $company->city          = $postObj->city;
-        $company->address       = $postObj->address;
-        $company->fax_no        = $postObj->fax_no;
-        $company->tel_no        = $postObj->telno;
-        $company->postal_code   = $postObj->postal_code;
-        $company->contact_name  = $postObj->cont_name;
-        $company->credit_limit  = $postObj->credit_limit;
-        $company->payment_terms = $postObj->paymnt_terms;
-        $company->biz_hour      = $postObj->opening_hours;
-        $company->party_service_level = $postObj->order_priority;
-        $company->order_priority      = $postObj->order_priority;
-        $company->services_provided   = $postObj->service_provided;
-        $company->save(); 
-        return $company->id;
+        $receipt = new Inboundreceipt;
+        $receipt->client_code       = $postObj->client_code;
+        $receipt->grn_date  		= $postObj->grn_date;
+        $receipt->grn_no            = $postObj->grn_no;
+        $receipt->po_no       		= $postObj->po_no;
+        $receipt->invoice_no        = $postObj->invoice_no;
+        $receipt->transport_mode    = $postObj->transport_mode;
+        $receipt->forwarder_code    = $postObj->forwarder_code;
+        $receipt->supplier_code     = $postObj->supplier_code;
+        $receipt->rv_no  			= $postObj->rv_no;
+        $receipt->product_no 		= $postObj->product_no;
+        $receipt->expiry_date       = $postObj->expiry_date;
+        $receipt->uom 				= $postObj->uom;
+        $receipt->status      		= $postObj->status;
+        $receipt->expected_qty   	= $postObj->expected_qty;
+        $receipt->delivery_qty   	= $postObj->delivery_qty;
+        $receipt->accepted_qty   	= $postObj->accepted_qty;
+        $receipt->rejected_qty   	= $postObj->rejected_qty;
+        $receipt->outstanding_qty   = $postObj->outstanding_qty;
+        $receipt->short   			= $postObj->short;
+        $receipt->remarks  		    = $postObj->remarks;
+        $receipt->save(); 
+        return $receipt->id;
     }
 
     public function show($id)
     {
-        $company = Company::find($id);
-        return $company;
+        $receipt = Inboundreceipt::find($id);
+        return $receipt;
     }
 
     public function update($id)
     {
-        $company = Company::find($id);
+        $receipt = Inboundreceipt::find($id);
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
-        $company->name          = $postObj->name;
-        $company->country_code  = $postObj->country;
-        $company->city          = $postObj->city;
-        $company->address       = $postObj->address;
-        $company->fax_no        = $postObj->fax_no;
-        $company->tel_no        = $postObj->telno;
-        $company->postal_code   = $postObj->postal_code;
-        $company->contact_name  = $postObj->cont_name;
-        $company->credit_limit  = $postObj->credit_limit;
-        $company->payment_terms = $postObj->paymnt_terms;
-        $company->biz_hour      = $postObj->opening_hours;
-        $company->party_service_level = $postObj->order_priority;
-        $company->order_priority      = $postObj->order_priority;
-        $company->services_provided   = $postObj->service_provided;
-        $company->save(); 
-        return $company->id;
+        $receipt->client_code       = $postObj->client_code;
+        $receipt->grn_date  		= $postObj->grn_date;
+        $receipt->grn_no            = $postObj->grn_no;
+        $receipt->po_no       		= $postObj->po_no;
+        $receipt->invoice_no        = $postObj->invoice_no;
+        $receipt->transport_mode    = $postObj->transport_mode;
+        $receipt->forwarder_code    = $postObj->forwarder_code;
+        $receipt->supplier_code     = $postObj->supplier_code;
+        $receipt->rv_no  			= $postObj->rv_no;
+        $receipt->product_no 		= $postObj->product_no;
+        $receipt->expiry_date       = $postObj->expiry_date;
+        $receipt->uom 				= $postObj->uom;
+        $receipt->status      		= $postObj->status;
+        $receipt->expected_qty   	= $postObj->expected_qty;
+        $receipt->delivery_qty   	= $postObj->delivery_qty;
+        $receipt->accepted_qty   	= $postObj->accepted_qty;
+        $receipt->rejected_qty   	= $postObj->rejected_qty;
+        $receipt->outstanding_qty   = $postObj->outstanding_qty;
+        $receipt->short   			= $postObj->short;
+        $receipt->remarks  		    = $postObj->remarks;
+        $receipt->save(); 
+        return $receipt->id;
     }
 
     public function destroy($id)
     {
         $ids = explode(',',$id);
-        Company::destroy($ids);
+        Inboundreceipt::destroy($ids);
         return "true";
     }
 }
