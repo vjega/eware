@@ -2,15 +2,15 @@
 <!-- Main Content -->
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading"><h3>Enquiry</h3></div>
+        <div class="panel-heading"><h3>Adjustments</h3></div>
         <div class="panel-body">
-            <table id="enquiryList"></table>
-            <div id="enquiryPager"></div>
+            <table id="adjustmentList"></table>
+            <div id="adjustmentPager"></div>
         </div>
         <div class="panel-footer">
-            <button class="btn btn-inverse" data-toggle="modal" id="showUomPop">New Outbound Enquiry</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="editUomPop">Edit Selected Outbound Enquiry</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="delUom">Delete Selected Outbound Enquiry</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="showUomPop">New Adjustment</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="editUomPop">Edit Selected Adjustment</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="delUom">Delete Selected Adjustment</button>
         </div>
     </div>
 @stop
@@ -24,36 +24,72 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add/Edit Enquiry</h4>
+        <h4 class="modal-title" id="myModalLabel">Add/Edit  Adjustment</h4>
       </div>
       <form class="form-horizontal" role="form" name="adduomfrm" id="adduomfrm">
-      <div class="modal-body">      
-             <div class="row">
+      <div class="modal-body">     
+            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Search</label>
+                        <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="search" name="search" value="" placeholder="">
+                            <input type="text" class="form-control" id="client_code" name="client_code" value="" placeholder="Enter Client Code">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Purpose</label>
+                        <label for="" class="col-sm-4 control-label">Adjustment Date</label>
                         <div class="col-sm-8">
-							<input type="text" class="form-control" id="purpose" name="purpose" value="" placeholder="Enter purpose.">
+                            <input type="text" class="form-control" id="adjustment_date" value="" name="adjustment_date" placeholder="Adjustment Date">
                         </div>
                     </div>
                 </div>
-                
-            </div>          
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Adjustment Number</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" id="adjustment_number" value="" name="adjustment_number" placeholder="Adjustment Number">    
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Remarks</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" id="remarks" value="" name="remarks" placeholder="Enter Remarks">  
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Reference No</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" id="reference_no" value="" name="reference_no" placeholder="Reference No">    
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Adjustment View</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" id="adjustment_view" value="" name="adjustment_view" placeholder="Adjustment View">  
+                        </div>
+                    </div>
+                </div>
+            </div>
       </div>
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-enquiry">Save Enquiry</button>
-        <button type="button" class="btn btn-primary" id="post-uom">Update Enquiry</button>
+        <button type="button" class="btn btn-primary" id="save-uom">Save Adjustment</button>
+        <button type="button" class="btn btn-primary" id="post-uom">Update Adjustment</button>
       </div>
     </div>
 </div>
@@ -83,8 +119,8 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
-    $("#save-enquiry").click(function(){
-        save_enquiry();
+    $("#save-uom").click(function(){
+        save_uom();
     });
     $("#showUomPop").click(function(){
         show_add_modal();
@@ -101,30 +137,34 @@ $(document).ready(function(){
 });
 
 var panelWidth = jQuery(".panel").width()-45;
-jQuery("#enquiryList").jqGrid({ 
-    url:'api/v1/outboundenquires',
+jQuery("#adjustmentList").jqGrid({ 
+    url:'api/v1/adjustments',
     datatype: "json",
     height: 375,
     width: panelWidth,
-	colNames:['<input type="checkbox"/>','Search','Purpose'],
+	colNames:['<input type="checkbox"/>','Client Code','Adjustment Date','Adjustment number','Remarks','Reference No','Adjustment View'],
     colModel:[
         {name:'select'},
-		{name:'search'},
-		{name:'purpose'}
+		{name:'client_code'},
+		{name:'adjustment_date'},
+		{name:'adjustment_number'},
+		{name:'remarks'},
+		{name:'reference_no'},
+		{name:'adjustment_view'}
     ], 
     rowNum:10, 
     rowList:[10,20,30], 
-    pager: '#enquiryPager', 
+    pager: '#adjustmentPager', 
     viewrecords: true, 
     sortorder: "desc", 
     loadonce: true
 });
 
-var save_enquiry = function() {
+var save_uom = function() {
     $.ajax({
         type: "POST",
         data: {'data':serilaizeJson("#adduomfrm")},
-        url: "api/v1/outboundenquires",
+        url: "api/v1/uoms",
     }).done(function(data){
         if(data) {
             $('#addUom').modal('hide');
@@ -138,7 +178,7 @@ var update_uom = function() {
     $.ajax({
         type: "PATCH",
         data: {'data': serilaizeJson("#adduomfrm") },
-        url: "api/v1/outboundenquires/"+$("#id").val(),
+        url: "api/v1/uoms/"+$("#id").val(),
     }).done(function(data){
         if(data) {
             $('#addUom').modal('hide');
@@ -150,13 +190,13 @@ var update_uom = function() {
 
 var del_uom = function() {
     var checkboxes = [];
-    $("input.enqbox:checked").each(function(){
+    $("input.uombox:checked").each(function(){
         checkboxes.push($(this).prop('id'));
     })
     $.ajax({
         type: "DELETE",
         data: {'data':'data'},
-        url: "api/v1/outboundenquires/"+checkboxes.join(','),
+        url: "api/v1/uoms/"+checkboxes.join(','),
     }).done(function(data){
         if (data==="true") {
             location.reload();
@@ -167,7 +207,7 @@ var del_uom = function() {
 
 var show_add_modal = function () {
     $("#post-uom").hide();
-    $("#save-enquiry").show();
+    $("#save-uom").show();
     $('#adduomfrm').each(function() {
         this.reset();
     });
@@ -175,9 +215,9 @@ var show_add_modal = function () {
 }
 
 var show_edit_modal = function () {
-    $("#save-enquiry").hide();
+    $("#save-uom").hide();
     $("#post-uom").show();
-    var reclen = $("input.enqbox:checked").length;
+    var reclen = $("input.uombox:checked").length;
     if (reclen === 0) {
         alert("Please Select an entry to edit");
         return false;
@@ -188,7 +228,7 @@ var show_edit_modal = function () {
     }
     $.ajax({
         type: "GET",
-        url: "api/v1/outboundenquires/"+$("input.enqbox:checked").prop('id'),
+        url: "api/v1/uoms/"+$("input.uombox:checked").prop('id'),
     }).done(function(data){
         for(var item in data){
             if (data.hasOwnProperty(item)) {

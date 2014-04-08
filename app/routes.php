@@ -11,7 +11,7 @@
 |
 */
 
-Route::resource('companies', 'CompaniesController');
+Route::resource('companies', 'CompaniesController'); 
 
 Route::resource('sites', 'SitesController');
 
@@ -25,6 +25,16 @@ Route::resource('sites', 'SitesController');
 	Route::resource('reasoncodes', 'ReasonCodesController');
 
 	/****** MASTERS SUBMENU ROUTES ENDS HERE ******/
+
+	/****** TRANSACTIONS SUBMENU ROUTES STARTS HERE ******/
+
+	Route::resource('adjustments', 'AdjustmentsController');
+	//Route::resource('adjustments', 'AdjustmentsController');
+	//Route::resource('adjustments', 'AdjustmentsController');
+	//Route::resource('adjustments', 'AdjustmentsController');
+
+	/****** TRANSACTIONS SUBMENU ROUTES ENDS HERE ******/
+
 
 	/****** INBOUND SUBMENU ROUTES STARTS HERE ******/
 
@@ -80,6 +90,16 @@ Route::group(array('prefix' => 'api/v1'), function()
 		Route::resource('reasoncodes', 'ReasonCodesAPIController');
 		
 		/****** MASTERS SUBMENU ROUTES ENDS HERE ******/
+
+		/****** TRANSACTIONS SUBMENU ROUTES STARTS HERE ******/
+	
+		Route::resource('adjustments', 'AdjustmentsAPIController');
+		//Route::resource('adjustments', 'AdjustmentsController');
+		//Route::resource('adjustments', 'AdjustmentsController');
+		//Route::resource('adjustments', 'AdjustmentsController');
+	
+		/****** TRANSACTIONS SUBMENU ROUTES ENDS HERE ******/
+
 	
 		/****** INBOUND SUBMENU ROUTES STARTS HERE ******/
 		

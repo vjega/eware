@@ -79,7 +79,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transactions <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">Adjustment</a>
+		                        <?php echo link_to_action('AdjustmentsController@index', 'Adjustment'); ?>                       
                             </li>
                             <li>
                                 <a href="#">Location Transfer - Movement</a>

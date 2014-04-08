@@ -255,7 +255,7 @@ jQuery("#locationList").jqGrid({
     ], 
     rowNum:10, 
     rowList:[10,20,30], 
-    pager: '#skuProductsPager', 
+    pager: '#locationPager', 
     viewrecords: true, 
     sortorder: "desc", 
     loadonce: true

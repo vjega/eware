@@ -116,7 +116,7 @@ jQuery("#confirmSRVList").jqGrid({
     ], 
     rowNum:10, 
     rowList:[10,20,30], 
-    pager: '#reasonCodePager', 
+    pager: '#confirmSRVPager', 
     viewrecords: true, 
     sortorder: "desc", 
     loadonce: true
