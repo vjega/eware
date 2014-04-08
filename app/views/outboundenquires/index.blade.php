@@ -52,7 +52,7 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-uom">Save Enquiry</button>
+        <button type="button" class="btn btn-primary" id="save-enquiry">Save Enquiry</button>
         <button type="button" class="btn btn-primary" id="post-uom">Update Enquiry</button>
       </div>
     </div>
@@ -83,8 +83,8 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
-    $("#save-uom").click(function(){
-        save_uom();
+    $("#save-enquiry").click(function(){
+        save_enquiry();
     });
     $("#showUomPop").click(function(){
         show_add_modal();
@@ -120,11 +120,11 @@ jQuery("#enquiryList").jqGrid({
     loadonce: true
 });
 
-var save_uom = function() {
+var save_enquiry = function() {
     $.ajax({
         type: "POST",
         data: {'data':serilaizeJson("#adduomfrm")},
-        url: "api/v1/uoms",
+        url: "api/v1/outboundenquires",
     }).done(function(data){
         if(data) {
             $('#addUom').modal('hide');
@@ -138,7 +138,7 @@ var update_uom = function() {
     $.ajax({
         type: "PATCH",
         data: {'data': serilaizeJson("#adduomfrm") },
-        url: "api/v1/uoms/"+$("#id").val(),
+        url: "api/v1/outboundenquires/"+$("#id").val(),
     }).done(function(data){
         if(data) {
             $('#addUom').modal('hide');
@@ -150,13 +150,13 @@ var update_uom = function() {
 
 var del_uom = function() {
     var checkboxes = [];
-    $("input.uombox:checked").each(function(){
+    $("input.enqbox:checked").each(function(){
         checkboxes.push($(this).prop('id'));
     })
     $.ajax({
         type: "DELETE",
         data: {'data':'data'},
-        url: "api/v1/uoms/"+checkboxes.join(','),
+        url: "api/v1/outboundenquires/"+checkboxes.join(','),
     }).done(function(data){
         if (data==="true") {
             location.reload();
@@ -167,7 +167,7 @@ var del_uom = function() {
 
 var show_add_modal = function () {
     $("#post-uom").hide();
-    $("#save-uom").show();
+    $("#save-enquiry").show();
     $('#adduomfrm').each(function() {
         this.reset();
     });
@@ -175,9 +175,9 @@ var show_add_modal = function () {
 }
 
 var show_edit_modal = function () {
-    $("#save-uom").hide();
+    $("#save-enquiry").hide();
     $("#post-uom").show();
-    var reclen = $("input.uombox:checked").length;
+    var reclen = $("input.enqbox:checked").length;
     if (reclen === 0) {
         alert("Please Select an entry to edit");
         return false;
@@ -188,7 +188,7 @@ var show_edit_modal = function () {
     }
     $.ajax({
         type: "GET",
-        url: "api/v1/uoms/"+$("input.uombox:checked").prop('id'),
+        url: "api/v1/outboundenquires/"+$("input.enqbox:checked").prop('id'),
     }).done(function(data){
         for(var item in data){
             if (data.hasOwnProperty(item)) {
