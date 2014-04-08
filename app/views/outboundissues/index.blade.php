@@ -236,8 +236,8 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-uom">Save Uom</button>
-        <button type="button" class="btn btn-primary" id="post-uom">Update Uom</button>
+        <button type="button" class="btn btn-primary" id="save-uom">Save Issue</button>
+        <button type="button" class="btn btn-primary" id="post-uom">Update Issue</button>
       </div>
     </div>
 </div>
