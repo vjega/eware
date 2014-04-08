@@ -16,7 +16,7 @@ class OutboundIssuesAPIController extends \BaseController {
         $outboundissue['records'] = count($outboundissue_arr);
         $outboundissue['rows'] = $outboundissue_arr;
         foreach ($outboundissue['rows'] as $key=>$value) {
-            $outboundissue['rows'][$key]['select'] = "<input type='checkbox' id='{$value['id']}' class='companybox' />";
+            $outboundissue['rows'][$key]['select'] = "<input type='checkbox' id='{$value['id']}' class='enquissubox' />";
         }
         return $outboundissue;
     }
@@ -25,58 +25,74 @@ class OutboundIssuesAPIController extends \BaseController {
     {
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
-        $company = new Company;
-        $company->name          = $postObj->name;
-        $company->country_code  = $postObj->country;
-        $company->city          = $postObj->city;
-        $company->address       = $postObj->address;
-        $company->fax_no        = $postObj->fax_no;
-        $company->tel_no        = $postObj->telno;
-        $company->postal_code   = $postObj->postal_code;
-        $company->contact_name  = $postObj->cont_name;
-        $company->credit_limit  = $postObj->credit_limit;
-        $company->payment_terms = $postObj->paymnt_terms;
-        $company->biz_hour      = $postObj->opening_hours;
-        $company->party_service_level = $postObj->order_priority;
-        $company->order_priority      = $postObj->order_priority;
-        $company->services_provided   = $postObj->service_provided;
-        $company->save(); 
-        return $company->id;
+        $obi = new Outboundissue;
+        $obi->client_code   	= $postObj->client_code;
+        $obi->order_no  		= $postObj->order_no;
+        $obi->order_date     	= $postObj->order_date;
+        $obi->issue_no          = $postObj->issue_no;
+        $obi->issue_date        = $postObj->issue_date;
+        $obi->customer_po       = $postObj->customer_po;
+        $obi->consignee_code    = $postObj->consignee_code;
+        $obi->forwarder_code    = $postObj->forwarder_code;
+        $obi->shipment_type     = $postObj->shipment_type;
+        $obi->movement_type 	= $postObj->movement_type;
+        $obi->status      		= $postObj->status;
+        $obi->details 			= $postObj->details;
+        $obi->product_no      	= $postObj->product_no;
+        $obi->issue_price   	= $postObj->issue_price;
+        $obi->discount_price    = $postObj->discount_price;
+        $obi->location_no   	= $postObj->location_no;
+        $obi->product_disc   	= $postObj->product_disc;
+        $obi->uom   			= $postObj->uom;
+        $obi->order_qty   		= $postObj->order_qty;
+        $obi->issue_qty   		= $postObj->issue_qty;
+        $obi->total_issue_price = $postObj->total_issue_price;
+        $obi->location_qty   	= $postObj->location_qty;
+        $obi->save(); 
+        return $obi->id;
     }
 
     public function show($id)
     {
-        $company = Company::find($id);
-        return $company;
+        $obi = Outboundissue::find($id);
+        return $obi;
     }
 
     public function update($id)
     {
-        $company = Company::find($id);
+        $obi = Outboundissue::find($id);
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
-        $company->name          = $postObj->name;
-        $company->country_code  = $postObj->country;
-        $company->city          = $postObj->city;
-        $company->address       = $postObj->address;
-        $company->fax_no        = $postObj->fax_no;
-        $company->tel_no        = $postObj->telno;
-        $company->postal_code   = $postObj->postal_code;
-        $company->contact_name  = $postObj->cont_name;
-        $company->credit_limit  = $postObj->credit_limit;
-        $company->payment_terms = $postObj->paymnt_terms;
-        $company->biz_hour      = $postObj->opening_hours;
-        $company->party_service_level = $postObj->order_priority;
-        $company->order_priority      = $postObj->order_priority;
-        $company->services_provided   = $postObj->service_provided;
-        $company->save(); 
-        return $company->id;
+        $obi->client_code   	= $postObj->client_code;
+        $obi->order_no  		= $postObj->order_no;
+        $obi->order_date     	= $postObj->order_date;
+        $obi->issue_no          = $postObj->issue_no;
+        $obi->issue_date        = $postObj->issue_date;
+        $obi->customer_po       = $postObj->customer_po;
+        $obi->consignee_code    = $postObj->consignee_code;
+        $obi->forwarder_code    = $postObj->forwarder_code;
+        $obi->shipment_type     = $postObj->shipment_type;
+        $obi->movement_type 	= $postObj->movement_type;
+        $obi->status      		= $postObj->status;
+        $obi->details 			= $postObj->details;
+        $obi->product_no      	= $postObj->product_no;
+        $obi->issue_price   	= $postObj->issue_price;
+        $obi->discount_price    = $postObj->discount_price;
+        $obi->location_no   	= $postObj->location_no;
+        $obi->product_disc   	= $postObj->product_disc;
+        $obi->uom   			= $postObj->uom;
+        $obi->order_qty   		= $postObj->order_qty;
+        $obi->issue_qty   		= $postObj->issue_qty;
+        $obi->total_issue_price = $postObj->total_issue_price;
+        $obi->location_qty   	= $postObj->location_qty;
+        $obi->save(); 
+        return $obi->id;
     }
 
     public function destroy($id)
     {
         $ids = explode(',',$id);
-        Company::destroy($ids);
+        Outboundissue::destroy($ids);
         return "true";
     }
 }
