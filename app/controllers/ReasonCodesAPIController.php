@@ -16,7 +16,7 @@ class ReasonCodesAPIController extends \BaseController {
         $reasoncode['records'] = count($reasoncode_arr);
         $reasoncode['rows'] = $reasoncode_arr;
         foreach ($reasoncode['rows'] as $key=>$value) {
-            $reasoncode['rows'][$key]['select'] = "<input type='checkbox' id='{$value['id']}' class='companybox' />";
+            $reasoncode['rows'][$key]['select'] = "<input type='checkbox' id='{$value['id']}' class='reasoncodebox' />";
         }
         return $reasoncode;
     }
@@ -25,58 +25,36 @@ class ReasonCodesAPIController extends \BaseController {
     {
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
-        $company = new Company;
-        $company->name          = $postObj->name;
-        $company->country_code  = $postObj->country;
-        $company->city          = $postObj->city;
-        $company->address       = $postObj->address;
-        $company->fax_no        = $postObj->fax_no;
-        $company->tel_no        = $postObj->telno;
-        $company->postal_code   = $postObj->postal_code;
-        $company->contact_name  = $postObj->cont_name;
-        $company->credit_limit  = $postObj->credit_limit;
-        $company->payment_terms = $postObj->paymnt_terms;
-        $company->biz_hour      = $postObj->opening_hours;
-        $company->party_service_level = $postObj->order_priority;
-        $company->order_priority      = $postObj->order_priority;
-        $company->services_provided   = $postObj->service_provided;
-        $company->save(); 
-        return $company->id;
+        $reasoncode = new Reasoncode;
+        $reasoncode->reason_code  = $postObj->reason_code;
+        $reasoncode->reason_type  = $postObj->reason_type;
+        $reasoncode->description  = $postObj->description;
+        $reasoncode->save(); 
+        return $reasoncode->id;
     }
 
     public function show($id)
     {
-        $company = Company::find($id);
-        return $company;
+        $reasoncode = Reasoncode::find($id);
+        return $reasoncode;
     }
 
     public function update($id)
     {
-        $company = Company::find($id);
+        $reasoncode = Reasoncode::find($id);
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
-        $company->name          = $postObj->name;
-        $company->country_code  = $postObj->country;
-        $company->city          = $postObj->city;
-        $company->address       = $postObj->address;
-        $company->fax_no        = $postObj->fax_no;
-        $company->tel_no        = $postObj->telno;
-        $company->postal_code   = $postObj->postal_code;
-        $company->contact_name  = $postObj->cont_name;
-        $company->credit_limit  = $postObj->credit_limit;
-        $company->payment_terms = $postObj->paymnt_terms;
-        $company->biz_hour      = $postObj->opening_hours;
-        $company->party_service_level = $postObj->order_priority;
-        $company->order_priority      = $postObj->order_priority;
-        $company->services_provided   = $postObj->service_provided;
-        $company->save(); 
-        return $company->id;
+        $reasoncode->reason_code  = $postObj->reason_code;
+        $reasoncode->reason_type  = $postObj->reason_type;
+        $reasoncode->description  = $postObj->description;
+        $reasoncode->save(); 
+        return $reasoncode->id;
     }
 
     public function destroy($id)
     {
         $ids = explode(',',$id);
-        Company::destroy($ids);
+        Reasoncode::destroy($ids);
         return "true";
     }
 }
