@@ -126,7 +126,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Expiry date</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="expiry_date" value="" name="expiry_date" placeholder="Date">  
+                        <input type="text" class="form-control  datepicker " id="expiry_date" value="" name="expiry_date" placeholder="Date">  
                         </div>
                     </div>
                 </div>
@@ -164,6 +164,10 @@
 
 <!-- Page based Scripts -->
 @section('script')
+<style>
+.datepicker{z-index:1561!important;}
+</style>
+
 <script>
 
 var serilaizeJson =  function (form, stripfromAttr){
@@ -185,6 +189,8 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
+	$(".datepicker").datepicker();
+	
     $("#save_product").click(function(){
         save_product();
     });

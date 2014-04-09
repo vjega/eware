@@ -24,29 +24,96 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add/Edit Uom</h4>
+        <h4 class="modal-title" id="myModalLabel">Add/Edit Stock Take</h4>
       </div>
       <form class="form-horizontal" role="form" name="adduomfrm" id="adduomfrm">
       <div class="modal-body">      
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">UOM Code</label>
+                        <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="uom_code" name="uom_code" value="" placeholder="UOM Code">
+                            <input type="text" class="form-control" id="client_code" name="client_code" value="" placeholder="Client Code">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Description</label>
+                        <label for="" class="col-sm-4 control-label">Cycle Count Date</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="description" name="description" value="" placeholder="Description">
+                            <input type="text" class="form-control datepicker" id="cycle_count_date" name="cycle_count_date" value="" placeholder="Cycle Count Date">
                         </div>
                     </div>
                 </div>
                 
+            </div>
+			<div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Reference No</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="reference_no" name="reference_no" value="" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Cycle Count No</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="cycle_count_no" name="cycle_count_no" value="" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+			<div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">status</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="status" name="status" value="" placeholder="Status">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Remarks</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="remarks" name="remarks" value="" placeholder="Remarks">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+			<div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Stock</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="stock" name="stock" value="" placeholder="Stock">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Mark</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="mark" name="mark" value="" placeholder="Mark">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+			<div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Confirm Cycle Count</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="confirm_cycle_count" name="confirm_cycle_count" value="" placeholder="Confirm Cycle Count">
+                        </div>
+                    </div>
+                </div>
             </div>
       </div>
       </form>
@@ -62,6 +129,10 @@
 
 <!-- Page based Scripts -->
 @section('script')
+<style>
+.datepicker{z-index:1561!important;}
+</style>
+
 <script>
 
 var serilaizeJson =  function (form, stripfromAttr){
@@ -83,6 +154,8 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
+	$(".datepicker").datepicker();
+	
     $("#save-uom").click(function(){
         save_uom();
     });
@@ -131,7 +204,7 @@ var save_uom = function() {
     $.ajax({
         type: "POST",
         data: {'data':serilaizeJson("#adduomfrm")},
-        url: "api/v1/uoms",
+        url: "api/v1/stocktakes",
     }).done(function(data){
         if(data) {
             $('#addUom').modal('hide');
@@ -145,7 +218,7 @@ var update_uom = function() {
     $.ajax({
         type: "PATCH",
         data: {'data': serilaizeJson("#adduomfrm") },
-        url: "api/v1/uoms/"+$("#id").val(),
+        url: "api/v1/stocktakes/"+$("#id").val(),
     }).done(function(data){
         if(data) {
             $('#addUom').modal('hide');
@@ -157,13 +230,13 @@ var update_uom = function() {
 
 var del_uom = function() {
     var checkboxes = [];
-    $("input.uombox:checked").each(function(){
+    $("input.stockbox:checked").each(function(){
         checkboxes.push($(this).prop('id'));
     })
     $.ajax({
         type: "DELETE",
         data: {'data':'data'},
-        url: "api/v1/uoms/"+checkboxes.join(','),
+        url: "api/v1/stocktakes/"+checkboxes.join(','),
     }).done(function(data){
         if (data==="true") {
             location.reload();
@@ -184,7 +257,7 @@ var show_add_modal = function () {
 var show_edit_modal = function () {
     $("#save-uom").hide();
     $("#post-uom").show();
-    var reclen = $("input.uombox:checked").length;
+    var reclen = $("input.stockbox:checked").length;
     if (reclen === 0) {
         alert("Please Select an entry to edit");
         return false;
@@ -195,7 +268,7 @@ var show_edit_modal = function () {
     }
     $.ajax({
         type: "GET",
-        url: "api/v1/uoms/"+$("input.uombox:checked").prop('id'),
+        url: "api/v1/stocktakes/"+$("input.stockbox:checked").prop('id'),
     }).done(function(data){
         for(var item in data){
             if (data.hasOwnProperty(item)) {

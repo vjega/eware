@@ -16,43 +16,55 @@ class StockTakesAPIController extends \BaseController {
         $stocktake['records'] = count($stocktake_arr);
         $stocktake['rows'] = $stocktake_arr;
         foreach ($stocktake['rows'] as $key=>$value) {
-            $stocktake['rows'][$key]['select'] = "<input type='checkbox' id='{$value['id']}' class='uombox' />";
+            $stocktake['rows'][$key]['select'] = "<input type='checkbox' id='{$value['id']}' class='stockbox' />";
         }
         return $stocktake;
     }
-
+	
     public function store()
     {
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
-        $uom = new Uom;
-        $uom->uom_code          = $postObj->uom_code;
-        $uom->description  = $postObj->description;
-        $uom->save(); 
-        return $uom->id;
+        $stock = new Stocktake;
+        $stock->client_code        = $postObj->client_code;
+        $stock->cycle_count_date   = $postObj->cycle_count_date;
+        $stock->reference_no       = $postObj->reference_no;
+        $stock->status             = $postObj->status;
+        $stock->remarks 		   = $postObj->remarks;
+        $stock->stock  			   = $postObj->stock;
+        $stock->mark  			   = $postObj->mark;
+        $stock->confirm_cycle_count= $postObj->confirm_cycle_count;
+        $stock->save(); 
+        return $stock->id;
     }
 
     public function show($id)
     {
-        $uom = Uom::find($id);
-        return $uom;
+        $stock = Stocktake::find($id);
+        return $stock;
     }
 
     public function update($id)
     {
-        $uom      = Uom::find($id);
-        $postData =  Input::get("data");
-        $postObj  = json_decode($postData);
-        $uom->uom_code     = $postObj->uom_code;
-        $uom->description  = $postObj->description;
-        $uom->save(); 
-        return $uom->id;
+        $stock     			 = Stocktake::find($id);
+        $postData			 = Input::get("data");
+        $postObj 			 = json_decode($postData);
+        $stock->client_code        = $postObj->client_code;
+        $stock->cycle_count_date   = $postObj->cycle_count_date;
+        $stock->reference_no       = $postObj->reference_no;
+        $stock->status             = $postObj->status;
+        $stock->remarks 		   = $postObj->remarks;
+        $stock->stock  			   = $postObj->stock;
+        $stock->mark  			   = $postObj->mark;
+        $stock->confirm_cycle_count= $postObj->confirm_cycle_count;
+        $stock->save(); 
+        return $stock->id;
     }
 
     public function destroy($id)
     {
         $ids = explode(',',$id);
-        Uom::destroy($ids);
+        Stocktake::destroy($ids);
         return "true";
     }
 }

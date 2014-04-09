@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Adjustment Date</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="adjustment_date" value="" name="adjustment_date" placeholder="Adjustment Date">
+                            <input type="text" class="form-control datepicker " id="adjustment_date" value="" name="adjustment_date" placeholder="Adjustment Date">
                         </div>
                     </div>
                 </div>
@@ -98,6 +98,10 @@
 
 <!-- Page based Scripts -->
 @section('script')
+<style>
+.datepicker{z-index:1561!important;}
+</style>
+
 <script>
 
 var serilaizeJson =  function (form, stripfromAttr){
@@ -119,6 +123,8 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
+	$(".datepicker").datepicker();
+	
     $("#save-uom").click(function(){
         save_uom();
     });
