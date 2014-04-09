@@ -31,7 +31,7 @@ Route::resource('sites', 'SitesController');
 	Route::resource('adjustments', 'AdjustmentsController');
 	Route::resource('loctransfers', 'LocTransfersController');
 	//Route::resource('adjustments', 'AdjustmentsController');
-	//Route::resource('adjustments', 'AdjustmentsController');
+	Route::resource('stocktakes', 'StockTakesController');
 
 	/****** TRANSACTIONS SUBMENU ROUTES ENDS HERE ******/
 
@@ -96,7 +96,7 @@ Route::group(array('prefix' => 'api/v1'), function()
 		Route::resource('adjustments', 'AdjustmentsAPIController');
 		Route::resource('loctransfers', 'LocTransfersAPIController');
 		//Route::resource('adjustments', 'AdjustmentsController');
-		//Route::resource('adjustments', 'AdjustmentsController');
+		Route::resource('stocktakes', 'StockTakesAPIController');
 	
 		/****** TRANSACTIONS SUBMENU ROUTES ENDS HERE ******/
 
