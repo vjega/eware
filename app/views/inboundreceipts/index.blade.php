@@ -132,10 +132,8 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Expiry Date</label>
-                        <div class="col-sm-8 input-group date form_datetime" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
-                        <input type="text" class="form-control" id="expiry_date" value="" name="expiry_date" placeholder="Expiry Date"> 
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control datepicker" id="expiry_date" value="" name="expiry_date" placeholder="Expiry Date"> <span class="add-on"><i class="icon-th"></i></span> 
                         </div>
                     </div>
                 </div>
@@ -236,6 +234,9 @@
 
 <!-- Page based Scripts -->
 @section('script')
+<style>
+.datepicker{z-index:1561!important;}
+</style>
 <script>
 
 var serilaizeJson =  function (form, stripfromAttr){
@@ -257,7 +258,7 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
-    $(".date").datetimepicker();
+    $(".datepicker").datepicker();
     $("#save-uom").click(function(){
         save_uom();
     });
