@@ -29,7 +29,7 @@ Route::resource('sites', 'SitesController');
 	/****** TRANSACTIONS SUBMENU ROUTES STARTS HERE ******/
 
 	Route::resource('adjustments', 'AdjustmentsController');
-	//Route::resource('adjustments', 'AdjustmentsController');
+	Route::resource('loctransfers', 'LocTransfersController');
 	//Route::resource('adjustments', 'AdjustmentsController');
 	//Route::resource('adjustments', 'AdjustmentsController');
 
@@ -94,7 +94,7 @@ Route::group(array('prefix' => 'api/v1'), function()
 		/****** TRANSACTIONS SUBMENU ROUTES STARTS HERE ******/
 	
 		Route::resource('adjustments', 'AdjustmentsAPIController');
-		//Route::resource('adjustments', 'AdjustmentsController');
+		Route::resource('loctransfers', 'LocTransfersAPIController');
 		//Route::resource('adjustments', 'AdjustmentsController');
 		//Route::resource('adjustments', 'AdjustmentsController');
 	

@@ -82,7 +82,7 @@
 		                        <?php echo link_to_action('AdjustmentsController@index', 'Adjustment'); ?>                       
                             </li>
                             <li>
-                                <a href="#">Location Transfer - Movement</a>
+		                        <?php echo link_to_action('LocTransfersController@index', 'Location Transfer - Movement'); ?>   							
                             </li>
                             <li>
                                 <a href="#">Location Details</a>
