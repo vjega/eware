@@ -165,6 +165,8 @@
     {{ HTML::script('js/vendor/jquery-1.10.1.min.js') }}
     {{ HTML::script('js/vendor/bootstrap.min.js') }}
 
+    <!-- Date Picker -->
+    {{ HTML::script('plugins/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js') }}
     <!-- Jqgrid -->
     {{ HTML::script('plugins/jquery.jqGrid-4.6.0/js/i18n/grid.locale-en.js') }}
     {{ HTML::script('plugins/jquery.jqGrid-4.6.0/js/jquery.jqGrid.min.js') }}
