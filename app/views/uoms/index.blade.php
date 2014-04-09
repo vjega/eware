@@ -100,7 +100,7 @@ $(document).ready(function(){
     });
 });
 
-var panelWidth = jQuery(".panel").width()-30;
+var panelWidth = jQuery(".panel").width()-45;
 jQuery("#uomList").jqGrid({ 
     url:'api/v1/uoms',
     datatype: "json",

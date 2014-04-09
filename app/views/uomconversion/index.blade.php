@@ -26,22 +26,22 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Add/Edit Uom Conversion Master</h4>
       </div>
-      <form class="form-horizontal" role="form" name="adduomfrm" id="adduomfrm">
+      <form class="form-horizontal" role="form" name="adduomconversionfrm" id="adduomconversionfrm">
       <div class="modal-body">      
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Client Code</label>
-                        <div class="col-sm-8">
-							<input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="email" class="form-control" id="client_code" name="client_code" value="" placeholder="Client Code">
+                        <label for="" class="col-sm-6 control-label">Client Code</label>
+                        <div class="col-sm-6">
+							<input type="hidden" class="form-control" id="id" value="" placeholder="">
+                            <input type="text" class="form-control" id="client_code" name="client_code" value="" placeholder="Client Code">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Product Number</label>
-                        <div class="col-sm-8">
+                        <label for="" class="col-sm-6 control-label">Product Number</label>
+                        <div class="col-sm-6">
                             <input type="text" class="form-control" id="product_number" value="" name="product_number" placeholder="">
                         </div>
                     </div>
@@ -51,16 +51,16 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">From Uom</label>
-                        <div class="col-sm-8">
+                        <label for="" class="col-sm-6 control-label">From Uom</label>
+                        <div class="col-sm-6">
                         <input type="text" class="form-control" id="from_uom" value="" name="from_uom" placeholder="">    
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Conversion Rate</label>
-                        <div class="col-sm-8">
+                        <label for="" class="col-sm-6 control-label">Conversion Rate</label>
+                        <div class="col-sm-6">
                         <input type="text" class="form-control" id="conversion_rate" value="" name="conversion_rate" placeholder="Conversion Rate">  
                         </div>
                     </div>
@@ -69,8 +69,8 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">To Uom</label>
-                        <div class="col-sm-8">
+                        <label for="" class="col-sm-6 control-label">To Uom</label>
+                        <div class="col-sm-6">
                         <input type="text" class="form-control" id="to_uom" value="" name="to_uom" placeholder="">    
                         </div>
                     </div>
@@ -80,8 +80,8 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-uom">Save Uom</button>
-        <button type="button" class="btn btn-primary" id="post-uom">Update Uom</button>
+        <button type="button" class="btn btn-primary" id="save-uom">Save UOM Conversion</button>
+        <button type="button" class="btn btn-primary" id="post-uom">Update UOM Conversion</button>
       </div>
     </div>
 </div>
@@ -128,7 +128,7 @@ $(document).ready(function(){
     });
 });
 
-var panelWidth = jQuery(".panel").width()-30;
+var panelWidth = jQuery(".panel").width()-45;
 jQuery("#uomConversionList").jqGrid({ 
     url:'api/v1/uomconversion',
     datatype: "json",
@@ -160,8 +160,8 @@ jQuery("#uomConversionList").jqGrid({
 var save_uom = function() {
     $.ajax({
         type: "POST",
-        data: {'data':serilaizeJson("#adduomfrm")},
-        url: "api/v1/uoms",
+        data: {'data':serilaizeJson("#adduomconversionfrm")},
+        url: "api/v1/uomconversion",
     }).done(function(data){
         if(data) {
             $('#addUom').modal('hide');
@@ -174,8 +174,8 @@ var save_uom = function() {
 var update_uom = function() {
     $.ajax({
         type: "PATCH",
-        data: {'data': serilaizeJson("#adduomfrm") },
-        url: "api/v1/uoms/"+$("#id").val(),
+        data: {'data': serilaizeJson("#adduomconversionfrm") },
+        url: "api/v1/uomconversion/"+$("#id").val(),
     }).done(function(data){
         if(data) {
             $('#addUom').modal('hide');
@@ -187,13 +187,13 @@ var update_uom = function() {
 
 var del_uom = function() {
     var checkboxes = [];
-    $("input.uombox:checked").each(function(){
+    $("input.uomconversionbox:checked").each(function(){
         checkboxes.push($(this).prop('id'));
     })
     $.ajax({
         type: "DELETE",
         data: {'data':'data'},
-        url: "api/v1/uoms/"+checkboxes.join(','),
+        url: "api/v1/uomconversion/"+checkboxes.join(','),
     }).done(function(data){
         if (data==="true") {
             location.reload();
@@ -205,7 +205,7 @@ var del_uom = function() {
 var show_add_modal = function () {
     $("#post-uom").hide();
     $("#save-uom").show();
-    $('#adduomfrm').each(function() {
+    $('#adduomconversionfrm').each(function() {
         this.reset();
     });
     $('#addUom').modal('show');
@@ -214,7 +214,7 @@ var show_add_modal = function () {
 var show_edit_modal = function () {
     $("#save-uom").hide();
     $("#post-uom").show();
-    var reclen = $("input.uombox:checked").length;
+    var reclen = $("input.uomconversionbox:checked").length;
     if (reclen === 0) {
         alert("Please Select an entry to edit");
         return false;
@@ -225,7 +225,7 @@ var show_edit_modal = function () {
     }
     $.ajax({
         type: "GET",
-        url: "api/v1/uoms/"+$("input.uombox:checked").prop('id'),
+        url: "api/v1/uomconversion/"+$("input.uomconversionbox:checked").prop('id'),
     }).done(function(data){
         for(var item in data){
             if (data.hasOwnProperty(item)) {

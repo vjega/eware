@@ -8,9 +8,9 @@
             <div id="reasonCodePager"></div>
         </div>
         <div class="panel-footer">
-            <button class="btn btn-inverse" data-toggle="modal" id="showUomPop">New Reason Code</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="editUomPop">Edit Selected Reason Code</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="delUom">Delete Selected Reason Code</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="showReasonCodePop">New Reason Code</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="editReasonCodePop">Edit Selected Reason Code</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="delReasonCode">Delete Selected Reason Code</button>
         </div>
     </div>
 @stop
@@ -19,14 +19,14 @@
 <!-- Add/edit popups -->
 @section('popups')
 <!-- add / Edit -->
-<div class="modal fade" id="addUom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="addReasonCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Add/Edit Uom</h4>
       </div>
-      <form class="form-horizontal" role="form" name="adduomfrm" id="adduomfrm">
+      <form class="form-horizontal" role="form" name="addreasoncodefrm" id="addreasoncodefrm">
       <div class="modal-body">      
             <div class="row">
                 <div class="col-sm-6">
@@ -62,8 +62,8 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-uom">Save Uom</button>
-        <button type="button" class="btn btn-primary" id="post-uom">Update Uom</button>
+        <button type="button" class="btn btn-primary" id="save-reason-code">Save Uom</button>
+        <button type="button" class="btn btn-primary" id="post-reason-code">Update Uom</button>
       </div>
     </div>
 </div>
@@ -93,20 +93,20 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
-    $("#save-uom").click(function(){
-        save_uom();
+    $("#save-reason-code").click(function(){
+        save_reason_code();
     });
-    $("#showUomPop").click(function(){
+    $("#showReasonCodePop").click(function(){
         show_add_modal();
     });
-    $("#editUomPop").click(function(){
+    $("#editReasonCodePop").click(function(){
         show_edit_modal();
     });
-    $("#delUom").click(function(){
-        del_uom();
+    $("#delReasonCode").click(function(){
+        del_reason_code();
     });
-    $("#post-uom").click(function(){
-        update_uom();
+    $("#post-reason-code").click(function(){
+        update_reason_code();
     });
 });
 
@@ -131,43 +131,43 @@ jQuery("#reasonCodeList").jqGrid({
     loadonce: true
 });
 
-var save_uom = function() {
+var save_reason_code = function() {
     $.ajax({
         type: "POST",
-        data: {'data':serilaizeJson("#adduomfrm")},
-        url: "api/v1/uoms",
+        data: {'data':serilaizeJson("#addreasoncodefrm")},
+        url: "api/v1/reasoncodes",
     }).done(function(data){
         if(data) {
-            $('#addUom').modal('hide');
+            $('#addReasonCode').modal('hide');
             location.reload();
         }
     });
     
 };
 
-var update_uom = function() {
+var update_reason_code = function() {
     $.ajax({
         type: "PATCH",
-        data: {'data': serilaizeJson("#adduomfrm") },
-        url: "api/v1/uoms/"+$("#id").val(),
+        data: {'data': serilaizeJson("#addreasoncodefrm") },
+        url: "api/v1/reasoncodes/"+$("#id").val(),
     }).done(function(data){
         if(data) {
-            $('#addUom').modal('hide');
+            $('#addReasonCode').modal('hide');
             location.reload();
         }							
     });
     
 };
 
-var del_uom = function() {
+var del_reason_code = function() {
     var checkboxes = [];
-    $("input.uombox:checked").each(function(){
+    $("input.reasoncodebox:checked").each(function(){
         checkboxes.push($(this).prop('id'));
     })
     $.ajax({
         type: "DELETE",
         data: {'data':'data'},
-        url: "api/v1/uoms/"+checkboxes.join(','),
+        url: "api/v1/reasoncodes/"+checkboxes.join(','),
     }).done(function(data){
         if (data==="true") {
             location.reload();
@@ -177,18 +177,18 @@ var del_uom = function() {
 };
 
 var show_add_modal = function () {
-    $("#post-uom").hide();
-    $("#save-uom").show();
-    $('#adduomfrm').each(function() {
+    $("#post-reason-code").hide();
+    $("#save-reason-code").show();
+    $('#addreasoncodefrm').each(function() {
         this.reset();
     });
-    $('#addUom').modal('show');
+    $('#addReasonCode').modal('show');
 }
 
 var show_edit_modal = function () {
-    $("#save-uom").hide();
-    $("#post-uom").show();
-    var reclen = $("input.uombox:checked").length;
+    $("#save-reason-code").hide();
+    $("#post-reason-code").show();
+    var reclen = $("input.reasoncodebox:checked").length;
     if (reclen === 0) {
         alert("Please Select an entry to edit");
         return false;
@@ -199,14 +199,14 @@ var show_edit_modal = function () {
     }
     $.ajax({
         type: "GET",
-        url: "api/v1/uoms/"+$("input.uombox:checked").prop('id'),
+        url: "api/v1/reasoncodes/"+$("input.reasoncodebox:checked").prop('id'),
     }).done(function(data){
         for(var item in data){
             if (data.hasOwnProperty(item)) {
                 $('#'+item).val(data[item]);
             }
         };
-        $('#addUom').modal('show');
+        $('#addReasonCode').modal('show');
     });
 }
 
