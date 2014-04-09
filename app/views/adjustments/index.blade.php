@@ -164,7 +164,7 @@ var save_uom = function() {
     $.ajax({
         type: "POST",
         data: {'data':serilaizeJson("#adduomfrm")},
-        url: "api/v1/uoms",
+        url: "api/v1/adjustments",
     }).done(function(data){
         if(data) {
             $('#addUom').modal('hide');
@@ -178,7 +178,7 @@ var update_uom = function() {
     $.ajax({
         type: "PATCH",
         data: {'data': serilaizeJson("#adduomfrm") },
-        url: "api/v1/uoms/"+$("#id").val(),
+        url: "api/v1/adjustments/"+$("#id").val(),
     }).done(function(data){
         if(data) {
             $('#addUom').modal('hide');
@@ -190,13 +190,13 @@ var update_uom = function() {
 
 var del_uom = function() {
     var checkboxes = [];
-    $("input.uombox:checked").each(function(){
+    $("input.adjustmentbox:checked").each(function(){
         checkboxes.push($(this).prop('id'));
     })
     $.ajax({
         type: "DELETE",
         data: {'data':'data'},
-        url: "api/v1/uoms/"+checkboxes.join(','),
+        url: "api/v1/adjustments/"+checkboxes.join(','),
     }).done(function(data){
         if (data==="true") {
             location.reload();
@@ -217,7 +217,7 @@ var show_add_modal = function () {
 var show_edit_modal = function () {
     $("#save-uom").hide();
     $("#post-uom").show();
-    var reclen = $("input.uombox:checked").length;
+    var reclen = $("input.adjustmentbox:checked").length;
     if (reclen === 0) {
         alert("Please Select an entry to edit");
         return false;
@@ -228,7 +228,7 @@ var show_edit_modal = function () {
     }
     $.ajax({
         type: "GET",
-        url: "api/v1/uoms/"+$("input.uombox:checked").prop('id'),
+        url: "api/v1/adjustments/"+$("input.adjustmentbox:checked").prop('id'),
     }).done(function(data){
         for(var item in data){
             if (data.hasOwnProperty(item)) {
