@@ -82,13 +82,13 @@
 		                        <?php echo link_to_action('AdjustmentsController@index', 'Adjustment'); ?>                       
                             </li>
                             <li>
-                                <a href="#">Location Transfer - Movement</a>
+		                        <?php echo link_to_action('LocTransfersController@index', 'Location Transfer - Movement'); ?>   							
                             </li>
                             <li>
-                                <a href="#">Location Details</a>
+		                        <?php echo link_to_action('LocationsController@index', 'Location Details'); ?>                       
                             </li>
                             <li>
-                                <a href="#">Stock Take -Cycle count</a>
+		                        <?php echo link_to_action('StockTakesController@index', 'Stock Take -Cycle count'); ?>                       
                             </li>
                         </ul>
                     </li>

@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 class LocTransfersController extends \BaseController {
 
@@ -7,9 +7,10 @@ class LocTransfersController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index() 
 	{
-		//
+		return View::make('loctransfers.index'); 
+
 	}
 
 }
