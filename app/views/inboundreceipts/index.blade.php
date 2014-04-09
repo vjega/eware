@@ -52,7 +52,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Grn Date</label>
                         <div class="col-sm-8">
-							<input type="text" class="form-control" id="grn_date" name="grn_date" value="" placeholder="Grn Date">
+							<input type="text" class="form-control datepicker" id="grn_date" name="grn_date" value="" placeholder="Grn Date">
                         </div>
                     </div>
                 </div>
