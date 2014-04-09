@@ -1,23 +1,42 @@
-.form-horizontal .control-label{text-align:left}/*# sourceMappingURL=main.css.map */
-
-@media (min-width: 992px)
-{
-	.modal-lg {
-	width: 900px;
-	}
+.form-horizontal .control-label {
+  text-align: left;
 }
-
-
-.container{
-	width:100% !important;
-	max-width:100% ;
+.form-horizontal .form-control {
+  padding: 3px 5px;
+  height: 25px;
 }
-
-.form-control{
-	padding:3px 5px;
-	height:100%;
+.navbar-brand {
+  color: #333;
 }
-
-.form-group{
-	margin-bottom: 7px;
+.navbar-brand span {
+  color: red;
+}
+body {
+  background-color: #fef9f0;
+}
+.modal-dialog {
+  width: 70%;
+}
+.navbar-theme {
+  background-color: #76d3de;
+  color: #fff;
+}
+.navbar-theme li a {
+  color: #00606b;
+}
+.navbar-theme li.dropdown a:hover {
+  background-color: #c8edf2;
+  color: #00606b;
+}
+.panel-default .panel-heading {
+  background-color: #c8edf2;
+  color: #00606b;
+}
+.modal-header {
+  background-color: #c8edf2;
+  color: #00606b;
+}
+.btn-inverse {
+  background-color: #00bcd1;
+  color: #333;
 }
