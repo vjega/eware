@@ -34,15 +34,20 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="client_code" name="client_code" value="" placeholder="Enter Client Code e.g. ACMC">
+							<select name="client_code" id="client_code" class="form-control">
+								<option value="">Select Client Code</option>
+                                <option>0001</option>
+                                <option>0002</option>
+                                <option>0003</option>
+                                <option>0004</option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Product code </label>
+                        <label for="" class="col-sm-4 control-label">Product Code </label>
                         <div class="col-sm-8">
-                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
                             <input type="text" class="form-control" id="product_code" name="product_code" value="" placeholder="Nokia 23421">
                         </div>
                     </div>
@@ -52,7 +57,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Product name</label>
+                        <label for="" class="col-sm-4 control-label">Product Name</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="product_name" name="product_name" value="" placeholder="Nokia 2332">
                         </div>
@@ -79,7 +84,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Product category</label>
+                        <label for="" class="col-sm-4 control-label">Product Category</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="product_category" name="product_category" value="" placeholder="like TV/Monitors">
                         </div>
@@ -98,7 +103,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">UOM id</label>
+                        <label for="" class="col-sm-4 control-label">UOM Id</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control" id="uom_id" value="" name="uom_id" placeholder="Postal Code">    
                         </div>
@@ -106,7 +111,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Product dimensions</label>
+                        <label for="" class="col-sm-4 control-label">Product Dimensions</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control" id="product_dimensions" value="" name="product_dimensions" placeholder="W x H x B">  
                         </div>
@@ -116,7 +121,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Serial number</label>
+                        <label for="" class="col-sm-4 control-label">Serial Number</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control" id="serial_number" value="" name="serial_number" placeholder="ispn number">    
                         </div>
@@ -124,7 +129,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Expiry date</label>
+                        <label for="" class="col-sm-4 control-label">Expiry Date</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control  datepicker " id="expiry_date" value="" name="expiry_date" placeholder="Date">  
                         </div>
@@ -134,7 +139,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Storage form</label>
+                        <label for="" class="col-sm-4 control-label">Storage Form</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control" id="storage_form" value="" name="storage_form" placeholder="H0t/cold/warm">    
                         </div>
@@ -142,7 +147,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">location_area</label>
+                        <label for="" class="col-sm-4 control-label">Location Area</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control" id="location_area" value="" name="location_area" placeholder="w1lc3">  
                         </div>
@@ -154,8 +159,8 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save_product">Save Company</button>
-        <button type="button" class="btn btn-primary" id="post_product">Update Company</button>
+        <button type="button" class="btn btn-primary" id="save_product">Save Products</button>
+        <button type="button" class="btn btn-primary" id="post_product">Update Products</button>
       </div>
     </div>
 </div>
