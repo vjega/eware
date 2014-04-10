@@ -29,33 +29,31 @@
       <form class="form-horizontal" role="form" name="adduomfrm" id="adduomfrm">
       <div class="modal-body">      
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-						 <label for="" class="col-sm-4 control-label">Select</label>
-                        <div class="col-sm-8">
-                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="select" name="select" value="" placeholder="">
-                        </div>
-                    </div>
-                </div>
                  <div class="col-sm-6">
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="client_code" name="client_code" value="" placeholder="Client Code">
+                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
+                           <select name="client_code" id="client_code" class="form-control">
+								<option value="">Select Client Code</option>
+                                <option>0001</option>
+                                <option>0002</option>
+                                <option>0003</option>
+                                <option>0004</option>
+                            </select>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
+				<div class="col-sm-6">
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Grn Date</label>
                         <div class="col-sm-8">
 							<input type="text" class="form-control datepicker" id="grn_date" name="grn_date" value="" placeholder="Grn Date">
                         </div>
-                    </div>
+					</div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Grn No</label>
@@ -64,9 +62,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
+				 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Po No</label>
                         <div class="col-sm-8">
@@ -74,11 +70,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+            </div>
+            <div class="row">
+                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Invoice No</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="invoice_no" value="" name="invoice_no" placeholder="Invoice No">
+                        </div>
+                    </div>
+                </div>
+				 <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Transport Mode</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" id="transport_mode" value="" name="transport_mode" placeholder="">    
                         </div>
                     </div>
                 </div>
@@ -87,23 +93,13 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Transport Mode</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="transport_mode" value="" name="transport_mode" placeholder="">    
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Forwarder Code</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control" id="forwarder_code" value="" name="forwarder_code" placeholder="">  
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
+				 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Supplier Code</label>
                         <div class="col-sm-8">
@@ -111,11 +107,21 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Rv No</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control" id="rv_no" value="" name="rv_no" placeholder="">  
+                        </div>
+                    </div>
+                </div>
+				 <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Product No</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" id="product_no" value="" name="product_no" placeholder="">    
                         </div>
                     </div>
                 </div>

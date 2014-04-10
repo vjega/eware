@@ -34,7 +34,13 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="client_code" name="client_code" value="" placeholder="Enter Client Code e.g. ACMC">
+							<select class="form-control" name="client_code" id="client_code">
+								<option value="">Select Client Code</option>
+                                <option>0001</option>
+                                <option>0002</option>
+                                <option>0003</option>
+                                <option>0004</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -54,7 +60,8 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Country</label>
                         <div class="col-sm-8">
-                            <select name="country" id="country">
+                            <select class="form-control" name="country" id="country">
+								<option value="">Select Country</option>
                                 <option>India</option>
                                 <option>Singapore</option>
                                 <option>Malaysia</option>
@@ -67,7 +74,8 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">City</label>
                         <div class="col-sm-8">
-                            <select name="city" id="city">
+                            <select class="form-control" name="city" id="city">
+								<option value="">Select City</option>
                                 <option>Singapore</option>
                                 <option>Chennai</option>
                                 <option>Mumbai</option>
@@ -186,8 +194,8 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save_client">Save Company</button>
-        <button type="button" class="btn btn-primary" id="post_client">Update Company</button>
+        <button type="button" class="btn btn-primary" id="save_client">Save Client</button>
+        <button type="button" class="btn btn-primary" id="post_client">Update Client</button>
       </div>
     </div>
 </div>

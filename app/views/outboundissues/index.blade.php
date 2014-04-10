@@ -35,7 +35,14 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
-                            <input type="text" class="form-control" id="client_code" name="client_code" value="" placeholder="Enter Uom Name e.g. Acme Corp.">
+                            <select name="client_code" id="client_code" class="form-control">
+								<option value="">Select Client Code</option>
+                                <option>0001</option>
+                                <option>0002</option>
+                                <option>0003</option>
+                                <option>0004</option>
+                            </select>
+
                         </div>
                     </div>
                 </div>
@@ -43,7 +50,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Order No</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="order_no" name="order_no" value="" placeholder="Enter Uom Name e.g. Acme Corp.">
+                            <input type="text" class="form-control" id="order_no" name="order_no" value="" placeholder="Enter Order No.">
                         </div>
                     </div>
                 </div>
@@ -55,7 +62,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Order Date</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="order_date" name="order_date" value="" placeholder="Enter Fax Number">
+                            <input type="email" class="form-control datepicker" id="order_date" name="order_date" value="" placeholder="Enter Fax Number">
                         </div>
                     </div>
                 </div>
@@ -74,7 +81,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Issue Date</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="issue_date" value="" name="issue_date" placeholder="Enter Issue Date">    
+                        <input type="text" class="form-control datepicker" id="issue_date" value="" name="issue_date" placeholder="Enter Issue Date">    
                         </div>
                     </div>
                 </div>
@@ -246,6 +253,10 @@
 
 <!-- Page based Scripts -->
 @section('script')
+<style>
+.datepicker{z-index:1561!important;}
+</style>
+
 <script>
 
 var serilaizeJson =  function (form, stripfromAttr){
@@ -267,6 +278,8 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
+	$(".datepicker").datepicker();
+	
     $("#save-uom").click(function(){
         save_uom();
     });
