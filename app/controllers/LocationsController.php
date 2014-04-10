@@ -9,8 +9,9 @@ class LocationsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$country_options = DB::table('countries')->orderBy('short_name', 'asc')->lists('short_name','id');	
-		return View::make('locations.index')->with('country_options',$country_options);
+		$client_code_options = DB::table('clients')->orderBy('client_code', 'asc')->lists('client_code','id');
+		Log::info($client_code_options);
+		return View::make('locations.index'); //->with('client_code_options',$client_code_options);
 	}
 
 }
