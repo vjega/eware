@@ -34,8 +34,14 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
-                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="client_code" name="client_code" value="" placeholder="">
+                           <input type="hidden" class="form-control" id="id" value="18" placeholder="">
+                           <select name="client_code" id="client_code" class="form-control">
+								<option value="">Select Client Code</option>
+                                <option>0001</option>
+                                <option>0002</option>
+                                <option>0003</option>
+                                <option>0004</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -54,8 +60,8 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-rvs">Save RVS Putaway</button>
-        <button type="button" class="btn btn-primary" id="post-rvs">Update RVS Putaway</button>
+        <button type="button" class="btn btn-primary" id="save-rvs">Save RVS</button>
+        <button type="button" class="btn btn-primary" id="post-rvs">Update RVS</button>
       </div>
     </div>
 </div>

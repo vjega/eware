@@ -53,7 +53,8 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">Location Area</label>	 
                         <div class="col-sm-6">
-                            <select name="location_area" id="location_area">
+                            <select class="form-control" name="location_area" id="location_area">
+								<option value="">Select Location Area</option>
                                 <option>India</option>
                                 <option>Singapore</option>
                                 <option>Malaysia</option>
@@ -66,7 +67,8 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">Location Type</label>
                         <div class="col-sm-6">
-                            <select name="location_type" id="location_type">
+                            <select  class="form-control" name="location_type" id="location_type">
+								<option value="">Select Location Type</option>
                                 <option>Singapore</option>
                                 <option>Chennai</option>
                                 <option>Mumbai</option>
@@ -132,8 +134,8 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-location">Save Company</button>
-        <button type="button" class="btn btn-primary" id="post-location">Update Company</button>
+        <button type="button" class="btn btn-primary" id="save-location">Save Location</button>
+        <button type="button" class="btn btn-primary" id="post-location">Update Location</button>
       </div>
     </div>
 </div>

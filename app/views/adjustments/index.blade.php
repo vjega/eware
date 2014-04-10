@@ -34,7 +34,13 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="client_code" name="client_code" value="" placeholder="Enter Client Code">
+                             <select name="client_code" id="client_code" class="form-control">
+								<option value="">Select Client Code</option>
+                                <option>0001</option>
+                                <option>0002</option>
+                                <option>0003</option>
+                                <option>0004</option>
+                            </select>
                         </div>
                     </div>
                 </div>
