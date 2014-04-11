@@ -10,6 +10,7 @@ class SiteAPIController extends \BaseController {
      */
     public function index()
     {
+        
         $com_arr = Site::all()->toArray();
         $companies['page'] = 1;
         $companies['total'] = 1;

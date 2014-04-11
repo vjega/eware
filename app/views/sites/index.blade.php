@@ -24,7 +24,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add/Edit Site</h4>
+        <h4 class="modal-title" id="myModalLabel">Site</h4>
       </div>
       <form class="form-horizontal" role="form" name="addsitefrm" id="addsitefrm">
       <div class="modal-body">      
@@ -34,7 +34,11 @@
                         <label for="" class="col-sm-4 control-label">Company Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
-                            <input type="text" class="form-control" id="company_code" name="company_code" value="" placeholder="Enter Site Name e.g. Acme Corp.">
+                            <select class="form-control" id="company_code" name="company_code">
+                                @foreach ($company as $com)
+                                    <option value="{{$com->id}}">{{$com->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
