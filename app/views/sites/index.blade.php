@@ -36,7 +36,7 @@
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
                             <select class="form-control" id="company_code" name="company_code">
                                 @foreach ($company as $com)
-                                    <option value="{{$com->id}}">{{$com->name}}</option>
+                                    <option value="{{$com->id}}">{{$com->company_name}}</option>
                                 @endforeach
                             </select>
                         </div>

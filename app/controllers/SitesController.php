@@ -10,7 +10,7 @@ class SitesController extends \BaseController {
      */
     public function index()
     {
-        $company = Company::all(['id', 'name']);
+        $company = Company::all(['id', 'company_name']);
         return View::make('sites.index')->with('company',$company);
     }
     

@@ -350,12 +350,12 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
-	alert($("#addcompanyfrm").validationEngine());
+	//alert($("#addcompanyfrm").validationEngine());
     $("#save-company").click(function(){
 		
-		if(!$("#addcompanyfrm").validationEngine('vlidate')){
+		/*if(!$("#addcompanyfrm").validationEngine('vlidate')){
 			return false;
-		}
+		}*/
         save_company();
     });
     $("#showCompanyPop").click(function(){
