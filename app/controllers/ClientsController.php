@@ -9,6 +9,7 @@ class ClientsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('clients.index');
+		$company = Company::all(['id', 'name']);
+        return View::make('clients.index')->with('company',$company);
 	}
 }
