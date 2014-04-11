@@ -18,7 +18,7 @@
     <!-- Jqgrid -->
 	{{ HTML::style('plugins/jquery-ui-1.10.4.custom/css/smoothness/jquery-ui-1.10.4.custom.css') }}
     {{ HTML::style('plugins/jquery.jqGrid-4.6.0/css/ui.jqgrid.css') }}
-
+    {{ HTML::style('plugins/jQueryValidationEngine/css/validationEngine.jquery.css') }}
     {{ HTML::style('css/main.css') }}
     
     <style>
@@ -28,6 +28,7 @@
     }
     </style>
     {{ HTML::script('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') }}
+	
 </head>
 
 <body>
@@ -170,6 +171,8 @@
     <!-- Jqgrid -->
     {{ HTML::script('plugins/jquery.jqGrid-4.6.0/js/i18n/grid.locale-en.js') }}
     {{ HTML::script('plugins/jquery.jqGrid-4.6.0/js/jquery.jqGrid.min.js') }}
+    {{ HTML::script('plugins/jQueryValidationEngine/js/languages/jquery.validationEngine-en.js') }}
+    {{ HTML::script('plugins/jQueryValidationEngine/js/jquery.validationEngine.js') }}
     {{ HTML::script('js/main.js') }}
 
     @yield('script')

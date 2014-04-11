@@ -1,7 +1,7 @@
 @extends('master')
 <!-- Main Content -->
 @section('content')
-	<div class="panel panel-default">
+    <div class="panel panel-default">
         <div class="panel-heading"><h3>Location Master</h3></div>
         <div class="panel-body">
             <table id="locationList"></table>

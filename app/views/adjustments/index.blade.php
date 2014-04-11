@@ -90,6 +90,78 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+					<table id="adjustments" class="table">  
+						<thead>  
+						  <tr>  
+							<th>Delete</th>  
+							<th>Location</th>  
+							<th>Product</th>  
+							<th>Quantity</th>  
+							<th>Plus Qty</th>  
+							<th>Minus Qty</th>  
+						  </tr>  
+						</thead>  
+						<tbody>  
+						  <tr>  
+							<td><a class="btn" href="#">Delete</a></td>  
+							<td>
+								<select class="form-control">
+									<option>USA</option>
+									<option>India</option>
+								</select>
+							</td>  
+							<td>
+								<select class="form-control">
+									<option>DELL Laptop</option>
+									<option>HCL Laptop</option>
+								</select>
+							</td>  
+							<td><input class="form-control" type="text" /></td>  
+							<td><input class="form-control" type="text" /></td>  
+							<td><input class="form-control" type="text" /></td>  
+						  </tr>
+						  <tr>  
+							<td><a class="btn" href="#">Delete</a></td>  
+							<td>
+								<select class="form-control">
+									<option>USA</option>
+									<option>India</option>
+								</select>
+							</td>  
+							<td>
+								<select class="form-control">
+									<option>DELL Laptop</option>
+									<option>HCL Laptop</option>
+								</select>
+							</td>  
+							<td><input class="form-control" type="text" /></td>  
+							<td><input class="form-control" type="text" /></td>  
+							<td><input class="form-control" type="text" /></td>  
+						  </tr>
+						  <tr>  
+							<td><a class="btn" href="#">Delete</a></td>  
+							<td>
+								<select class="form-control">
+									<option>USA</option>
+									<option>India</option>
+								</select>
+							</td>  
+							<td>
+								<select class="form-control">
+									<option>DELL Laptop</option>
+									<option>HCL Laptop</option>
+								</select>
+							</td>  
+							<td><input class="form-control" type="text" /></td>  
+							<td><input class="form-control" type="text" /></td>  
+							<td><input class="form-control" type="text" /></td>  
+						  </tr>
+						  
+						</tbody>  
+					  </table>  
+					  <a href="#" class="btn btn-default pull-right" id="addMoreAdjustment">Add More</a>
+            </div>
       </div>
       </form>
       <div class="modal-footer">
@@ -109,6 +181,10 @@
 </style>
 
 <script>
+
+$('#addMoreAdjustment').click(function(){
+	$('#adjustments').html('<tr><td><a class="btn" href="#">Delete</a></td><td><select class="form-control"><option>USA</option><option>India</option></select></td><td><select class="form-control"><option>USA</option><option>India</option></select></td><td><input class="form-control" type="text" /></td><td><input class="form-control" type="text" /></td><td><input class="form-control" type="text" /></td></tr>'); 
+});
 
 var serilaizeJson =  function (form, stripfromAttr){
     var unindexed_array = $(form).serializeArray();
