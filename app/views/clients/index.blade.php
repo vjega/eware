@@ -206,6 +206,8 @@
 @section('script')
 <script>
 
+$("#addclientfrm").validationEngine();
+
 var serilaizeJson =  function (form, stripfromAttr){
     var unindexed_array = $(form).serializeArray();
     unindexed_array = unindexed_array.concat(
