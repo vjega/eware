@@ -25,6 +25,10 @@
         padding-top: 70px;
         padding-bottom: 10px;
     }
+
+    .modal-dialog{
+    width:70%;
+}
     </style>
     {{ HTML::script('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') }}
 	
