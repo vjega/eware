@@ -34,13 +34,7 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-							<select class="form-control" name="client_code" id="client_code">
-								<option value="">Select Client Code</option>
-                                <option>0001</option>
-                                <option>0002</option>
-                                <option>0003</option>
-                                <option>0004</option>
-                            </select>
+							<input class="form-control" name="client_code" id="client_code" />
                         </div>
                     </div>
                 </div>
@@ -49,7 +43,11 @@
                         <label for="" class="col-sm-4 control-label">Company Name </label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Enter Company Name e.g. Acme Corp.">
+                            <select type="text" class="form-control" id="name" name="name" value="" placeholder="Enter Company Name e.g. Acme Corp.">
+                                @foreach ($company as $com)
+                                    <option value="{{$com->id}}">{{$com->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -205,6 +203,8 @@
 <!-- Page based Scripts -->
 @section('script')
 <script>
+
+$("#addclientfrm").validationEngine();
 
 var serilaizeJson =  function (form, stripfromAttr){
     var unindexed_array = $(form).serializeArray();

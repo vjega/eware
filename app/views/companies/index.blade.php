@@ -24,28 +24,16 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add/Edit Company/Business</h4>
+        <h4 class="modal-title" id="myModalLabel">Company</h4>
       </div>
-      <form class="form-horizontal" role="form" name="addcompanyfrm" id="addcompanyfrm">
+      <form class="form-horizontal" role="form" name="addcompanyfrm" id="addcompanyfrm" enctype="multipart/form-data">
       <div class="modal-body">      
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">Company Name </label>
-                        <div class="col-sm-10">
-                            <input type="hidden" class="form-control" id="id" value="" placeholder="">
-                            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Enter Company Name e.g. Acme Corp.">
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Country</label>
-                        <div class="col-sm-8">
-                            <select name="country" id="country_code">
+                        <label for="" class="col-sm-5 control-label">Country</label>
+                        <div class="col-sm-7">
+                            <select name="country" id="country_code" class="form-control">
                                 <option>India</option>
                                 <option>Singapore</option>
                                 <option>Malaysia</option>
@@ -54,67 +42,148 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+				<div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">City</label>
-                        <div class="col-sm-8">
-                            <select name="city" id="city">
-                                <option>Singapore</option>
-                                <option>Chennai</option>
-                                <option>Mumbai</option>
-                                <option>Kolalambur</option>
+                        <label for="" class="col-sm-5 control-label">Region</label>
+                        <div class="col-sm-7">
+                            <select name="region" id="region" class="form-control">
+                                <option value="North">North</option>
+                                <option value="South">South</option>
+                                <option value="West">West</option>
+                                <option value="East">East</option>
                             </select>
                         </div>
                     </div>
-                </div>
-                
+                </div>				
             </div>
-           
             <div class="row">
-                <div class="col-sm-12">
+				<div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">Address</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" id="address" name="address" placeholder="Type Company Address Here"></textarea>
+                        <label for="" class="col-sm-5 control-label">Currency</label>
+                        <div class="col-sm-7">
+                            <select name="currency" id="currency" class="form-control">
+                                <option value="USD">USD</option>
+                                <option value="INR">INR</option>
+                                <option value="EURO">EURO</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>                
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">No. of Site</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control validate[required]" id="number_of_site" name="number_of_site" value="" placeholder="Enter No. of Site">
                         </div>
                     </div>
                 </div>
-                
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Site Type</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="site_type" name="site_type" value="" placeholder="Enter Company Name e.g. Acme Corp.">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Company Name </label>
+                        <div class="col-sm-7">
+                            <input type="hidden" class="form-control" id="id" value="" placeholder="">
+                            <input type="text" class="form-control" id="company_name" name="company_name" value="" placeholder="Enter Company Name e.g. Acme Corp.">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">City</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="city" name="city" placeholder="Type City Here" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Google Earth</label>
+                        <div class="col-sm-7">
+                            <textarea class="form-control" id="google_earth" name="google_earth" placeholder="Type Google Earth Here"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Address 1</label>
+                        <div class="col-sm-7">
+                            <textarea class="form-control" id="address1" name="address1" placeholder="Type Address 1 Here"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Address 2</label>
+                        <div class="col-sm-7">
+                            <textarea class="form-control" id="address2" name="address2" placeholder="Type Address 2 Here"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Address 3</label>
+                        <div class="col-sm-7">
+                            <textarea class="form-control" id="address3" name="address3" placeholder="Type Address 3 Here"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">State</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="state" name="state" placeholder="Type State Here" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Postal Code</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="postal_code" name="postal_code" value="" placeholder="Type Postal Code Here">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Email</label>
+                        <div class="col-sm-7">
+                            <input type="email" class="form-control" id="email" value="" name="email" placeholder="Type Email Here">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Fax Number</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control" id="fax_no" name="fax_no" value="" placeholder="Fax Number">
+                        <label for="" class="col-sm-5 control-label">Telephone 1</label>
+                        <div class="col-sm-7">
+                        <input type="text" class="form-control" id="tel_number1" value="" name="tel_number1" placeholder="Type Telephone Number 1 Here"> 
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Tel Number</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tel_no" value="" name="telno" placeholder="Tel Number eg. 91-44-244-65788">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Postal Code</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="postal_code" value="" name="postal_code" placeholder="Postal Code">    
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Contact Name</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="contact_name" value="" name="cont_name" placeholder="John Doe">  
+                        <label for="" class="col-sm-5 control-label">Telephone 2</label>
+                        <div class="col-sm-7">
+                        <input type="text" class="form-control" id="tel_number2" value="" name="tel_number2" placeholder="Type Telephone Number 2 Here">
                         </div>
                     </div>
                 </div>
@@ -122,17 +191,17 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Credit Limit</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="credit_limit" value="" name="credit_limit" placeholder="Postal Code">    
+                        <label for="" class="col-sm-5 control-label">Fax No</label>
+                        <div class="col-sm-7">
+                        <input type="text" class="form-control" id="fax_number" value="" name="fax_number" placeholder="Type Fax Number Here">    
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Payment Terms</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="payment_terms" value="" name="paymnt_terms" placeholder="John Doe">  
+                        <label for="" class="col-sm-5 control-label">Tax</label>
+                        <div class="col-sm-7">
+                        <input type="text" class="form-control" id="tax" value="" name="tax" placeholder="Type Tax Here">  
                         </div>
                     </div>
                 </div>
@@ -140,17 +209,17 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Opening Hours</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="biz_hour" value="" name="opening_hours" placeholder="Postal Code">    
+                        <label for="" class="col-sm-5 control-label">Order Priority</label>
+                        <div class="col-sm-7">
+                        <input type="text" class="form-control" id="order_priority" value="" name="order_priority" placeholder="Type Order Priority Here">    
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Service Level</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="party_service_level" value="" name="service_level" placeholder="">  
+                        <label for="" class="col-sm-5 control-label">Service Level</label>
+                        <div class="col-sm-7">
+                        <input type="text" class="form-control" id="service_level" value="" name="service_level" placeholder="Type Service Level Here">  
                         </div>
                     </div>
                 </div>
@@ -158,27 +227,100 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Order Priority</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="order_priority" value="" name="order_priority" placeholder="Order Priority">    
+                        <label for="" class="col-sm-5 control-label">Service Provided</label>
+                        <div class="col-sm-7">
+                        <input type="text" class="form-control" id="service_provided" value="" name="service_provided" placeholder="Type Service Provided">  
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Service Provided</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" id="services_provided" value="" name="service_provided" placeholder="">  
+                        <label for="" class="col-sm-5 control-label">Biz Type</label>
+                        <div class="col-sm-7">
+                        <input type="text" class="form-control" id="biz_type" value="" name="biz_type" placeholder="Type Biz Type Here">    
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Biz Hours</label>
+                        <div class="col-sm-7">
+                        <input type="text" class="form-control" id="biz_hours" value="" name="biz_hours" placeholder="Type Biz Hours Here">  
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Credit Limit</label>
+                        <div class="col-sm-7">
+                        <input type="text" class="form-control" id="credit_limit" value="" name="credit_limit" placeholder="Type Credit Limit Here">    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Website</label>
+                        <div class="col-sm-7">
+                        <input type="text" class="form-control" id="web_site" value="" name="web_site" placeholder="Type Website URL Here">  
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">3PL Contact</label>
+                        <div class="col-sm-7">
+                        <input type="text" class="form-control" id="contact_name" value="" name="contact_name" placeholder="Type 3PL Contact Here">    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Service Contract File</label>
+                        <div class="col-sm-7">
+						<span class="btn btn-default btn-file col-sm-12">
+							Browse <input type="file" id="service_contract_file" name="service_contract_file">
+						</span>
+                        <!-- input type="file" class="form-control" id="service_contract_file" value="" name="service_contract_file" placeholder="" -->  
+                        </div>
+                    </div>
+                </div>
+				<div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Operation Policy File</label>
+                        <div class="col-sm-7">
+							<span class="btn btn-default btn-file col-sm-12">
+								Browse <input type="file" id="operation_policy_file" name="operation_policy_file" >
+							</span>
+	                        <!-- input type="file" class="form-control" id="operation_policy_file" value="" name="operation_policy_file" placeholder="" -->  
+                        </div>
+                    </div>
+                </div>				
+            </div>
+            <div class="row">
+				<div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-6 control-label">Company Instruction File</label>
+                        <div class="col-sm-6">
+						<span class="btn btn-default btn-file col-sm-12">
+							Browse <input type="file" id="company_instruction_file" name="company_instruction_file" >
+						</span>
+                        <!--input type="file" class="form-control" id="company_instruction_file" name="company_instruction_file" placeholder="Order Priority"-->    
+                        </div>
+                    </div>
+                </div>                
             </div>
       </div>
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-company">Save Company</button>
-        <button type="button" class="btn btn-primary" id="post-company">Update Company</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="save-company">Save Company</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="post-company">Update Company</button>
       </div>
     </div>
 </div>
@@ -208,7 +350,12 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
+	alert($("#addcompanyfrm").validationEngine());
     $("#save-company").click(function(){
+		
+		if(!$("#addcompanyfrm").validationEngine('vlidate')){
+			return false;
+		}
         save_company();
     });
     $("#showCompanyPop").click(function(){
@@ -231,25 +378,35 @@ jQuery("#companyList").jqGrid({
     datatype: "json",
     height: 375,
     width: panelWidth,
-    colNames:['<input type="checkbox"/>','Code','Name', 'Country', 'City', 'Address', 'Fax Number', 'Telephone Number', 'Postal Code', 'Contact Name', 'Credit Limit', 'Payment Terms', 'Business Hour', 'Company service Level', 'Order Priority', 'Services Provided', 'Created Date'],
+    colNames:['<input type="checkbox"/>','Country','Region','Currency','Number Of Site','Site Type','Company Name','City','Google Earth','Address1','Address2','Address3','State','Postal Code','Email','Tel Number1','Tel Number2','Fax Number','Tax','Order Priority','Service Level','Service Provided','Biz Type','Biz Hours','Credit Limit','Web Site','Contact Name'],
     colModel:[
         {name:'select'},
-        {name:'id'},
-        {name:'name'},
-        {name:'country'},
-        {name:'city'},
-        {name:'address'},
-        {name:'fax_number'},
-        {name:'tel_number'},
-        {name:'postal_code'},
-        {name:'contact_name'},
-        {name:'credit_limit'},
-        {name:'payment_terms'},
-        {name:'biz_hours'},
-        {name:'company_service_level'},
-        {name:'order_priority'},
-        {name:'service_provided'},
-        {name:'created_at'}
+		{name:'country'},
+		{name:'region'},
+		{name:'currency'},
+		{name:'number_of_site'},
+		{name:'site_type'},
+		{name:'company_name'},
+		{name:'city'},
+		{name:'google_earth'},
+		{name:'address1'},
+		{name:'address2'},
+		{name:'address3'},
+		{name:'state'},
+		{name:'postal_code'},
+		{name:'email'},
+		{name:'tel_number1'},
+		{name:'tel_number2'},
+		{name:'fax_number'},
+		{name:'tax'},
+		{name:'order_priority'},
+		{name:'service_level'},
+		{name:'service_provided'},
+		{name:'biz_type'},
+		{name:'biz_hours'},
+		{name:'credit_limit'},
+		{name:'web_site'},
+		{name:'contact_name'},
     ], 
     rowNum:10, 
     rowList:[10,20,30], 
@@ -264,7 +421,9 @@ var save_company = function() {
         type: "POST",
         data: {'data':serilaizeJson("#addcompanyfrm")},
         url: "api/v1/companies",
+		async: false
     }).done(function(data){
+		
         if(data) {
             $('#addCompany').modal('hide');
             location.reload();
@@ -277,7 +436,7 @@ var update_company = function() {
     $.ajax({
         type: "PATCH",
         data: {'data': serilaizeJson("#addcompanyfrm") },
-        url: "api/v1/companies/"+$("#id").val(),
+        url: "api/v1/companies/"+$("#id").val()
     }).done(function(data){
         if(data) {
             $('#addCompany').modal('hide');

@@ -20,7 +20,6 @@
     {{ HTML::style('plugins/jquery.jqGrid-4.6.0/css/ui.jqgrid.css') }}
 
     
-    
     <style>
     body {
         padding-top: 70px;
@@ -28,6 +27,7 @@
     }
     </style>
     {{ HTML::script('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') }}
+	
 </head>
 
 <body>
@@ -170,6 +170,8 @@
     <!-- Jqgrid -->
     {{ HTML::script('plugins/jquery.jqGrid-4.6.0/js/i18n/grid.locale-en.js') }}
     {{ HTML::script('plugins/jquery.jqGrid-4.6.0/js/jquery.jqGrid.min.js') }}
+    {{ HTML::script('plugins/jQueryValidationEngine/js/languages/jquery.validationEngine-en.js') }}
+    {{ HTML::script('plugins/jQueryValidationEngine/js/jquery.validationEngine.js') }}
     {{ HTML::script('js/main.js') }}
 
     @yield('script')
