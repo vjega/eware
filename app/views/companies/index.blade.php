@@ -1,18 +1,34 @@
 @extends('master')
 <!-- Main Content -->
 @section('content')
-    <div class="panel panel-default">
-        <div class="panel-heading"><h3>Companies</h3></div>
-        <div class="panel-body">
-            <table id="companyList"></table>
+
+
+    <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        Companies
+                        
+                    </h1>
+                    
+                </section>
+
+                <!-- Main content -->
+    <section class="content">
+
+        <div class="panel">
+            <div class="panel-body">
+             <table id="companyList"></table>
             <div id="companyPager"></div>
         </div>
-        <div class="panel-footer">
-            <button class="btn btn-inverse" data-toggle="modal" id="showCompanyPop">New Company</button>
+            <div class="panel-footer">
+                
+                <button class="btn btn-inverse" data-toggle="modal" id="showCompanyPop">New Company</button>
             <button class="btn btn-inverse" data-toggle="modal" id="editCompanyPop">Edit Selected Company</button>
             <button class="btn btn-inverse" data-toggle="modal" id="delCompany">Delete Selected Company</button>
+            </div>
         </div>
-    </div>
+    </section><!-- /.content -->
+
 @stop
 
 
@@ -372,7 +388,12 @@ $(document).ready(function(){
     });
 });
 
+
+
+
+
 var panelWidth = jQuery(".panel").width()-30;
+
 jQuery("#companyList").jqGrid({ 
     url:'api/v1/companies',
     datatype: "json",
@@ -408,6 +429,7 @@ jQuery("#companyList").jqGrid({
 		{name:'web_site'},
 		{name:'contact_name'},
     ], 
+    shrinkToFit: false,
     rowNum:10, 
     rowList:[10,20,30], 
     pager: '#companyPager', 
