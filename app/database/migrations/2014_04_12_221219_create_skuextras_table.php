@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateSkuextraTable extends Migration {
+class CreateSkuextrasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateSkuextraTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('skuextra', function(Blueprint $table) {
+		Schema::create('skuextras', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('skucode',20);
 			$table->string('attribute',60);
