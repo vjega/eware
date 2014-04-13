@@ -1,0 +1,18 @@
+#Decorator Example
+
+def checkinput(myFunc):
+    def inner(*args, **kwargs):
+        if len(args) < 1:
+            return myFunc(0)
+        if isinstance(args[0], int) or \
+           isinstance(args[0], float):
+            return myFunc(*args, **kwargs)
+        else:
+            raise TypeError(myFunc.__name__ + '() requires Integer/Float as its input')
+    return inner
+
+@checkinput
+def square(x):
+    return x**2
+
+print square(3)

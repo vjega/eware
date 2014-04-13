@@ -31,6 +31,19 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
+                        <label for="" class="col-sm-6 control-label">Warehouse</label>
+                        <div class="col-sm-6">
+                            <select type="text" class="form-control" id="name" name="name" >
+                            <option value="">Select a warehouse</option>
+                            @foreach ($sites as $s)
+                                <option value="{{$s->id}}">{{$s->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
                         <label for="" class="col-sm-6 control-label">Location Number</label>
                         <div class="col-sm-6">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
@@ -38,28 +51,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-6 control-label">Warehouse Name</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="warehouse_name" name="warehouse_name" value="" placeholder="Enter warehouse_name Name e.g. Acme Corp.">
-                        </div>
-                    </div>
-                </div>
-                
             </div>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">Location Area</label>	 
                         <div class="col-sm-6">
-                            <select class="form-control" name="location_area" id="location_area">
-								<option value="">Select Location Area</option>
-                                <option>India</option>
-                                <option>Singapore</option>
-                                <option>Malaysia</option>
-                                <option>China</option>
-                            </select>
+                            <input type="text" class="form-control" name="location_area" id="location_area" />
                         </div>
                     </div>
                 </div>
@@ -67,13 +65,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">Location Type</label>
                         <div class="col-sm-6">
-                            <select  class="form-control" name="location_type" id="location_type">
-								<option value="">Select Location Type</option>
-                                <option>Singapore</option>
-                                <option>Chennai</option>
-                                <option>Mumbai</option>
-                                <option>Kolalambur</option>
-                            </select>
+                            <input type="text"  class="form-control" name="location_type" id="location_type">
                         </div>
                     </div>
                 </div>

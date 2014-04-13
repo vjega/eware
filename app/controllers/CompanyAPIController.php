@@ -35,9 +35,9 @@ class CompanyAPIController extends \BaseController {
 		$company->city			=$postObj->city;
 		$company->google_earth	=$postObj->google_earth;
 		$company->address1		=$postObj->address1;
-		$company->address2		=$postObj->address2;
-		$company->address3		=$postObj->address3;
-		$company->state			=$postObj->state;
+		#$company->address2		=$postObj->address2;
+		#$company->address3		=$postObj->address3;
+		#$company->state		=$postObj->state;
 		$company->postal_code	=$postObj->postal_code;
 		$company->email			=$postObj->email;
 		$company->tel_number1	=$postObj->tel_number1;
@@ -51,7 +51,7 @@ class CompanyAPIController extends \BaseController {
 		$company->biz_hours		=$postObj->biz_hours;
 		$company->credit_limit	=$postObj->credit_limit;
 		$company->web_site		=$postObj->web_site;
-		$company->contact_name	=$postObj->contact_name;
+		#$company->contact_name	=$postObj->contact_name;
         $company->save(); 
         return $company->id;
     }
@@ -76,8 +76,8 @@ class CompanyAPIController extends \BaseController {
 		$company->city			=$postObj->city;
 		$company->google_earth	=$postObj->google_earth;
 		$company->address1		=$postObj->address1;
-		$company->address2		=$postObj->address2;
-		$company->address3		=$postObj->address3;
+		#$company->address2		=$postObj->address2;
+		#$company->address3		=$postObj->address3;
 		$company->state			=$postObj->state;
 		$company->postal_code	=$postObj->postal_code;
 		$company->email			=$postObj->email;
@@ -92,7 +92,7 @@ class CompanyAPIController extends \BaseController {
 		$company->biz_hours		=$postObj->biz_hours;
 		$company->credit_limit	=$postObj->credit_limit;
 		$company->web_site		=$postObj->web_site;
-		$company->contact_name	=$postObj->contact_name;
+		#$company->contact_name	=$postObj->contact_name;
         $company->save(); 
         return $company->id;
     }

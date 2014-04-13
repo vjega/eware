@@ -50,9 +50,9 @@
                         <label for="" class="col-sm-4 control-label">Location Area</label>
                         <div class="col-sm-8">
                             <select class="form-control">
-                                <option>Texas</option>
-                                <option>Austn</option>
-                                <option>Dallas</option>
+                                @foreach ($sites as $s)
+                                <option value="{{$s->id}}">{{$s->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

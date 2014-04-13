@@ -9,7 +9,11 @@ class InboundReceiptsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('inboundreceipts.index');
+		$clients = Client::all(['client_code', 'name']);
+        $uoms = Uom::all(['uom_code', 'description']);
+        return View::make('inboundreceipts.index')
+            ->with('clients', $clients)
+            ->with('uoms', $uoms);
 	}
 
 }

@@ -9,6 +9,10 @@ class UOMConversionController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('uomconversion.index');
+		$clients = Client::all(['client_code', 'id']);
+        $uoms = Uom::all(['uom_code', 'description']);
+        return View::make('uomconversion.index')
+            ->with('clients',$clients)
+            ->with('uoms',$uoms);
 	}
 }

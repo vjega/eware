@@ -9,7 +9,8 @@ class LocationsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('locations.index');
+        $sites = Site::all(['client_code', 'name']);
+        return View::make('locations.index')->with('sites', $sites);
 	}
 
 }

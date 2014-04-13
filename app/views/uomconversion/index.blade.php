@@ -36,10 +36,9 @@
 							<input type="hidden" class="form-control" id="id" value="" placeholder="">
                             <select name="client_code" id="client_code" class="form-control">
 								<option value="">Select Client Code</option>
-                                <option>0001</option>
-                                <option>0002</option>
-                                <option>0003</option>
-                                <option>0004</option>
+                                @foreach($clients as $cli)
+                                    <option value="{{$cli->client_code}}">{{$cli->client_code}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -48,7 +47,9 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">Product Number</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="product_number" value="" name="product_number" placeholder="">
+                            <select class="form-control" id="product_number" value="" name="product_number" placeholder="">
+
+                            </select>    
                         </div>
                     </div>
                 </div>
@@ -59,7 +60,12 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">From Uom</label>
                         <div class="col-sm-6">
-                        <input type="text" class="form-control" id="from_uom" value="" name="from_uom" placeholder="">    
+                        <select class="form-control" id="from_uom" value="" name="from_uom" placeholder="">    
+                            <option value="">Select From UOM</option>
+                            @foreach($uoms as $u)
+                            <option value="{{$u->uom_code}}">{{$u->description}}</option>
+                            @endforeach
+                        </select>
                         </div>
                     </div>
                 </div>
@@ -77,7 +83,12 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">To Uom</label>
                         <div class="col-sm-6">
-                        <input type="text" class="form-control" id="to_uom" value="" name="to_uom" placeholder="">    
+                        <select class="form-control" id="to_uom" value="" name="to_uom" placeholder="">    
+                            <option value="">Select To UOM</option>
+                            @foreach($uoms as $u)
+                            <option value="{{$u->uom_code}}">{{$u->description}}</option>
+                            @endforeach
+                        </select>
                         </div>
                     </div>
                 </div>
@@ -132,6 +143,9 @@ $(document).ready(function(){
     $("#post-uom").click(function(){
         update_uom();
     });
+    $("#client_code").change(function(){
+        update_product_dropdown(this);
+    })
 });
 
 var panelWidth = jQuery(".panel").width()-45;
@@ -242,5 +256,23 @@ var show_edit_modal = function () {
     });
 }
 
+var update_product_dropdown = function (elm) {
+    $.ajax({
+        url:"api/v1/skuproducts?client_code="+$(elm).val(),
+        method:"GET"
+    })
+    .done(function(data) {
+        var optList = ""
+        for(var d in data) {
+            optList += "<option value='"+data[d].id+"'>"+data[d].product_code+"</option>";
+        }
+        $("#product_number").html(optList);
+        console.log()
+    })
+    .fail(function() {
+        console.log( "error" );
+    });
+}
+ 
 </script>
 @stop	

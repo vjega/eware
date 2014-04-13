@@ -34,8 +34,8 @@ class SiteAPIController extends \BaseController {
         $site->city         = $postObj->city;
         $site->currency     = $postObj->currency;
         $site->addrs1       = $postObj->addrs1;
-        $site->addrs2       = $postObj->addrs2;
-        $site->addrs3       = $postObj->addrs3;
+        $site->addrs2       = ''; //$postObj->addrs2;
+        $site->addrs3       = ''; //$postObj->addrs3;
         $site->email        = $postObj->email;
         $site->website      = $postObj->website;
         $site->tel_no1      = $postObj->tel_no1;
@@ -74,8 +74,8 @@ class SiteAPIController extends \BaseController {
         $site->city         = $postObj->city;
         $site->currency     = $postObj->currency;
         $site->addrs1       = $postObj->addrs1;
-        $site->addrs2       = $postObj->addrs2;
-        $site->addrs3       = $postObj->addrs3;
+        $site->addrs2       = ''; //$postObj->addrs2;
+        $site->addrs3       = ''; //$postObj->addrs3;
         $site->email        = $postObj->email;
         $site->website      = $postObj->website;
         $site->tel_no1      = $postObj->tel_no1;

@@ -13,11 +13,11 @@
         <!-- DATA TABLES -->
         {{ HTML::style('static/css/datatables/dataTables.bootstrap.css') }}   
 
- <!-- Jqgrid -->
- {{ HTML::style('plugins/jquery-ui-1.10.4.custom/css/smoothness/jquery-ui-1.10.4.custom.css') }}
+        <!-- Jqgrid -->
+        {{ HTML::style('plugins/jquery-ui-1.10.4.custom/css/smoothness/jquery-ui-1.10.4.custom.css') }}
     
-    {{ HTML::style('plugins/jquery.jqGrid-4.6.0/css/ui.jqgrid.css') }}
-    <!-- {{ HTML::style('plugins/jquery.jqGrid-4.6.0/css/bootstrap.jqgrid.css') }} -->
+        {{ HTML::style('plugins/jquery.jqGrid-4.6.0/css/ui.jqgrid.css') }}
+        <!-- {{ HTML::style('plugins/jquery.jqGrid-4.6.0/css/bootstrap.jqgrid.css') }} -->
 
         <!-- Theme style -->
         {{ HTML::style('static/css/AdminLTE.css') }}
@@ -68,9 +68,9 @@
                             <img src="https://lh5.googleusercontent.com/-goWTAkCe2Z8/AAAAAAAAAAI/AAAAAAAAAAA/ObSsWA6eTmA/s32-c/photo.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, Shami</p>
+                            <p>Hello, User</p>
 
-                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                            <!-- a href="#"><i class="fa fa-circle text-success"></i> Online</a -->
                         </div>
                     </div>
                     <!-- search form -->
@@ -110,7 +110,7 @@
                                              
                             </li>
                             <li>
-                                 <a href="{{ url('/', 'SKUProducts')}}">
+                                 <a href="{{ url('/', 'skuproducts')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>SKU Product Master</span> 
                                 </a>
                                                      
@@ -279,18 +279,21 @@
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
         
-        @yield('popups')   
+    @yield('popups')   
 
-        <!-- jQuery 2.0.2 -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-        <!-- Bootstrap -->
-        {{ HTML::script('static/js/bootstrap.min.js') }}
+    <!-- jQuery 2.0.2 -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <!-- Dropzone -->
+    {{ HTML::script('plugins/dropzone/dropzone.js') }}
+    <!-- Bootstrap -->
+    {{ HTML::script('static/js/bootstrap.min.js') }}
 
-        <!-- DATA TABES SCRIPT -->
-        {{ HTML::script('static/js/plugins/datatables/jquery.dataTables.js') }}
-        {{ HTML::script('static/js/plugins/datatables/dataTables.bootstrap.js') }}
+
+    <!-- DATA TABES SCRIPT -->
+    {{ HTML::script('static/js/plugins/datatables/jquery.dataTables.js') }}
+    {{ HTML::script('static/js/plugins/datatables/dataTables.bootstrap.js') }}
         
-<!-- Date Picker -->
+    <!-- Date Picker -->
     {{ HTML::script('plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}
     <!-- Jqgrid -->
     {{ HTML::script('plugins/jquery.jqGrid-4.6.0/js/i18n/grid.locale-en.js') }}
@@ -299,10 +302,10 @@
     {{ HTML::script('plugins/jQueryValidationEngine/js/jquery.validationEngine.js') }}
 
 
-        <!-- AdminLTE App -->
-        {{ HTML::script('static/js/AdminLTE/app.js') }}
+    <!-- AdminLTE App -->
+    {{ HTML::script('static/js/AdminLTE/app.js') }}
 
-        @yield('script')
+    @yield('script')
 
     </body>
 </html>

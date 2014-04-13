@@ -55,4 +55,5 @@ class OutboundEnquiresAPIController extends \BaseController {
         Outboundenquiry::destroy($ids);
         return "true";
     }
+    
 }

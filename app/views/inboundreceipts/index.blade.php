@@ -36,10 +36,9 @@
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
                            <select name="client_code" id="client_code" class="form-control">
 								<option value="">Select Client Code</option>
-                                <option>0001</option>
-                                <option>0002</option>
-                                <option>0003</option>
-                                <option>0004</option>
+                                @foreach ($clients as $cli)
+                                <option value="{{$cli->client_code}}">{{$cli->client_code}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -149,7 +148,12 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Uom</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="uom" value="" name="uom" placeholder="Uom">    
+                        <select type="text" class="form-control" id="uom" value="" name="uom" placeholder="Uom">    
+                            <option value="">Select UOM Code</option>
+                                @foreach ($uoms as $uom)
+                                <option value="{{$cli->uom_code}}">{{$uom->description}}</option>
+                                @endforeach
+                        </select>
                         </div>
                     </div>
                 </div>

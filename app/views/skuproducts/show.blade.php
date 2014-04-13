@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/eware/app/views/companies/show.blade.php

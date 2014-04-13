@@ -11,6 +11,7 @@
             <button class="btn btn-inverse" data-toggle="modal" id="showProductPop">New SKU Product</button>
             <button class="btn btn-inverse" data-toggle="modal" id="editProductPop">Edit Selected SKU Product</button>
             <button class="btn btn-inverse" data-toggle="modal" id="delProduct">Delete Selected SKU Product</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="impExcel">Import from Excel</button>
         </div>
     </div>
 @stop
@@ -35,11 +36,10 @@
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
 							<select name="client_code" id="client_code" class="form-control">
-								<option value="">Select Client Code</option>
-                                <option>0001</option>
-                                <option>0002</option>
-                                <option>0003</option>
-                                <option>0004</option>
+    						    <option value="">Select Client</option>    
+                                @foreach ($clients as $c)
+                                <option value="{{$c->client_code}}">{{$c->client_code}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -164,6 +164,24 @@
       </div>
     </div>
 </div>
+</div>
+<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="importModalLabel">Import from Excel</h4>
+      </div>
+      <div class="modal-body" id="dropzone">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="browse_excel">Browse and Upload File</button>
+      </div>
+    </div>
+  </div>
+</div>
 @stop
 
 
@@ -194,8 +212,23 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
-	$(".datepicker").datepicker();
-	
+    /**
+     * Initialing Dropzone.js Plugin
+     * @type {String}
+     */
+    myDropzone = $("#dropzone").dropzone({
+        url :'upload/skuxlsimport',
+        clickable : '#browse_excel',
+        complete : function(file) {
+            $("#importModal").modal('hide');
+            document.location.reload();
+        }
+    });
+    
+    $(".datepicker").datepicker();
+	$("#impExcel").click(function(){
+        $("#importModal").modal('show');
+    });
     $("#save_product").click(function(){
         save_product();
     });
