@@ -27,7 +27,7 @@ class LocationsAPIController extends \BaseController {
         $postObj = json_decode($postData);
         $location = new Location;
         $location->location_no          = $postObj->location_no;
-        $location->warehouse_name  		= $postObj->warehouse_name;
+        $location->warehouse_name  		= $postObj->name;
         $location->location_area        = $postObj->location_area;
         $location->location_type       	= $postObj->location_type;
         $location->bin_number        	= $postObj->bin_number;
@@ -51,7 +51,7 @@ class LocationsAPIController extends \BaseController {
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
         $location->location_no          = $postObj->location_no;
-        $location->warehouse_name  		= $postObj->warehouse_name;
+        $location->warehouse_name  		= $postObj->name;
         $location->location_area        = $postObj->location_area;
         $location->location_type       	= $postObj->location_type;
         $location->bin_number        	= $postObj->bin_number;

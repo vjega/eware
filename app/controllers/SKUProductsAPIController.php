@@ -14,9 +14,13 @@ class SkuproductsAPIController extends \BaseController {
         * right now it is only for client code
         * Later we will find a generic query to use this
         */
-        $clientcode = Input::get('client_code', '');
+        $clientcode = Input::get('client_code', ''); 
         if ($clientcode) {
             return Skuproduct::where('client_code', '=', $clientcode)->get();
+        }
+        $productcode = Input::get('product_code', '');
+        if ($productcode) {
+            return Skuproduct::where('id', '=', $productcode)->get();
         }
         $skuprods_arr = Skuproduct::all()->toArray();
         $skuprod['page'] = 1;

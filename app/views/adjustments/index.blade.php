@@ -94,8 +94,8 @@
 						<thead>  
 						  <tr>  
 							<th>Delete</th>  
-							<th>Location</th>  
 							<th>Product</th>  
+							<th>Location</th>  
 							<th>Quantity</th>  
 							<th>Plus Qty</th>  
 							<th>Minus Qty</th>  
@@ -105,16 +105,11 @@
 						  <tr class="trow">  
 							<td><a class="btn" href="#">Delete</a></td>  
 							<td>
-								<select class="form-control">
-									<option>USA</option>
-									<option>India</option>
+								<select class="form-control products" id="skuproduct">
 								</select>
 							</td>  
-							<td>
-								<select class="form-control products">
-								</select>
-							</td>  
-							<td><input class="form-control" type="text" /></td>  
+							<td><input readonly="" class="form-control locations" type="text" /></td>  
+							<td><input class="form-control prodQty" type="text" /></td>  
 							<td><input class="form-control" type="text" /></td>  
 							<td><input class="form-control" type="text" /></td>  
 						  </tr>
@@ -185,6 +180,9 @@ $(document).ready(function(){
 
     $("#client_code").change(function(){
         update_product_dropdown(this);
+    })
+    $("#skuproduct").change(function(){
+        update_product_qty_dropdown(this);
     })
 });
 
@@ -324,11 +322,26 @@ var update_product_dropdown = function (elm) {
         method:"GET"
     })
     .done(function(data) {
-        var optList = ""
+        var optList = "";
         for(var d in data) {
-            optList += "<option value='"+data[d].id+"'>"+data[d].product_code+"</option>";
+           	optList += "<option value='"+data[d].id+"'>"+data[d].product_code+"</option>";
         }
         $(".products").html(optList);
+        $(".locations").val(data[0].location_area);
+        $(".prodQty").val(data[0].quantity);
+    })
+    .fail(function() {
+        console.log( "error" );
+    });
+}
+var update_product_qty_dropdown = function (elm) {
+    $.ajax({
+        url:"api/v1/skuproducts?product_code="+$("#skuproduct option:selected" ).val(),
+        method:"GET"
+    })
+    .done(function(data) {
+        $(".locations").val(data[0].location_area);
+        $(".prodQty").val(data[0].quantity);
     })
     .fail(function() {
         console.log( "error" );
