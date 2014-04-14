@@ -124,7 +124,6 @@
                                 <option>Solid</option>
                                 <option>Hot</option>
                                 <option>Cool</option>
-
                             </select>
                         </div>
                     </div>

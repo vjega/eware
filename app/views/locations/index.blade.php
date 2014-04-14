@@ -44,10 +44,10 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-6 control-label">Location Number</label>
+                        <label for="" class="col-sm-6 control-label">Location</label>
                         <div class="col-sm-6">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
-                            <input type="text" class="form-control" id="location_no" name="location_no" value="" placeholder="Enter Location Number e.g. ACMC">
+                            <input type="text" class="form-control" id="location_no" name="location_no" value="" placeholder="Enter Location e.g. India">
                         </div>
                     </div>
                 </div>

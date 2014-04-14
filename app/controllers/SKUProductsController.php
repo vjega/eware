@@ -10,7 +10,8 @@ class SKUProductsController extends \BaseController {
 	public function index()
 	{
         $clients = Client::all(['client_code', 'name']);
-        return View::make('skuproducts.index')->with('clients',$clients);
+		$location = Location::all(['id', 'location_no']);
+        return View::make('skuproducts.index')->with('clients',$clients)->with('location',$location);
 	}
 
 }

@@ -147,9 +147,14 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Location Area</label>
+                        <label for="" class="col-sm-4 control-label">Location</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="location_area" value="" name="location_area" placeholder="w1lc3">  
+							<select name="location_area" id="location_area" class="form-control">
+    						    <option value="">Select Location</option>    
+                                @foreach ($location as $l)
+                                <option value="{{$l->id}}">{{$l->location_no}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
