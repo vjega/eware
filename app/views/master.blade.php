@@ -64,9 +64,9 @@
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
-                        <div class="pull-left image">
+                        <!-- div class="pull-left image">
                             <img src="https://lh5.googleusercontent.com/-goWTAkCe2Z8/AAAAAAAAAAI/AAAAAAAAAAA/ObSsWA6eTmA/s32-c/photo.jpg" class="img-circle" alt="User Image" />
-                        </div>
+                        </div -->
                         <div class="pull-left info">
                             <p>Hello, User</p>
 

@@ -36,10 +36,9 @@
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
                              <select name="client_code" id="client_code" class="form-control">
 								<option value="">Select Client Code</option>
-                                <option>0001</option>
-                                <option>0002</option>
-                                <option>0003</option>
-                                <option>0004</option>
+                                @foreach ($clients as $cli)
+                                <option value="{{$cli->client_code}}">{{$cli->client_code}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -103,7 +102,7 @@
 						  </tr>  
 						</thead>  
 						<tbody>  
-						  <tr>  
+						  <tr class="trow">  
 							<td><a class="btn" href="#">Delete</a></td>  
 							<td>
 								<select class="form-control">
@@ -112,52 +111,13 @@
 								</select>
 							</td>  
 							<td>
-								<select class="form-control">
-									<option>DELL Laptop</option>
-									<option>HCL Laptop</option>
+								<select class="form-control products">
 								</select>
 							</td>  
 							<td><input class="form-control" type="text" /></td>  
 							<td><input class="form-control" type="text" /></td>  
 							<td><input class="form-control" type="text" /></td>  
 						  </tr>
-						  <tr>  
-							<td><a class="btn" href="#">Delete</a></td>  
-							<td>
-								<select class="form-control">
-									<option>USA</option>
-									<option>India</option>
-								</select>
-							</td>  
-							<td>
-								<select class="form-control">
-									<option>DELL Laptop</option>
-									<option>HCL Laptop</option>
-								</select>
-							</td>  
-							<td><input class="form-control" type="text" /></td>  
-							<td><input class="form-control" type="text" /></td>  
-							<td><input class="form-control" type="text" /></td>  
-						  </tr>
-						  <tr>  
-							<td><a class="btn" href="#">Delete</a></td>  
-							<td>
-								<select class="form-control">
-									<option>USA</option>
-									<option>India</option>
-								</select>
-							</td>  
-							<td>
-								<select class="form-control">
-									<option>DELL Laptop</option>
-									<option>HCL Laptop</option>
-								</select>
-							</td>  
-							<td><input class="form-control" type="text" /></td>  
-							<td><input class="form-control" type="text" /></td>  
-							<td><input class="form-control" type="text" /></td>  
-						  </tr>
-						  
 						</tbody>  
 					  </table>  
 					  <a href="#" class="btn btn-default pull-right" id="addMoreAdjustment">Add More</a>
@@ -183,7 +143,7 @@
 <script>
 
 $('#addMoreAdjustment').click(function(){
-	$('#adjustments').html('<tr><td><a class="btn" href="#">Delete</a></td><td><select class="form-control"><option>USA</option><option>India</option></select></td><td><select class="form-control"><option>USA</option><option>India</option></select></td><td><input class="form-control" type="text" /></td><td><input class="form-control" type="text" /></td><td><input class="form-control" type="text" /></td></tr>'); 
+	$('.trow:last').clone().insertAfter($('.trow:last'));
 });
 
 var serilaizeJson =  function (form, stripfromAttr){
@@ -222,6 +182,10 @@ $(document).ready(function(){
     $("#post-uom").click(function(){
         update_uom();
     });
+
+    $("#client_code").change(function(){
+        update_product_dropdown(this);
+    })
 });
 
 var panelWidth = jQuery(".panel").width()-45;
@@ -249,14 +213,41 @@ jQuery("#adjustmentList").jqGrid({
 });
 
 var save_uom = function() {
+    var lineitems = [];
+    $('#adjustments tr').each(function(idx){
+        lineitems[idx] = {}
+        $(this).find('input,select').each(function(cidx){
+            switch(cidx) {
+                case 0:
+                    lineitems[idx]['location'] = $(this).val();
+                    break;
+                case 1:
+                    lineitems[idx]['itemcode'] = $(this).val();
+                    break;
+                case 2:
+                    lineitems[idx]['qty'] = $(this).val();
+                    break;
+                case 3:
+                    lineitems[idx]['adjplusqty'] = $(this).val();
+                    break;
+                case 4:
+                    lineitems[idx]['adjminusqty'] = $(this).val();
+                    break;
+            }
+           
+        })
+    });
+    lineitems.shift();
     $.ajax({
         type: "POST",
-        data: {'data':serilaizeJson("#adduomfrm")},
+        data: {'data':serilaizeJson("#adduomfrm"),
+               'lineitems' : JSON.stringify(lineitems)
+              },
         url: "api/v1/adjustments",
     }).done(function(data){
         if(data) {
             $('#addUom').modal('hide');
-            location.reload();
+            //location.reload();
         }
     });
     
@@ -327,5 +318,21 @@ var show_edit_modal = function () {
     });
 }
 
+var update_product_dropdown = function (elm) {
+    $.ajax({
+        url:"api/v1/skuproducts?client_code="+$(elm).val(),
+        method:"GET"
+    })
+    .done(function(data) {
+        var optList = ""
+        for(var d in data) {
+            optList += "<option value='"+data[d].id+"'>"+data[d].product_code+"</option>";
+        }
+        $(".products").html(optList);
+    })
+    .fail(function() {
+        console.log( "error" );
+    });
+}
 </script>
 @stop	

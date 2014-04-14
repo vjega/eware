@@ -120,7 +120,8 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Product No</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="product_no" value="" name="product_no" placeholder="">    
+                        <select type="text" class="form-control" id="product_no" value="" name="product_no" placeholder="">    
+                        </select>
                         </div>
                     </div>
                 </div>
@@ -128,9 +129,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Product No</label>
+                        <label for="" class="col-sm-4 control-label">Product Name</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="product_no" value="" name="product_no" placeholder="">    
+                        <input type="text" class="form-control" id="product_name" value="" name="product_name" placeholder="">    
                         </div>
                     </div>
                 </div>
@@ -268,6 +269,10 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
+    $("#client_code").change(function(){
+        update_product_dropdown(this);
+    })
+
     $(".datepicker").datepicker();
     $("#save-uom").click(function(){
         save_uom();
@@ -402,6 +407,22 @@ var show_edit_modal = function () {
         $('#addUom').modal('show');
     });
 }
-
+var update_product_dropdown = function (elm) {
+    $.ajax({
+        url:"api/v1/skuproducts?client_code="+$(elm).val(),
+        method:"GET"
+    })
+    .done(function(data) {
+        var optList = ""
+        for(var d in data) {
+            optList += "<option value='"+data[d].id+"'>"+data[d].product_code+"</option>";
+        }
+        $("#product_no").html(optList);
+        console.log()
+    })
+    .fail(function() {
+        console.log( "error" );
+    });
+}
 </script>
 @stop	

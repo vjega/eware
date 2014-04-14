@@ -9,7 +9,8 @@ class AdjustmentsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('adjustments.index');
+		$clients = Client::all(['client_code', 'name']);
+        return View::make('adjustments.index')->with('clients', $clients);
 	}
 
 }

@@ -32,7 +32,11 @@ class AdjustmentsAPIController extends \BaseController {
         $adjust->remarks          	= $postObj->remarks;
         $adjust->reference_no       = $postObj->reference_no;
         $adjust->adjustment_view    = $postObj->adjustment_view;
-        $adjust->save(); 
+        $adjust->save();
+        $postLineData =  Input::get("lineitems");
+        foreach ($postLineData as $lines) {
+            //to do
+        }
         return $adjust->id;
     }
 
