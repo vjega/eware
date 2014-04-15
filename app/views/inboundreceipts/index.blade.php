@@ -34,7 +34,7 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                           <select name="client_code" id="client_code" class="form-control">
+                           <select name="client_code" id="client_code" class="form-control validate[required,minSize[6]">
 								<option value="">Select Client Code</option>
                                 @foreach ($clients as $cli)
                                 <option value="{{$cli->client_code}}">{{$cli->client_code}}</option>
@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Grn Date</label>
                         <div class="col-sm-8">
-							<input type="text" class="form-control datepicker" id="grn_date" name="grn_date" value="" placeholder="Grn Date">
+							<input type="text" class="form-control datepicker validate[required,custom[date]" id="grn_date" name="grn_date" value="" placeholder="Grn Date">
                         </div>
 					</div>
                 </div>
@@ -57,7 +57,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Grn No</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="grn_no" name="grn_no" value="" placeholder="Grn No">
+                            <input type="text" class="form-control validate[required,minSize[6]" id="grn_no" name="grn_no" value="" placeholder="Grn No">
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Invoice No</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="invoice_no" value="" name="invoice_no" placeholder="Invoice No">
+                            <input type="text" class="form-control validate[required,minSize[6]" id="invoice_no" value="" name="invoice_no" placeholder="Invoice No">
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Rv No</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="rv_no" value="" name="rv_no" placeholder="">  
+                        <input type="text" class="form-control validate[required,minSize[6]" id="rv_no" value="" name="rv_no" placeholder="">  
                         </div>
                     </div>
                 </div>
@@ -131,7 +131,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Product Name</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="product_name" value="" name="product_name" placeholder="">    
+                        <input type="text" class="form-control validate[required,minSize[6]" id="product_name" value="" name="product_name" placeholder="">    
                         </div>
                     </div>
                 </div>
@@ -190,7 +190,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Accepted Qty</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="accepted_qty" value="" name="accepted_qty" placeholder="Accepted Qty">    
+                        <input type="text" class="form-control validate[required,minSize[6]" id="accepted_qty" value="" name="accepted_qty" placeholder="Accepted Qty">    
                         </div>
                     </div>
                 </div>
@@ -274,8 +274,11 @@ $(document).ready(function(){
     })
 
     $(".datepicker").datepicker();
+	
     $("#save-uom").click(function(){
-        save_uom();
+		if (($("#adduomfrm").validationEngine("validate"))===true) {
+			save_uom();
+		}
     });
     $("#showUomPop").click(function(){
         show_add_modal();

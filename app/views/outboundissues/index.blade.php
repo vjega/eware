@@ -35,7 +35,7 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
-                            <select name="client_code" id="client_code" class="form-control">
+                            <select name="client_code" id="client_code" class="form-control validate[required,minSize[6]">
 								<option value="">Select Client Code</option>
                                 <option>0001</option>
                                 <option>0002</option>
@@ -50,7 +50,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Order No</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="order_no" name="order_no" value="" placeholder="Enter Order No.">
+                            <input type="text" class="form-control validate[required,minSize[6]" id="order_no" name="order_no" value="" placeholder="Enter Order No.">
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Order Date</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control datepicker" id="order_date" name="order_date" value="" placeholder="Enter Fax Number">
+                            <input type="email" class="form-control datepicker validate[required,minSize[6] " id="order_date" name="order_date" value="" placeholder="Enter Fax Number">
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Issue No</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="issue_no" value="" name="issue_no" placeholder="Enter Issue No">
+                            <input type="text" class="form-control validate[required,minSize[6]" id="issue_no" value="" name="issue_no" placeholder="Enter Issue No">
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Issue Date</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control datepicker" id="issue_date" value="" name="issue_date" placeholder="Enter Issue Date">    
+                        <input type="text" class="form-control datepicker validate[required,minSize[6]" id="issue_date" value="" name="issue_date" placeholder="Enter Issue Date">    
                         </div>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Product No</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="product_no" value="" name="product_no" placeholder="Enter Product No">    
+                        <input type="text" class="form-control validate[required,minSize[6]" id="product_no" value="" name="product_no" placeholder="Enter Product No">    
                         </div>
                     </div>
                 </div>
@@ -216,7 +216,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Issue Qty</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="issue_qty" value="" name="issue_qty" placeholder="">  
+                        <input type="text" class="form-control validate[required,minSize[6]" id="issue_qty" value="" name="issue_qty" placeholder="">  
                         </div>
                     </div>
                 </div>
@@ -281,7 +281,9 @@ $(document).ready(function(){
 	$(".datepicker").datepicker();
 	
     $("#save-uom").click(function(){
-        save_uom();
+		if (($("#adduomfrm").validationEngine("validate"))===true) {
+			   save_uom();
+		}
     });
     $("#showUomPop").click(function(){
         show_add_modal();

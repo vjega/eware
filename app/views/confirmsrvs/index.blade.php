@@ -35,7 +35,7 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                           <select name="client_code" id="client_code" class="form-control">
+                           <select name="client_code" id="client_code" class="form-control validate[required,minSize[6]">
 								<option value="">Select Client Code</option>
                                 <option>0001</option>
                                 <option>0002</option>
@@ -49,7 +49,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">RV No</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="rv_no" name="rv_no" value="" placeholder="">    
+                            <input type="text" class="form-control validate[required,minSize[6]" id="rv_no" name="rv_no" value="" placeholder="">    
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,9 @@ var serilaizeJson =  function (form, stripfromAttr){
 
 $(document).ready(function(){
     $("#save-rvs").click(function(){
-        save_rvs();
+		if (($("#addrvsfrm").validationEngine("validate"))===true) {
+			   save_rvs();
+		}
     });
     $("#showRVS").click(function(){
         show_add_modal();
