@@ -8,9 +8,9 @@
             <div id="stockTakePager"></div>
         </div>
         <div class="panel-footer">
-            <button class="btn btn-inverse" data-toggle="modal" id="showUomPop">New Stock</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="editUomPop">Edit Selected Stock</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="delUom">Delete Selected Stock</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="showStockTakesPop">New Stock</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="editStockTakesPop">Edit Selected Stock</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="delStockTakes">Delete Selected Stock</button>
         </div>
     </div>
 @stop
@@ -19,14 +19,14 @@
 <!-- Add/edit popups -->
 @section('popups')
 <!-- add / Edit -->
-<div class="modal fade" id="addUom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="addStockTakes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Add/Edit Stock Take</h4>
       </div>
-      <form class="form-horizontal" role="form" name="adduomfrm" id="adduomfrm">
+      <form class="form-horizontal" role="form" name="addstocktakesfrm" id="addstocktakesfrm">
       <div class="modal-body">      
             <div class="row">
                 <div class="col-sm-6">
@@ -34,12 +34,11 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                           <select name="client_code" id="client_code" class="form-control">
-								<option value="">Select Client Code</option>
-                                <option>0001</option>
-                                <option>0002</option>
-                                <option>0003</option>
-                                <option>0004</option>
+   							<select name="client_code" id="client_code" class="form-control">
+    						    <option value="">Select Client</option>    
+                                @foreach ($clients as $c)
+                                <option value="{{$c->client_code}}">{{$c->client_code}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -121,12 +120,33 @@
                     </div>
                 </div>
             </div>
+			<div class="row">
+					<table id="locTransfer" class="table">  
+						<thead>  
+						  <tr>  
+							<th>Delete</th>  
+							<th>Product</th>  
+							<th>Location</th>  
+							<th>Quantity</th>  
+						  </tr>  
+						</thead>  
+						<tbody>  
+						  <tr class="trow">  
+							<td><a class="btn" href="#">Delete</a></td>  
+							<td><select class="form-control products" id="skuproduct"></select></td>  
+							<td><input readonly="" class="form-control locations" type="text" /></td>  
+							<td><input class="form-control" type="text" /></td>
+						  </tr>
+						</tbody>  
+					  </table>  
+					  <a href="#" class="btn btn-default pull-right" id="addMoreStockTakes">Add More</a>
+            </div>
       </div>
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-uom">Save Stock</button>
-        <button type="button" class="btn btn-primary" id="post-uom">Update Stock</button>
+        <button type="button" class="btn btn-primary" id="save-stocktakes">Save Stock</button>
+        <button type="button" class="btn btn-primary" id="post-stocktakes">Update Stock</button>
       </div>
     </div>
 </div>
@@ -140,6 +160,11 @@
 </style>
 
 <script>
+
+$('#addMoreStockTakes').click(function(){
+	$('.trow:last').clone().insertAfter($('.trow:last'));
+});
+
 
 var serilaizeJson =  function (form, stripfromAttr){
     var unindexed_array = $(form).serializeArray();
@@ -162,21 +187,28 @@ var serilaizeJson =  function (form, stripfromAttr){
 $(document).ready(function(){
 	$(".datepicker").datepicker();
 	
-    $("#save-uom").click(function(){
-        save_uom();
+    $("#save-stocktakes").click(function(){
+        save_stocktakes();
     });
-    $("#showUomPop").click(function(){
+    $("#showStockTakesPop").click(function(){
         show_add_modal();
     });
-    $("#editUomPop").click(function(){
+    $("#editStockTakesPop").click(function(){
         show_edit_modal();
     });
-    $("#delUom").click(function(){
-        del_uom();
+    $("#delStockTakes").click(function(){
+        del_stocktakes();
     });
-    $("#post-uom").click(function(){
-        update_uom();
+    $("#post-stocktakes").click(function(){
+        update_stocktakes();
     });
+    $("#client_code").change(function(){
+        update_product_dropdown(this);
+    })
+    $("#skuproduct").change(function(){
+        update_product_qty_dropdown(this);
+    })
+	
 });
 
 var panelWidth = jQuery(".panel").width()-45;
@@ -206,35 +238,35 @@ jQuery("#stockTakeList").jqGrid({
     loadonce: true
 });
 
-var save_uom = function() {
+var save_stocktakes = function() {
     $.ajax({
         type: "POST",
-        data: {'data':serilaizeJson("#adduomfrm")},
+        data: {'data':serilaizeJson("#addstocktakesfrm")},
         url: "api/v1/stocktakes",
     }).done(function(data){
         if(data) {
-            $('#addUom').modal('hide');
+            $('#addStockTakes').modal('hide');
             location.reload();
         }
     });
     
 };
 
-var update_uom = function() {
+var update_stocktakes = function() {
     $.ajax({
         type: "PATCH",
-        data: {'data': serilaizeJson("#adduomfrm") },
+        data: {'data': serilaizeJson("#addstocktakesfrm") },
         url: "api/v1/stocktakes/"+$("#id").val(),
     }).done(function(data){
         if(data) {
-            $('#addUom').modal('hide');
+            $('#addStockTakes').modal('hide');
             location.reload();
         }
     });
     
 };
 
-var del_uom = function() {
+var del_stocktakes = function() {
     var checkboxes = [];
     $("input.stockbox:checked").each(function(){
         checkboxes.push($(this).prop('id'));
@@ -252,17 +284,17 @@ var del_uom = function() {
 };
 
 var show_add_modal = function () {
-    $("#post-uom").hide();
-    $("#save-uom").show();
-    $('#adduomfrm').each(function() {
+    $("#post-stocktakes").hide();
+    $("#save-stocktakes").show();
+    $('#addstocktakesfrm').each(function() {
         this.reset();
     });
-    $('#addUom').modal('show');
+    $('#addStockTakes').modal('show');
 }
 
 var show_edit_modal = function () {
-    $("#save-uom").hide();
-    $("#post-uom").show();
+    $("#save-stocktakes").hide();
+    $("#post-stocktakes").show();
     var reclen = $("input.stockbox:checked").length;
     if (reclen === 0) {
         alert("Please Select an entry to edit");
@@ -281,7 +313,38 @@ var show_edit_modal = function () {
                 $('#'+item).val(data[item]);
             }
         };
-        $('#addUom').modal('show');
+        $('#addStockTakes').modal('show');
+    });
+}
+var update_product_dropdown = function (elm) {
+    $.ajax({
+        url:"api/v1/skuproducts?client_code="+$(elm).val(),
+        method:"GET"
+    })
+    .done(function(data) {
+        var optList = "";
+        for(var d in data) {
+           	optList += "<option value='"+data[d].id+"'>"+data[d].product_code+"</option>";
+        }
+        $(".products").html(optList);
+        $(".locations").val(data[0].location_area);
+        $(".prodQty").val(data[0].quantity);
+    })
+    .fail(function() {
+        console.log( "error" );
+    });
+}
+var update_product_qty_dropdown = function (elm) {
+    $.ajax({
+        url:"api/v1/skuproducts?product_code="+$("#skuproduct option:selected" ).val(),
+        method:"GET"
+    })
+    .done(function(data) {
+        $(".locations").val(data[0].location_area);
+        $(".prodQty").val(data[0].quantity);
+    })
+    .fail(function() {
+        console.log( "error" );
     });
 }
 

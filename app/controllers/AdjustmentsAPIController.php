@@ -65,7 +65,7 @@ class AdjustmentsAPIController extends \BaseController {
         $adjust = Adjustment::find($id);
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
-         $adjust->client_code   		= $postObj->client_code;
+        $adjust->client_code   		= $postObj->client_code;
         $adjust->adjustment_date    = $postObj->adjustment_date;
         $adjust->adjustment_number  = $postObj->adjustment_number;
         $adjust->remarks          	= $postObj->remarks;

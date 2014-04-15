@@ -9,7 +9,8 @@ class StockTakesController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('stocktakes.index');
+		$clients = Client::all(['client_code', 'name']);
+		return View::make('stocktakes.index')->with('clients',$clients);
 	}
 
 }
