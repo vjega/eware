@@ -15,6 +15,7 @@
 
         <!-- Jqgrid -->
         {{ HTML::style('plugins/jquery-ui-1.10.4.custom/css/smoothness/jquery-ui-1.10.4.custom.css') }}
+       
     
         {{ HTML::style('plugins/jquery.jqGrid-4.6.0/css/ui.jqgrid.css') }}
         <!-- {{ HTML::style('plugins/jquery.jqGrid-4.6.0/css/bootstrap.jqgrid.css') }} -->
@@ -22,6 +23,8 @@
         <!-- Theme style -->
         {{ HTML::style('static/css/AdminLTE.css') }}
         {{ HTML::style('plugins/jQueryValidationEngine/css/validationEngine.jquery.css') }}
+        {{ HTML::style('plugins/jQueryValidationEngine/css/customMessages.css') }}
+
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
