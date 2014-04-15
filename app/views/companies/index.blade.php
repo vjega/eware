@@ -50,7 +50,8 @@
                         <label for="" class="col-sm-5 control-label">Company Name </label>
                         <div class="col-sm-7">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
-                            <input type="text" class="form-control" id="company_name" name="company_name" value="" placeholder="Enter Company Name e.g. Acme Corp.">
+                            <input type="text" class="form-control" data-validation-engine="validate[required,minSize[6]. maxSize[12]]"
+								id="company_name" name="company_name" value="" placeholder="Enter Company Name e.g. Acme Corp.">
                         </div>
                     </div>
                 </div>
@@ -809,8 +810,8 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" id="save-company">Save Company</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" id="post-company">Update Company</button>
+        <button type="button" class="btn btn-primary"  id="save-company">Save Company</button>
+        <button type="button" class="btn btn-primary"  id="post-company">Update Company</button>
       </div>
     </div>
 </div>
@@ -842,11 +843,9 @@ var serilaizeJson =  function (form, stripfromAttr){
 $(document).ready(function(){
 	//alert($("#addcompanyfrm").validationEngine());
     $("#save-company").click(function(){
-		
-		/*if(!$("#addcompanyfrm").validationEngine('vlidate')){
-			return false;
-		}*/
-        save_company();
+		if (($("#addcompanyfrm").validationEngine("validate"))===true) {
+			save_company();
+		}
     });
     $("#showCompanyPop").click(function(){
         show_add_modal();
@@ -913,6 +912,7 @@ jQuery("#companyList").jqGrid({
 });
 
 var save_company = function() {
+	
     $.ajax({
         type: "POST",
         data: {'data':serilaizeJson("#addcompanyfrm")},
