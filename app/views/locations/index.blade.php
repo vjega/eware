@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">Warehouse</label>
                         <div class="col-sm-6">
-                            <select type="text" class="form-control" id="name" name="name" >
+                            <select type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="name" name="name" >
                             <option value="">Select a warehouse</option>
                             @foreach ($sites as $s)
                                 <option value="{{$s->id}}">{{$s->name}}</option>
@@ -47,7 +47,7 @@
                         <label for="" class="col-sm-6 control-label">Location</label>
                         <div class="col-sm-6">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
-                            <input type="text" class="form-control" id="location_no" name="location_no" value="" placeholder="Enter Location e.g. India">
+                            <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="location_no" name="location_no" value="" placeholder="Enter Location e.g. India">
                         </div>
                     </div>
                 </div>
@@ -158,7 +158,9 @@ var serilaizeJson =  function (form, stripfromAttr){
 
 $(document).ready(function(){
     $("#save-location").click(function(){
-        save_location();
+		if (($("#addlocationfrm").validationEngine("validate"))===true) {
+			  save_location();
+		}
     });
     $("#showLocationPop").click(function(){
         show_add_modal();

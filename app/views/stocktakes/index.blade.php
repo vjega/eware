@@ -34,7 +34,7 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-   							<select name="client_code" id="client_code" class="form-control">
+   							<select name="client_code" id="client_code" class="form-control  validate[required,minSize[6]. maxSize[12]]">
     						    <option value="">Select Client</option>    
                                 @foreach ($clients as $c)
                                 <option value="{{$c->client_code}}">{{$c->client_code}}</option>
@@ -58,7 +58,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Reference No</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="reference_no" name="reference_no" value="" placeholder="">
+                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="reference_no" name="reference_no" value="" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Cycle Count No</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="cycle_count_no" name="cycle_count_no" value="" placeholder="">
+                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="cycle_count_no" name="cycle_count_no" value="" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Stock</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="stock" name="stock" value="" placeholder="Stock">
+                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="stock" name="stock" value="" placeholder="Stock">
                         </div>
                     </div>
                 </div>
@@ -110,16 +110,7 @@
                 </div>
                 
             </div>
-			<div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Confirm Cycle Count</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="confirm_cycle_count" name="confirm_cycle_count" value="" placeholder="Confirm Cycle Count">
-                        </div>
-                    </div>
-                </div>
-            </div>
+			
 			<div class="row">
 					<table id="locTransfer" class="table">  
 						<thead>  
@@ -135,7 +126,7 @@
 							<td><a class="btn" href="#">Delete</a></td>  
 							<td><select class="form-control products" id="skuproduct"></select></td>  
 							<td><input readonly="" class="form-control locations" type="text" /></td>  
-							<td><input class="form-control" type="text" /></td>
+							<td><input class="form-control  validate[required,minSize[6]. maxSize[12]]" type="text" /></td>
 						  </tr>
 						</tbody>  
 					  </table>  
@@ -188,7 +179,9 @@ $(document).ready(function(){
 	$(".datepicker").datepicker();
 	
     $("#save-stocktakes").click(function(){
-        save_stocktakes();
+		if (($("#addstocktakesfrm").validationEngine("validate"))===true) {
+			  save_stocktakes();
+		}
     });
     $("#showStockTakesPop").click(function(){
         show_add_modal();

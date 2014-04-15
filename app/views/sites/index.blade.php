@@ -34,7 +34,7 @@
                         <label for="" class="col-sm-4 control-label">Company Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
-                            <select class="form-control" id="company_code" name="company_code">
+                            <select class="form-control"  id="company_code" name="company_code">
                                 @foreach ($company as $com)
                                     <option value="{{$com->id}}">{{$com->company_name}}</option>
                                 @endforeach
@@ -46,7 +46,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Enter Site Name e.g. Acme Corp.">
+                            <input type="text" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]] " id="name" name="name" value="" placeholder="Enter Site Name e.g. Acme Corp.">
                         </div>
                     </div>
                 </div>
@@ -342,7 +342,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">City</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="city" name="city" value="" placeholder="region">
+                            <input type="email" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]"  id="city" name="city" value="" placeholder="region">
                         </div>
                     </div>
                 </div>
@@ -359,9 +359,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Address Line1</label>
+                        <label for="" class="col-sm-4 control-label">Address</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="addrs1" name="addrs1" value="" placeholder="region">
+                            <input type="text" class="form-controlvalidate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]" id="addrs1" name="addrs1" value="" placeholder="region">
                         </div>
                     </div>
                 </div>
@@ -538,7 +538,9 @@ var serilaizeJson =  function (form, stripfromAttr){
 
 $(document).ready(function(){
     $("#save-site").click(function(){
-        save_site();
+		if (($("#addsitefrm").validationEngine("validate"))===true) {
+			save_site();
+		}
     });
     $("#showSitePop").click(function(){
         show_add_modal();
@@ -631,6 +633,7 @@ var save_site = function() {
             $('#addSite').modal('hide');
             location.reload();
         }
+		
     });
     
 };

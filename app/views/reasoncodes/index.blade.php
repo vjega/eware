@@ -34,7 +34,7 @@
                         <label for="" class="col-sm-4 control-label">Reason Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="reason_code" name="reason_code" value="" placeholder="Enter Reason Code.">
+                            <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="reason_code" name="reason_code" value="" placeholder="Enter Reason Code.">
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Description</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="description" name="description" value="" placeholder="Enter Description .">
+                            <input type="email" class="form-control validate[required,minSize[6]. maxSize[12]]" id="description" name="description" value="" placeholder="Enter Description .">
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,9 @@ var serilaizeJson =  function (form, stripfromAttr){
 
 $(document).ready(function(){
     $("#save-reason-code").click(function(){
-        save_reason_code();
+		if (($("#addreasoncodefrm").validationEngine("validate"))===true) {
+			  save_reason_code();
+		}
     });
     $("#showReasonCodePop").click(function(){
         show_add_modal();

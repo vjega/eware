@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Adjustment Date</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control datepicker " id="adjustment_date" value="" name="adjustment_date" placeholder="Adjustment Date">
+                            <input type="text" class="form-control datepicker validate[required,minSize[6]. maxSize[12]] " id="adjustment_date" value="" name="adjustment_date" placeholder="Adjustment Date">
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Adjustment Number</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="adjustment_number" value="" name="adjustment_number" placeholder="Adjustment Number">    
+                        <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="adjustment_number" value="" name="adjustment_number" placeholder="Adjustment Number">    
                         </div>
                     </div>
                 </div>
@@ -109,9 +109,9 @@
 								</select>
 							</td>  
 							<td><input readonly="" class="form-control locations" type="text" /></td>  
-							<td><input class="form-control prodQty" type="text" /></td>  
-							<td><input class="form-control" type="text" /></td>  
-							<td><input class="form-control" type="text" /></td>  
+							<td><input class="form-control prodQty validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
+							<td><input class="form-control validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
+							<td><input class="form-control validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
 						  </tr>
 						</tbody>  
 					  </table>  
@@ -163,7 +163,9 @@ $(document).ready(function(){
 	$(".datepicker").datepicker();
 	
     $("#save-uom").click(function(){
-        save_uom();
+		if (($("#adduomfrm").validationEngine("validate"))===true) {
+			  save_uom();
+		}
     });
     $("#showUomPop").click(function(){
         show_add_modal();

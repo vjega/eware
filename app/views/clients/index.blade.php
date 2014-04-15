@@ -34,16 +34,16 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-							<input class="form-control" name="client_code" id="client_code" />
+							<input class="form-control validate[required,minSize[6]. maxSize[12]]" name="client_code" id="client_code" />
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Site Name </label>
+                        <label for="" class="col-sm-4 control-label">Client Name </label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <select type="text" class="form-control" id="name" name="name" value="" placeholder="Enter Company Name e.g. Acme Corp.">
+                            <select type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="name" name="name" value="" placeholder="Enter Company Name e.g. Acme Corp.">
                                 @foreach ($site as $s)
                                     <option value="{{$s->id}}">{{$s->name}}</option>
                                 @endforeach
@@ -332,7 +332,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">City</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="city" id="city" />
+                            <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" name="city" id="city" />
                         </div>
                     </div>
                 </div>
@@ -344,7 +344,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-2 control-label">Address</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="address" name="address" placeholder="Type Company Address Here"></textarea>
+                            <textarea class="form-control validate[required,minSize[6]. maxSize[12]]" id="address" name="address" placeholder="Type Company Address Here"></textarea>
                         </div>
                     </div>
                 </div>
@@ -480,7 +480,10 @@ var serilaizeJson =  function (form, stripfromAttr){
 
 $(document).ready(function(){
     $("#save_client").click(function(){
-        save_client();
+		if (($("#addclientfrm").validationEngine("validate"))===true) {
+			save_client();
+		}
+        
     });
     $("#showclientPop").click(function(){
         show_add_modal();

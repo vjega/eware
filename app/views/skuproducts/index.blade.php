@@ -35,7 +35,7 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-							<select name="client_code" id="client_code" class="form-control">
+							<select name="client_code" id="client_code" class="form-control  validate[required,minSize[6]. maxSize[12]]">
     						    <option value="">Select Client</option>    
                                 @foreach ($clients as $c)
                                 <option value="{{$c->client_code}}">{{$c->client_code}}</option>
@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Product Code </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="product_code" name="product_code" value="" placeholder="Nokia 23421">
+                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]] " id="product_code" name="product_code" value="" placeholder="Nokia 23421">
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Product Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="product_name" name="product_name" value="" placeholder="Nokia 2332">
+                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="product_name" name="product_name" value="" placeholder="Nokia 2332">
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Quantity</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="quantity" value="" name="quantity" placeholder="">
+                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="quantity" value="" name="quantity" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -103,9 +103,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">UOM Id</label>
+                        <label for="" class="col-sm-4 control-label">UOM</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="uom_id" value="" name="uom_id" placeholder="Postal Code">    
+                        <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="uom_id" value="" name="uom_id" placeholder="Postal Code">    
                         </div>
                     </div>
                 </div>
@@ -149,7 +149,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Location</label>
                         <div class="col-sm-8">
-							<select name="location_area" id="location_area" class="form-control">
+							<select name="location_area" id="location_area" class="form-control  validate[required,minSize[6]. maxSize[12]]">
     						    <option value="">Select Location</option>    
                                 @foreach ($location as $l)
                                 <option value="{{$l->id}}">{{$l->location_no}}</option>
@@ -235,7 +235,10 @@ $(document).ready(function(){
         $("#importModal").modal('show');
     });
     $("#save_product").click(function(){
-        save_product();
+		if (($("#addProductfrm").validationEngine("validate"))===true) {
+			 save_product();
+		}
+       
     });
     $("#showProductPop").click(function(){
         show_add_modal();

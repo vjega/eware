@@ -34,7 +34,7 @@
                         <label for="" class="col-sm-4 control-label">UOM Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control" id="uom_code" name="uom_code" value="" placeholder="UOM Code">
+                            <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="uom_code" name="uom_code" value="" placeholder="UOM Code">
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Description</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="description" name="description" value="" placeholder="Description">
+                            <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="description" name="description" value="" placeholder="Description">
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,9 @@ var serilaizeJson =  function (form, stripfromAttr){
 
 $(document).ready(function(){
     $("#save-uom").click(function(){
-        save_uom();
+	if (($("#adduomfrm").validationEngine("validate"))===true) {
+			save_uom();
+		}
     });
     $("#showUomPop").click(function(){
         show_add_modal();

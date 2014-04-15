@@ -34,7 +34,7 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-   							<select name="client_code" id="client_code" class="form-control">
+   							<select name="client_code" id="client_code" class="form-control validate[required,minSize[6]. maxSize[12]]">
     						    <option value="">Select Client</option>    
                                 @foreach ($clients as $c)
                                 <option value="{{$c->client_code}}">{{$c->client_code}}</option>
@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Movement Date</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control datepicker " id="movement_date" value="" name="movement_date" placeholder="Movement Date">
+                            <input type="text" class="form-control datepicker validate[required] " id="movement_date" value="" name="movement_date" placeholder="Movement Date">
                         </div>
                     </div>
                 </div>
@@ -108,17 +108,17 @@
 								<select class="form-control products" id="skuproduct">
 								</select>
 							</td>  
-							<td><input readonly="" class="form-control locations" type="text" /></td>  
-							<td><input class="form-control prodQty" type="text" /></td>  
+							<td><input readonly="" class="form-control locations validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
+							<td><input class="form-control prodQty validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
 							<td>
-								<select class="form-control">
+								<select class="form-control validate[required,minSize[6]. maxSize[12]]">
 									<option value="">Select Location</option>    
 									@foreach ($locations as $l)
 									<option value="{{$l->id}}">{{$l->location_no}}</option>
 									@endforeach
 								</select>
 							</td>	
-							<td><input class="form-control" type="text" /></td>  
+							<td><input class="form-control validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
 						  </tr>
 						</tbody>  
 					  </table>  
@@ -170,7 +170,9 @@ $(document).ready(function(){
 	$(".datepicker").datepicker();
 	
     $("#save-LocTransfer").click(function(){
-        save_loctransfer();
+		if (($("#addloctransferfrm").validationEngine("validate"))===true) {
+			 save_loctransfer();
+		}
     });
     $("#showLocTransferPop").click(function(){
         show_add_modal();

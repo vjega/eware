@@ -34,7 +34,7 @@
                         <label for="" class="col-sm-6 control-label">Client Code</label>
                         <div class="col-sm-6">
 							<input type="hidden" class="form-control" id="id" value="" placeholder="">
-                            <select name="client_code" id="client_code" class="form-control">
+                            <select name="client_code" id="client_code" class="form-control  validate[required,minSize[6]. maxSize[12]]">
 								<option value="">Select Client Code</option>
                                 @foreach($clients as $cli)
                                     <option value="{{$cli->client_code}}">{{$cli->client_code}}</option>
@@ -60,7 +60,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">From Uom</label>
                         <div class="col-sm-6">
-                        <select class="form-control" id="from_uom" value="" name="from_uom" placeholder="">    
+                        <select class="form-control validate[required,minSize[6]. maxSize[12]]" id="from_uom" value="" name="from_uom" placeholder="">    
                             <option value="">Select From UOM</option>
                             @foreach($uoms as $u)
                             <option value="{{$u->uom_code}}">{{$u->description}}</option>
@@ -73,7 +73,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">Conversion Rate</label>
                         <div class="col-sm-6">
-                        <input type="text" class="form-control" id="conversion_rate" value="" name="conversion_rate" placeholder="Conversion Rate">  
+                        <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="conversion_rate" value="" name="conversion_rate" placeholder="Conversion Rate">  
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">To Uom</label>
                         <div class="col-sm-6">
-                        <select class="form-control" id="to_uom" value="" name="to_uom" placeholder="">    
+                        <select class="form-control validate[required,minSize[6]. maxSize[12]]" id="to_uom" value="" name="to_uom" placeholder="">    
                             <option value="">Select To UOM</option>
                             @foreach($uoms as $u)
                             <option value="{{$u->uom_code}}">{{$u->description}}</option>
@@ -129,7 +129,9 @@ var serilaizeJson =  function (form, stripfromAttr){
 
 $(document).ready(function(){
     $("#save-uom").click(function(){
-        save_uom();
+		if (($("#adduomconversionfrm").validationEngine("validate"))===true) {
+			 save_uom();
+		}
     });
     $("#showUomPop").click(function(){
         show_add_modal();
