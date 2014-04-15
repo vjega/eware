@@ -14,8 +14,6 @@
         </div>
     </div>
 @stop
-
-
 <!-- Add/edit popups -->
 @section('popups')
 <!-- add / Edit -->
@@ -57,7 +55,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Country</label>
                         <div class="col-sm-8">
-                            <select class="form-control" id="country" name="country" value="" placeholder="region">
+                            <select class="form-control" id="country" name="country">
                                 <option value="0" label="Select a country ... " selected="selected">Select a country ... </option>
                                 <option value="AF" label="Afghanistan">Afghanistan</option>
                                 <option value="AL" label="Albania">Albania</option>
@@ -329,9 +327,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">region</label>
+                        <label for="" class="col-sm-4 control-label">Region</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="region" name="region" value="" placeholder="region">
+                            <input type="text" class="form-control" id="region" name="region" value="" placeholder="Enter Region Name">
                         </div>
                     </div>
                 </div>
@@ -342,15 +340,15 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">City</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]"  id="city" name="city" value="" placeholder="region">
+                            <input type="text" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]"  id="city" name="city" value="" placeholder="Enter City Name">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">currency</label>
+                        <label for="" class="col-sm-4 control-label">Currency</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="currency" name="currency" value="" placeholder="region">
+                            <input type="text" class="form-control" id="currency" name="currency" value="" placeholder="Enter Currency Name">
                         </div>
                     </div>
                 </div>
@@ -361,7 +359,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Address</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-controlvalidate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]" id="addrs1" name="addrs1" value="" placeholder="region">
+                            <input type="text" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]" id="addrs1" name="addrs1" value="" placeholder="Enter Address">
                         </div>
                     </div>
                 </div>
@@ -369,7 +367,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Email</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="email" name="email" value="" placeholder="region">
+                            <input type="email" class="form-control" id="email" name="email" value="" placeholder="Enter Email Address">
                         </div>
                     </div>
                 </div>
@@ -378,17 +376,17 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">website</label>
+                        <label for="" class="col-sm-4 control-label">Website</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="website" name="website" value="" placeholder="Fax Number">
+                            <input type="text" class="form-control" id="website" name="website" value="" placeholder="Enter Website Address">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Tel Number 1</label>
+                        <label for="" class="col-sm-4 control-label">Telephone Number 1</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tel_no1" value="" name="tel_no1" placeholder="Tel Number eg. 91-44-244-65788">
+                            <input type="text" class="form-control" id="tel_no1" value="" name="tel_no1" placeholder="Telephone Number 1 eg. 91-44-244-65788">
                         </div>
                     </div>
                 </div>
@@ -397,17 +395,17 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Tel No2</label>
+                        <label for="" class="col-sm-4 control-label">Telephone Number 2</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="tel_no2" value="" name="tel_no2" placeholder="Postal Code">    
+                        <input type="text" class="form-control" id="tel_no2" value="" name="tel_no2" placeholder="Telephone Number 2 eg. 91-44-244-65788">    
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Fax No</label>
+                        <label for="" class="col-sm-4 control-label">Fax Number</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="fax_no" value="" name="fax_no" placeholder="">  
+                        <input type="text" class="form-control" id="fax_no" value="" name="fax_no" placeholder="Enter Fax Number">  
                         </div>
                     </div>
                 </div>
@@ -425,7 +423,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Biz Type</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="biz_type" value="" name="biz_type" placeholder="">  
+                        <input type="text" class="form-control" id="biz_type" value="" name="biz_type" placeholder="Biz Type">  
                         </div>
                     </div>
                 </div>
@@ -435,7 +433,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Opening Hours</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="biz_hours" value="" name="biz_hours" placeholder="">    
+                        <input type="text" class="form-control" id="biz_hours" value="" name="biz_hours" placeholder="Biz Hours">    
                         </div>
                     </div>
                 </div>
@@ -443,7 +441,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Credit Limit</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="credit_limit" value="" name="credit_limit" placeholder="">  
+                        <input type="text" class="form-control" id="credit_limit" value="" name="credit_limit" placeholder="Credit Limit">  
                         </div>
                     </div>
                 </div>
@@ -453,7 +451,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Priority</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="priority" value="" name="priority" placeholder="">    
+                        <input type="text" class="form-control" id="priority" value="" name="priority" placeholder="Priority">    
                         </div>
                     </div>
                 </div>
@@ -461,7 +459,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Zonal Level</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="zonal_level" value="" name="zonal_level" placeholder="">  
+                        <input type="text" class="form-control" id="zonal_level" value="" name="zonal_level" placeholder="Zonal Level">  
                         </div>
                     </div>
                 </div>

@@ -31,19 +31,10 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Client Code</label>
+                        <label for="" class="col-sm-4 control-label">Site</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-							<input class="form-control validate[required,minSize[6]. maxSize[12]]" name="client_code" id="client_code" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Client Name </label>
-                        <div class="col-sm-8">
-                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <select type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="name" name="name" value="" placeholder="Enter Company Name e.g. Acme Corp.">
+                            <select class="form-control validate[required]" id="site" name="site" >
                                 @foreach ($site as $s)
                                     <option value="{{$s->id}}">{{$s->name}}</option>
                                 @endforeach
@@ -51,9 +42,24 @@
                         </div>
                     </div>
                 </div>
-                
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Client Code</label>
+                        <div class="col-sm-8">
+							<input class="form-control validate[required,minSize[3]. maxSize[12]]" name="client_code" id="client_code" placeholder="Enter Client Code e.g. ACCP" />
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Client Name </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="name" name="name" value="" placeholder="Enter Client Name e.g. Acme Corp.">
+                        </div>
+                    </div>
+                </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Country</label>
@@ -332,18 +338,15 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">City</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" name="city" id="city" />
+                            <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" name="city" id="city" placeholder = "Type City Name" />
                         </div>
                     </div>
                 </div>
                 
-            </div>
-           
-            <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">Address</label>
-                        <div class="col-sm-10">
+                        <label for="" class="col-sm-4 control-label">Address</label>
+                        <div class="col-sm-8">
                             <textarea class="form-control validate[required,minSize[6]. maxSize[12]]" id="address" name="address" placeholder="Type Company Address Here"></textarea>
                         </div>
                     </div>
@@ -483,7 +486,6 @@ $(document).ready(function(){
 		if (($("#addclientfrm").validationEngine("validate"))===true) {
 			save_client();
 		}
-        
     });
     $("#showclientPop").click(function(){
         show_add_modal();
@@ -505,10 +507,11 @@ jQuery("#clientsList").jqGrid({
     datatype: "json",
     height: 375,
     width: panelWidth,
-    colNames:['<input type="checkbox"/>','Code','Name', 'Country', 'City', 'Address', 'Fax Number', 'Telephone Number', 'Postal Code', 'Contact Name', 'Credit Limit', 'Payment Terms', 'Business Hour', 'Company service Level', 'Order Priority', 'Services Provided', 'Created Date'],
+    colNames:['<input type="checkbox"/>','Site','Code','Name', 'Country', 'City', 'Address', 'Fax Number', 'Telephone Number', 'Postal Code', 'Contact Name', 'Credit Limit', 'Payment Terms', 'Business Hour', 'Company service Level', 'Order Priority', 'Services Provided', 'Created Date'],
     colModel:[
         {name:'select'},
-        {name:'id'},
+        {name:'site_id'},
+        {name:'client_code'},		
         {name:'name'},
         {name:'country_code'},
         {name:'city'},
