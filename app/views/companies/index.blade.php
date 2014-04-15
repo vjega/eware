@@ -59,7 +59,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-5 control-label">Currency</label>
                         <div class="col-sm-7">
-                            <select name="currency" id="currency" class="form-control">
+                            <select name="currency" id="currency" class="form-control" data-validation-engine="validate[required,minSize[6]. maxSize[12]]" >
                                 <option value="AF">AFN</option>
                                 <option value="AL">ALL</option>
                                 <option value="DZ">DZD</option>
@@ -314,7 +314,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-5 control-label">Country</label>
                         <div class="col-sm-7">
-                            <select name="country" id="country" class="form-control">
+                            <select name="country" id="country" class="form-control" data-validation-engine="validate[required,minSize[6]. maxSize[12]]">
                                 <option value="0" label="Select a country ... " selected="selected">Select a country ... </option>
                                 <option value="AF" label="Afghanistan">Afghanistan</option>
                                 <option value="AL" label="Albania">Albania</option>
@@ -621,7 +621,8 @@
                     <div class="form-group">
                         <label for="" class="col-sm-5 control-label">City</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" id="city" name="city" placeholder="Type City Here" />
+                            <input type="text" class="form-control"  data-validation-engine="validate[required,minSize[6]. maxSize[12]]"
+							id="city" name="city" placeholder="Type City Here" />
                         </div>
                     </div>
                 </div>

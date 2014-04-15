@@ -23,8 +23,6 @@
         <!-- Theme style -->
         {{ HTML::style('static/css/AdminLTE.css') }}
         {{ HTML::style('plugins/jQueryValidationEngine/css/validationEngine.jquery.css') }}
-        {{ HTML::style('plugins/jQueryValidationEngine/css/customMessages.css') }}
-
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
