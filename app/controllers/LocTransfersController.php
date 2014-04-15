@@ -9,7 +9,9 @@ class LocTransfersController extends \BaseController {
 	 */
 	public function index() 
 	{
-		return View::make('loctransfers.index'); 
+		$clients = Client::all(['client_code', 'name']);
+		$locations = Location::all(['id', 'location_no']);
+		return View::make('loctransfers.index')->with('clients',$clients)->with('locations',$locations); 
 
 	}
 
