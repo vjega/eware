@@ -169,7 +169,7 @@
                         <select type="text" class="form-control" id="uom" value="" name="uom" placeholder="Uom">    
                             <option value="">Select UOM Code</option>
                                 @foreach ($uoms as $uom)
-                                <option value="{{$cli->uom_code}}">{{$uom->uom_code}}</option>
+                                <option value="{{$uom->uom_code}}">{{$uom->uom_code}}</option>
                                 @endforeach
                         </select>
                         </div>
