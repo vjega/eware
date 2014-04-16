@@ -32,7 +32,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Client Code</label>
+                        <label for="" class="col-sm-4 control-label">Client Code
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
                            <select name="client_code" id="client_code" class="form-control validate[required,minSize[6]">
@@ -47,7 +49,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">RV No</label>
+                        <label for="" class="col-sm-4 control-label">RV No
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control validate[required,minSize[6]" id="rv_no" name="rv_no" value="" placeholder="">    
                         </div>

@@ -44,7 +44,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Client Code</label>
+                        <label for="" class="col-sm-4 control-label">Client Code
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
 							<input class="form-control validate[required,minSize[3]. maxSize[12]]" name="client_code" id="client_code" placeholder="Enter Client Code e.g. ACCP" />
                         </div>
@@ -54,7 +56,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Client Name </label>
+                        <label for="" class="col-sm-4 control-label">Client Name 
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="name" name="name" value="" placeholder="Enter Client Name e.g. Acme Corp.">
                         </div>
@@ -336,7 +340,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">City</label>
+                        <label for="" class="col-sm-4 control-label">City
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" name="city" id="city" placeholder = "Type City Name" />
                         </div>
@@ -345,7 +351,9 @@
                 
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Address</label>
+                        <label for="" class="col-sm-4 control-label">Address
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <textarea class="form-control validate[required,minSize[6]. maxSize[12]]" id="address" name="address" placeholder="Type Company Address Here"></textarea>
                         </div>

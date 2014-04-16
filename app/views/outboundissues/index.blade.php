@@ -32,7 +32,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Client Code</label>
+                        <label for="" class="col-sm-4 control-label">Client Code
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
                             <select name="client_code" id="client_code" class="form-control validate[required,minSize[6]">
@@ -48,7 +50,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Order No</label>
+                        <label for="" class="col-sm-4 control-label">Order No
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control validate[required,minSize[6]" id="order_no" name="order_no" value="" placeholder="Enter Order No.">
                         </div>
@@ -60,7 +64,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Order Date</label>
+                        <label for="" class="col-sm-4 control-label">Order Date
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="email" class="form-control datepicker validate[required,minSize[6] " id="order_date" name="order_date" value="" placeholder="Enter Fax Number">
                         </div>
@@ -68,7 +74,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Issue No</label>
+                        <label for="" class="col-sm-4 control-label">Issue No
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control validate[required,minSize[6]" id="issue_no" value="" name="issue_no" placeholder="Enter Issue No">
                         </div>
@@ -79,7 +87,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Issue Date</label>
+                        <label for="" class="col-sm-4 control-label">Issue Date
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control datepicker validate[required,minSize[6]" id="issue_date" value="" name="issue_date" placeholder="Enter Issue Date">    
                         </div>
@@ -152,7 +162,9 @@
 			<div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Product No</label>
+                        <label for="" class="col-sm-4 control-label">Product No
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control validate[required,minSize[6]" id="product_no" value="" name="product_no" placeholder="Enter Product No">    
                         </div>
@@ -214,7 +226,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Issue Qty</label>
+                        <label for="" class="col-sm-4 control-label">Issue Qty
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control validate[required,minSize[6]" id="issue_qty" value="" name="issue_qty" placeholder="">  
                         </div>

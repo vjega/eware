@@ -47,7 +47,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-5 control-label">Company Name </label>
+                        <label for="" class="col-sm-5 control-label">Company Name 
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-7">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
                             <input type="text" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]" 
@@ -57,7 +59,9 @@
                 </div>
 				<div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-5 control-label">Currency</label>
+                        <label for="" class="col-sm-5 control-label">Currency
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-7">
                             <select name="currency" id="currency" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]" >
                                 <option value="AF">AFN</option>
@@ -312,7 +316,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-5 control-label">Country</label>
+                        <label for="" class="col-sm-5 control-label">Country
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-7">
                             <select name="country" id="country" class="form-control validate[required,minSize[6]. maxSize[12]]">
                                 <option value="0" label="Select a country ... " selected="selected">Select a country ... </option>
@@ -619,7 +625,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-5 control-label">City</label>
+                        <label for="" class="col-sm-5 control-label">City
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-7">
                             <input type="text" class="form-control validate[required]"  
 							id="city" name="city" placeholder="Type City Here" />

@@ -31,10 +31,12 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Client Code</label>
+                        <label for="" class="col-sm-4 control-label">Client Code
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                             <select name="client_code" id="client_code" class="form-control">
+                             <select name="client_code" id="client_code" class="form-control  validate[required,minSize[6]. maxSize[12]]">
 								<option value="">Select Client Code</option>
                                 @foreach ($clients as $cli)
                                 <option value="{{$cli->client_code}}">{{$cli->client_code}}</option>
@@ -45,7 +47,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Adjustment Date</label>
+                        <label for="" class="col-sm-4 control-label">Adjustment Date
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control datepicker validate[required,minSize[6]. maxSize[12]] " id="adjustment_date" value="" name="adjustment_date" placeholder="Adjustment Date">
                         </div>
@@ -56,7 +60,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Adjustment Number</label>
+                        <label for="" class="col-sm-4 control-label">Adjustment Number
+							 <span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="adjustment_number" value="" name="adjustment_number" placeholder="Adjustment Number">    
                         </div>
@@ -94,21 +100,21 @@
 						<thead>  
 						  <tr>  
 							<th>Delete</th>  
-							<th>Product</th>  
-							<th>Location</th>  
-							<th>Quantity</th>  
-							<th>Plus Qty</th>  
-							<th>Minus Qty</th>  
+							<th>Product <span class="error">*</span></th>  
+							<th>Location <span class="error">*</span></th>  
+							<th>Quantity <span class="error">*</span></th>  
+							<th>Plus Qty <span class="error">*</span></th>  
+							<th>Minus Qty <span class="error">*</span></th>  
 						  </tr>  
 						</thead>  
 						<tbody>  
 						  <tr class="trow">  
 							<td><a class="btn deleteRow" href="#">Delete</a></td>  
 							<td>
-								<select class="form-control products" id="skuproduct">
+								<select class="form-control products " id="skuproduct">
 								</select>
 							</td>  
-							<td><input readonly="" class="form-control locations" type="text" /></td>  
+							<td><input readonly="" class="form-control locations validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
 							<td><input class="form-control prodQty validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
 							<td><input class="form-control validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
 							<td><input class="form-control validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  

@@ -42,7 +42,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Name</label>
+                        <label for="" class="col-sm-4 control-label">Name
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]] " id="name" name="name" value="" placeholder="Enter Site Name e.g. Acme Corp.">
                         </div>
@@ -338,9 +340,13 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">City</label>
+                        <label for="" class="col-sm-4 control-label">City
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]"  id="city" name="city" value="" placeholder="Enter City Name">
+						
+                            <input type="text" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]"  
+							id="city" name="city" value="" placeholder="Enter City Name">
                         </div>
                     </div>
                 </div>
@@ -357,7 +363,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Address</label>
+                        <label for="" class="col-sm-4 control-label">Address
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]" id="addrs1" name="addrs1" value="" placeholder="Enter Address">
                         </div>

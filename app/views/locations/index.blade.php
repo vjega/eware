@@ -31,7 +31,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-6 control-label">Warehouse</label>
+                        <label for="" class="col-sm-6 control-label">Warehouse
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-6">
                             <select type="text" class="form-control validate[required]" id="name" name="name" >
                             <option value="">Select a warehouse</option>
@@ -44,7 +46,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-6 control-label">Location</label>
+                        <label for="" class="col-sm-6 control-label">Location
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-6">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
                             <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="location_no" name="location_no" value="" placeholder="Enter Location e.g. India">

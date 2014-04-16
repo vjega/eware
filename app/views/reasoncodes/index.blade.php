@@ -31,7 +31,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Reason Code</label>
+                        <label for="" class="col-sm-4 control-label">Reason Code
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
                             <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="reason_code" name="reason_code" value="" placeholder="Enter Reason Code.">
@@ -51,7 +53,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Description</label>
+                        <label for="" class="col-sm-4 control-label">Description
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="email" class="form-control validate[required,minSize[6]. maxSize[12]]" id="description" name="description" value="" placeholder="Enter Description .">
                         </div>
