@@ -91,4 +91,19 @@ class InboundReceiptsAPIController extends \BaseController {
         Inboundreceipt::destroy($ids);
         return "true";
     }
+
+    public function excelimport()
+    {
+        $file = Input::file('file');
+        $excelarray = Excel::load($file)->toArray();
+        $excelheader = array_shift($excelarray);
+        $formatted_excel = [];
+        foreach ($excelarray as $row=>$rval) {
+            foreach ($rval as $cell=>$cellvalue) {
+                $formatted_excel[$row][$excelheader[$cell]] = $cellvalue;
+            }
+        }
+        #$this->save_skudata($formatted_excel);
+        return Response::json('sucess','201'); 
+    }
 }

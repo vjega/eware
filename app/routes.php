@@ -119,4 +119,5 @@ Route::group(array('prefix' => 'api/v1'), function()
 Route::group(array('prefix' => 'upload'), function()
 {
 	    Route::resource('skuxlsimport', 'SkuproductsAPIController@excelimport');
+	    Route::resource('receiptxlsimport', 'InboundReceiptsAPIController@excelimport');
 });

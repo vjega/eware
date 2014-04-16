@@ -11,6 +11,7 @@
             <button class="btn btn-inverse" data-toggle="modal" id="showUomPop">New Receipt</button>
             <button class="btn btn-inverse" data-toggle="modal" id="editUomPop">Edit Selected Receipt</button>
             <button class="btn btn-inverse" data-toggle="modal" id="delUom">Delete Selected Receipt</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="impXl">Import From Exel</button>
         </div>
     </div>
 @stop
@@ -240,6 +241,25 @@
       </div>
     </div>
 </div>
+</div>
+<div class="modal fade" id="impExlModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Import from excel</h4>
+      </div>
+      <div class="modal-body">      
+         <div class="modal-body" id="dropzone">
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="browse_excel">Browse and Upload File</button>
+      </div>
+    </div>
+</div>
+</div>
 @stop
 
 
@@ -269,6 +289,19 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
+    
+    myDropzone = $("#dropzone").dropzone({
+        url :'upload/receiptxlsimport',
+        clickable : '#browse_excel',
+        complete : function(file) {
+            $("#importModal").modal('hide');
+            //document.location.reload();
+        }
+    });
+
+    $("#impXl").click(function(){
+        $("#impExlModal").modal("show");
+    })
     $("#client_code").change(function(){
         update_product_dropdown(this);
     })
