@@ -49,7 +49,17 @@ class OutboundIssuesAPIController extends \BaseController {
         $obi->total_issue_price = $postObj->total_issue_price;
         $obi->location_qty   	= $postObj->location_qty;
         $obi->save(); 
+		$this->save2itemledger($postObj);
         return $obi->id;
+    }
+	private function save2itemledger($data)
+    {
+        $itemledger = new Itemledger;
+        $itemledger-> client_code		=  $data->client_code;
+        $itemledger-> qty           =  $data->issue_qty;
+         $itemledger-> status		=  $data->status;
+        $itemledger->save();
+		return $itemledger;
     }
 
     public function show($id)

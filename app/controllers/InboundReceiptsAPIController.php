@@ -54,14 +54,11 @@ class InboundReceiptsAPIController extends \BaseController {
     private function save2ledger($data)
     {
         $itemledger = new Itemledger;
-        $itemledger-> = -($postObj->cust_code);
-        $itemledger-> =  $postObj->client_code;
-        $itemledger-> =  $postObj->location_code;
-        $itemledger-> =  $postObj->item_code;
-        $itemledger-> =  $postObj->qty;
-        $itemledger-> =  $postObj->narration;
-        $itemledger-> =  $postObj->status;
-        $itemledger->save()
+        $itemledger-> qty           =  $data->accepted_qty;
+        // $itemledger-> narration		=  $data->narration;
+        // $itemledger-> status		=  $data->status;
+        $itemledger->save();
+		return $itemledger;
     }
 
     public function show($id)
