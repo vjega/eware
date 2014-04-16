@@ -118,7 +118,7 @@
                         <select class="form-control validate[required]" id="uom_id" value="" name="uom_id" placeholder="">    
                             <option value="">Select UOM</option>
                             @foreach($uoms as $u)
-                            <option value="{{$u->uom_code}}">{{$u->description}}</option>
+                            <option value="{{$u->uom_code}}">{{$u->uom_code}}</option>
                             @endforeach
                         </select>
                         </div>

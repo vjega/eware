@@ -24,7 +24,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add/Edit Stock Take</h4>
+        <h4 class="modal-title" id="myModalLabel">Stock Take</h4>
       </div>
       <form class="form-horizontal" role="form" name="addstocktakesfrm" id="addstocktakesfrm">
       <div class="modal-body">      
@@ -131,7 +131,7 @@
 						</thead>  
 						<tbody>  
 						  <tr class="trow">  
-							<td><a class="btn" href="#">Delete</a></td>  
+							<td><a class="btn deleteRow" href="#">Delete</a></td>  
 							<td><select class="form-control products" id="skuproduct"></select></td>  
 							<td><input readonly="" class="form-control locations  validate[required]" type="text" /></td>  
 							<td><input class="form-control  validate[required]" type="text" /></td>
@@ -205,9 +205,14 @@ $(document).ready(function(){
     });
     $("#client_code").change(function(){
         update_product_dropdown(this);
-    })
+    });
     $("#skuproduct").change(function(){
         update_product_qty_dropdown(this);
+    });
+    $("body").on("click", ".deleteRow", function(){
+        if ($(".deleteRow").length > 1) {
+            $(this).parent().parent().remove();
+        }
     })
 	
 });

@@ -15,6 +15,7 @@ class AddClientsTable extends Migration {
 		Schema::table('clients', function(Blueprint $table) {
 			$table->string('site_id')->default('');
 		});
+		DB::update('alter table clients modify client_code varchar(50)');
 	}
 
 

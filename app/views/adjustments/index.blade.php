@@ -185,13 +185,17 @@ $(document).ready(function(){
     $("#post-uom").click(function(){
         update_uom();
     });
-
     $("#client_code").change(function(){
         update_product_dropdown(this);
-    })
+    });
     $("#skuproduct").change(function(){
         update_product_qty_dropdown(this);
-    })
+    });
+    $("body").on("click",".deleteRow", function(){
+        if ($(".deleteRow").length > 1) {
+            $(this).parent().parent().remove();
+        };
+    });
 });
 
 var panelWidth = jQuery(".panel").width()-45;
@@ -355,10 +359,5 @@ var update_product_qty_dropdown = function (elm) {
         console.log( "error" );
     });
 }
-
-$(".deleteRow").click(function(){
-	$(this).parent().parent().hide();
-});
-
 </script>
 @stop	
