@@ -2,7 +2,7 @@
 <!-- Main Content -->
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading"><h3>UOMs</h3></div>
+        <div class="panel-heading"><h3>UOMS</h3></div>
         <div class="panel-body">
             <table id="uomList"></table>
             <div id="uomPager"></div>
@@ -31,7 +31,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">UOM Code</label>
+                        <label for="" class="col-sm-4 control-label">UOM Code
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
                             <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="uom_code" name="uom_code" value="" placeholder="UOM Code">
@@ -40,7 +42,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Description</label>
+                        <label for="" class="col-sm-4 control-label">Description
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="description" name="description" value="" placeholder="Description">
                         </div>

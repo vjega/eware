@@ -32,7 +32,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Client Code</label>
+                        <label for="" class="col-sm-4 control-label">Client Code
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
 							<select name="client_code" id="client_code" class="form-control  validate[required,minSize[3]. maxSize[12]]">
@@ -46,7 +48,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Product Code </label>
+                        <label for="" class="col-sm-4 control-label">Product Code 
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]] " id="product_code" name="product_code" value="" placeholder="NOK2332">
                         </div>
@@ -57,7 +61,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Product Name</label>
+                        <label for="" class="col-sm-4 control-label">Product Name
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="product_name" name="product_name" value="" placeholder="Nokia 2332">
                         </div>
@@ -92,7 +98,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Quantity</label>
+                        <label for="" class="col-sm-4 control-label">Quantity
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="quantity" value="" name="quantity" placeholder="Quantity">
                         </div>
@@ -103,7 +111,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">UOM</label>
+                        <label for="" class="col-sm-4 control-label">UOM
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                         <select class="form-control validate[required]" id="uom_id" value="" name="uom_id" placeholder="">    
                             <option value="">Select UOM</option>
@@ -152,7 +162,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Location</label>
+                        <label for="" class="col-sm-4 control-label">Location
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
 							<select name="location_area" id="location_area" class="form-control  validate[required]">
     						    <option value="">Select Location</option>    

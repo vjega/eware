@@ -123,3 +123,6 @@ form.formular, .validationEngineContainer {
 .prompt-summary .inline {
 	display: block;
 }
+.error {
+	color: #FF0000;
+}

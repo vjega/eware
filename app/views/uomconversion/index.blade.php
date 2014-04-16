@@ -31,7 +31,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-6 control-label">Client Code</label>
+                        <label for="" class="col-sm-6 control-label">Client Code
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-6">
 							<input type="hidden" class="form-control" id="id" value="" placeholder="">
                             <select name="client_code" id="client_code" class="form-control  validate[required,minSize[6]. maxSize[12]]">
@@ -58,7 +60,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-6 control-label">From Uom</label>
+                        <label for="" class="col-sm-6 control-label">From Uom
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-6">
                         <select class="form-control validate[required,minSize[6]. maxSize[12]]" id="from_uom" value="" name="from_uom" placeholder="">    
                             <option value="">Select From UOM</option>
@@ -71,7 +75,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-6 control-label">Conversion Rate</label>
+                        <label for="" class="col-sm-6 control-label">Conversion Rate
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-6">
                         <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="conversion_rate" value="" name="conversion_rate" placeholder="Conversion Rate">  
                         </div>
@@ -81,7 +87,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-6 control-label">To Uom</label>
+                        <label for="" class="col-sm-6 control-label">To Uom
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-6">
                         <select class="form-control validate[required,minSize[3]. maxSize[12]]" id="uom_id" value="" name="uom_id" placeholder="">    
                             <option value="">Select To UOM</option>
