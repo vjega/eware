@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">Warehouse</label>
                         <div class="col-sm-6">
-                            <select type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="name" name="name" >
+                            <select type="text" class="form-control validate[required]" id="name" name="name" >
                             <option value="">Select a warehouse</option>
                             @foreach ($sites as $s)
                                 <option value="{{$s->id}}">{{$s->name}}</option>
@@ -57,7 +57,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">Location Area</label>	 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="location_area" id="location_area" />
+                            <input type="text" class="form-control" name="location_area" id="location_area" placeholder="Enter Location Area Here" />
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">Location Type</label>
                         <div class="col-sm-6">
-                            <input type="text"  class="form-control" name="location_type" id="location_type">
+                            <input type="text"  class="form-control" name="location_type" id="location_type" placeholder="Enter Location Type Here">
                         </div>
                     </div>
                 </div>

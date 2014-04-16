@@ -83,7 +83,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-6 control-label">To Uom</label>
                         <div class="col-sm-6">
-                        <select class="form-control validate[required,minSize[6]. maxSize[12]]" id="to_uom" value="" name="to_uom" placeholder="">    
+                        <select class="form-control validate[required,minSize[3]. maxSize[12]]" id="uom_id" value="" name="uom_id" placeholder="">    
                             <option value="">Select To UOM</option>
                             @foreach($uoms as $u)
                             <option value="{{$u->uom_code}}">{{$u->description}}</option>

@@ -103,7 +103,7 @@
 						</thead>  
 						<tbody>  
 						  <tr class="trow">  
-							<td><a class="btn" href="#">Delete</a></td>  
+							<td><a class="btn deleteRow" href="#">Delete</a></td>  
 							<td>
 								<select class="form-control products" id="skuproduct">
 								</select>
@@ -349,5 +349,10 @@ var update_product_qty_dropdown = function (elm) {
         console.log( "error" );
     });
 }
+
+$(".deleteRow").click(function(){
+	$(this).parent().parent().hide();
+});
+
 </script>
 @stop	

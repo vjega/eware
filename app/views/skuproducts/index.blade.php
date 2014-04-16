@@ -35,7 +35,7 @@
                         <label for="" class="col-sm-4 control-label">Client Code</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-							<select name="client_code" id="client_code" class="form-control  validate[required,minSize[6]. maxSize[12]]">
+							<select name="client_code" id="client_code" class="form-control  validate[required,minSize[3]. maxSize[12]]">
     						    <option value="">Select Client</option>    
                                 @foreach ($clients as $c)
                                 <option value="{{$c->client_code}}">{{$c->client_code}}</option>
@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Product Code </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]] " id="product_code" name="product_code" value="" placeholder="Nokia 23421">
+                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]] " id="product_code" name="product_code" value="" placeholder="NOK2332">
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Quantity</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="quantity" value="" name="quantity" placeholder="">
+                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="quantity" value="" name="quantity" placeholder="Quantity">
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,12 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">UOM</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="uom_id" value="" name="uom_id" placeholder="Postal Code">    
+                        <select class="form-control validate[required]" id="uom_id" value="" name="uom_id" placeholder="">    
+                            <option value="">Select UOM</option>
+                            @foreach($uoms as $u)
+                            <option value="{{$u->uom_code}}">{{$u->description}}</option>
+                            @endforeach
+                        </select>
                         </div>
                     </div>
                 </div>
@@ -123,7 +128,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Serial Number</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="serial_number" value="" name="serial_number" placeholder="ispn number">    
+                        <input type="text" class="form-control" id="serial_number" value="" name="serial_number" placeholder="ISPN Number">    
                         </div>
                     </div>
                 </div>
@@ -131,7 +136,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Expiry Date</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control  datepicker " id="expiry_date" value="" name="expiry_date" placeholder="Date">  
+                        <input type="text" class="form-control  datepicker " id="expiry_date" value="" name="expiry_date" placeholder="Expiry Date">  
                         </div>
                     </div>
                 </div>
@@ -141,7 +146,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Storage Form</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="storage_form" value="" name="storage_form" placeholder="H0t/cold/warm">    
+                        <input type="text" class="form-control" id="storage_form" value="" name="storage_form" placeholder="Hot/Cold/Warm">    
                         </div>
                     </div>
                 </div>
@@ -149,7 +154,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Location</label>
                         <div class="col-sm-8">
-							<select name="location_area" id="location_area" class="form-control  validate[required,minSize[6]. maxSize[12]]">
+							<select name="location_area" id="location_area" class="form-control  validate[required]">
     						    <option value="">Select Location</option>    
                                 @foreach ($location as $l)
                                 <option value="{{$l->id}}">{{$l->location_no}}</option>
