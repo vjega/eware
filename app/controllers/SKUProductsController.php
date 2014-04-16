@@ -11,7 +11,11 @@ class SKUProductsController extends \BaseController {
 	{
         $clients = Client::all(['client_code', 'name']);
 		$location = Location::all(['id', 'location_no']);
-        return View::make('skuproducts.index')->with('clients',$clients)->with('location',$location);
+		$uoms = Uom::all(['uom_code', 'description']);
+        return View::make('skuproducts.index')
+			->with('clients',$clients)
+			->with('uoms',$uoms)
+			->with('location',$location);
 	}
 
 }
