@@ -47,7 +47,15 @@ class InboundReceiptsAPIController extends \BaseController {
         $receipt->short   			= $postObj->short;
         $receipt->remarks  		    = $postObj->remarks;
         $receipt->save(); 
+        $this->save2ledger($postObj);
         return $receipt->id;
+    }
+
+    private function save2ledger($data)
+    {
+        $itemledger = new Itemledger;
+        //$itemledger-> = -($postObj->accepted_qty)
+        $itemledger->save()
     }
 
     public function show($id)
@@ -103,7 +111,13 @@ class InboundReceiptsAPIController extends \BaseController {
                 $formatted_excel[$row][$excelheader[$cell]] = $cellvalue;
             }
         }
-        #$this->save_skudata($formatted_excel);
-        return Response::json('sucess','201'); 
+        $result = $this->save_xl_receipt($formatted_excel);
+        #return Response::json('success','201'); 
+        return $result;
+    }
+
+    private function save_xl_receipt($xl_array)
+    {
+        return print_r($xl_array, true);
     }
 }
