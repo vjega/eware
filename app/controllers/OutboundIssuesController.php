@@ -9,7 +9,9 @@ class OutboundIssuesController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('outboundissues.index');
+		$clients = Client::all(['client_code', 'name']);
+        return View::make('outboundissues.index')
+            ->with('clients',$clients);
 	}
 
 }

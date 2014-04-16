@@ -31,7 +31,7 @@ class InboundReceiptsAPIController extends \BaseController {
         $receipt->grn_no            = $postObj->grn_no;
         $receipt->po_no       		= $postObj->po_no;
         $receipt->invoice_no        = $postObj->invoice_no;
-        $receipt->transport_mode    = $postObj->transport_mode;
+        #$receipt->transport_mode    = $postObj->transport_mode;
         $receipt->forwarder_code    = $postObj->forwarder_code;
         $receipt->supplier_code     = $postObj->supplier_code;
         $receipt->rv_no  			= $postObj->rv_no;
@@ -54,9 +54,13 @@ class InboundReceiptsAPIController extends \BaseController {
     private function save2ledger($data)
     {
         $itemledger = new Itemledger;
-        $itemledger-> qty           =  $data->accepted_qty;
-        // $itemledger-> narration		=  $data->narration;
-        // $itemledger-> status		=  $data->status;
+        $itemledger->qty             = $data->accepted_qty;
+        $itemledger->cust_code       = $data->client_code;
+        $itemledger->location_code	 = $data->location_code;
+        $itemledger->item_code       = $data->product_no;
+        $itemledger->ref_no          = $data->grn_no;
+        $itemledger->narration       = "INBOUND";
+        $itemledger->status		     =  "";
         $itemledger->save();
 		return $itemledger;
     }

@@ -55,9 +55,14 @@ class OutboundIssuesAPIController extends \BaseController {
 	private function save2itemledger($data)
     {
         $itemledger = new Itemledger;
-        $itemledger-> client_code		=  $data->client_code;
-        $itemledger-> qty           =  $data->issue_qty;
-         $itemledger-> status		=  $data->status;
+        $itemledger->client_code	=  $data->client_code;
+        $itemledger->qty           =  -($data->issue_qty);
+        $itemledger->location_code  =  $data->location_no;
+        $itemledger->ref_no         =  $data->issue_no;
+        $itemledger->status		=  $data->status;
+        $itemledger->narration  =  "OUTBOUNDISSUE";
+        $itemledger->item_code  =   $data->product_no;
+        $itemledger->status  = '1';
         $itemledger->save();
 		return $itemledger;
     }

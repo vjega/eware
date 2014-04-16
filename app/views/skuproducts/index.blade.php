@@ -269,6 +269,10 @@ $(document).ready(function(){
     $("#post_product").click(function(){
         update_product();
     });
+
+    $("#client_code").change(function(){
+        update_product_dropdown(this);
+    })
 });
 
 var panelWidth = jQuery(".panel").width()-45;

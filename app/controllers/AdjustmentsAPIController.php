@@ -36,8 +36,8 @@ class AdjustmentsAPIController extends \BaseController {
 		$adjust_id = $adjust->id;
         $postLineData =  Input::get("lineitems");
 		$postLineObj = json_decode($postLineData);
-		$adjustline = new AdjustmentLine;
         foreach ($postLineObj as $lines) {
+            $adjustline = new Adjustmentline;
 			if($lines->adjminusqty){
 				$qtyPlusMinus = '-'.$lines->adjminusqty;
 			}else{
@@ -50,6 +50,15 @@ class AdjustmentsAPIController extends \BaseController {
 			$adjustline->qty          		= $lines->qty;
 			$adjustline->qty_plus_minus     = $qtyPlusMinus;
 			$adjustline->save();
+            $itemledger = new Itemledger;
+            $itemledger->qty             = $qtyPlusMinus;
+            $itemledger->cust_code       = $postObj->client_code;
+            $itemledger->location_code   = $lines->location;
+            $itemledger->item_code       = $lines->itemcode;
+            $itemledger->ref_no          = $postObj->adjustment_number;
+            $itemledger->narration       = "ADJUSTMENT";
+            $itemledger->status          =  "1";
+            $itemledger->save();
         }
         return $adjust->id;
     }
