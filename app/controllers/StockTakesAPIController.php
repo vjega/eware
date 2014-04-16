@@ -25,7 +25,7 @@ class StockTakesAPIController extends \BaseController {
     {
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
-        $stock = new Stocktake;
+		$stock = new Stocktake;
         $stock->client_code        = $postObj->client_code;
         $stock->cycle_count_date   = $postObj->cycle_count_date;
         $stock->reference_no       = $postObj->reference_no;
@@ -33,7 +33,7 @@ class StockTakesAPIController extends \BaseController {
         $stock->remarks 		   = $postObj->remarks;
         $stock->stock  			   = $postObj->stock;
         $stock->mark  			   = $postObj->mark;
-        $stock->confirm_cycle_count= $postObj->confirm_cycle_count;
+        // $stock->confirm_cycle_count= $postObj->confirm_cycle_count;
         $stock->save(); 
         return $stock->id;
     }
@@ -56,8 +56,26 @@ class StockTakesAPIController extends \BaseController {
         $stock->remarks 		   = $postObj->remarks;
         $stock->stock  			   = $postObj->stock;
         $stock->mark  			   = $postObj->mark;
-        $stock->confirm_cycle_count= $postObj->confirm_cycle_count;
+        // $stock->confirm_cycle_count= $postObj->confirm_cycle_count;
         $stock->save(); 
+		$stock_id = $stock->id;
+        $postLineData =  Input::get("lineitems");
+		$postLineObj = json_decode($postLineData);
+		$stocktakesline = new StocktakesLine;
+        foreach ($postLineObj as $lines) {
+			if($lines->adjminusqty){
+				$qtyPlusMinus = '-'.$lines->adjminusqty;
+			}else{
+				$qtyPlusMinus = $lines->adjplusqty;
+			}
+
+			$stocktakesline->adjustment_id   	= $adjust->id;
+			$stocktakesline->location_id    	= $lines->location;
+			$stocktakesline->product_id			= $lines->itemcode;
+			$stocktakesline->qty          		= $lines->qty;
+			$stocktakesline->qty_plus_minus     = $qtyPlusMinus;
+			$stocktakesline->save();
+        }
         return $stock->id;
     }
 

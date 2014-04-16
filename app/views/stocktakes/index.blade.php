@@ -229,7 +229,7 @@ jQuery("#stockTakeList").jqGrid({
 		{name:'remarks'},
 		{name:'stock'},
 		{name:'mark'},
-		{name:'confirm_cycle_count'}
+		{name:'confirm_cycle_count'},
     ], 
     rowNum:10, 
     rowList:[10,20,30], 
