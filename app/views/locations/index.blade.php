@@ -51,7 +51,7 @@
 						</label>
                         <div class="col-sm-6">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
-                            <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="location_no" name="location_no" value="" placeholder="Enter Location e.g. India">
+                            <input type="text" class="form-control validate[required]" id="location_no" name="location_no" value="" placeholder="Enter Location e.g. India">
                         </div>
                     </div>
                 </div>

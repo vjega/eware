@@ -48,7 +48,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-							<input class="form-control validate[required,minSize[3]. maxSize[12]]" name="client_code" id="client_code" placeholder="Enter Client Code e.g. ACCP" />
+							<input class="form-control validate[required]" name="client_code" id="client_code" placeholder="Enter Client Code e.g. ACCP" />
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="name" name="name" value="" placeholder="Enter Client Name e.g. Acme Corp.">
+                            <input type="text" class="form-control validate[required]" id="name" name="name" value="" placeholder="Enter Client Name e.g. Acme Corp.">
                         </div>
                     </div>
                 </div>
@@ -344,7 +344,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" name="city" id="city" placeholder = "Type City Name" />
+                            <input type="text" class="form-control validate[required]" name="city" id="city" placeholder = "Type City Name" />
                         </div>
                     </div>
                 </div>
@@ -355,7 +355,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control validate[required,minSize[6]. maxSize[12]]" id="address" name="address" placeholder="Type Company Address Here"></textarea>
+                            <textarea class="form-control validate[required]" id="address" name="address" placeholder="Type Company Address Here"></textarea>
                         </div>
                     </div>
                 </div>

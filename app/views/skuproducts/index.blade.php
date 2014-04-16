@@ -37,7 +37,7 @@
 						</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-							<select name="client_code" id="client_code" class="form-control  validate[required,minSize[3]. maxSize[12]]">
+							<select name="client_code" id="client_code" class="form-control  validate[required]">
     						    <option value="">Select Client</option>    
                                 @foreach ($clients as $c)
                                 <option value="{{$c->client_code}}">{{$c->client_code}}</option>
@@ -52,7 +52,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]] " id="product_code" name="product_code" value="" placeholder="NOK2332">
+                            <input type="text" class="form-control  validate[required] " id="product_code" name="product_code" value="" placeholder="NOK2332">
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="product_name" name="product_name" value="" placeholder="Nokia 2332">
+                            <input type="text" class="form-control  validate[required]" id="product_name" name="product_name" value="" placeholder="Nokia 2332">
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="quantity" value="" name="quantity" placeholder="Quantity">
+                            <input type="text" class="form-control  validate[required]" id="quantity" value="" name="quantity" placeholder="Quantity">
                         </div>
                     </div>
                 </div>

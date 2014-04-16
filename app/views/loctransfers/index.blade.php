@@ -36,7 +36,7 @@
 						</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-   							<select name="client_code" id="client_code" class="form-control validate[required,minSize[6]. maxSize[12]]">
+   							<select name="client_code" id="client_code" class="form-control validate[required]">
     						    <option value="">Select Client</option>    
                                 @foreach ($clients as $c)
                                 <option value="{{$c->client_code}}">{{$c->client_code}}</option>
@@ -112,17 +112,17 @@
 								<select class="form-control products " id="skuproduct">
 								</select>
 							</td>  
-							<td><input readonly="" class="form-control locations validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
-							<td><input class="form-control prodQty validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
+							<td><input readonly="" class="form-control locations validate[required]" type="text" /></td>  
+							<td><input class="form-control prodQty validate[required]" type="text" /></td>  
 							<td>
-								<select class="form-control validate[required,minSize[6]. maxSize[12]]">
+								<select class="form-control validate[required]">
 									<option value="">Select Location</option>    
 									@foreach ($locations as $l)
 									<option value="{{$l->id}}">{{$l->location_no}}</option>
 									@endforeach
 								</select>
 							</td>	
-							<td><input class="form-control validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
+							<td><input class="form-control validate[required]" type="text" /></td>  
 						  </tr>
 						</tbody>  
 					  </table>  

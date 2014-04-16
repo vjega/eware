@@ -36,7 +36,7 @@
 						</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                             <select name="client_code" id="client_code" class="form-control  validate[required,minSize[6]. maxSize[12]]">
+                             <select name="client_code" id="client_code" class="form-control  validate[required]">
 								<option value="">Select Client Code</option>
                                 @foreach ($clients as $cli)
                                 <option value="{{$cli->client_code}}">{{$cli->client_code}}</option>
@@ -51,7 +51,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control datepicker validate[required,minSize[6]. maxSize[12]] " id="adjustment_date" value="" name="adjustment_date" placeholder="Adjustment Date">
+                            <input type="text" class="form-control datepicker validate[required] " id="adjustment_date" value="" name="adjustment_date" placeholder="Adjustment Date">
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
 							 <span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="adjustment_number" value="" name="adjustment_number" placeholder="Adjustment Number">    
+                        <input type="text" class="form-control validate[required]" id="adjustment_number" value="" name="adjustment_number" placeholder="Adjustment Number">    
                         </div>
                     </div>
                 </div>
@@ -114,10 +114,10 @@
 								<select class="form-control products " id="skuproduct">
 								</select>
 							</td>  
-							<td><input readonly="" class="form-control locations validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
-							<td><input class="form-control prodQty validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
-							<td><input class="form-control validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
-							<td><input class="form-control validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
+							<td><input readonly="" class="form-control locations validate[required]" type="text" /></td>  
+							<td><input class="form-control prodQty validate[required]" type="text" /></td>  
+							<td><input class="form-control validate[required]" type="text" /></td>  
+							<td><input class="form-control validate[required]" type="text" /></td>  
 						  </tr>
 						</tbody>  
 					  </table>  

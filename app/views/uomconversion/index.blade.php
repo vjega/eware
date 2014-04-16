@@ -36,7 +36,7 @@
 						</label>
                         <div class="col-sm-6">
 							<input type="hidden" class="form-control" id="id" value="" placeholder="">
-                            <select name="client_code" id="client_code" class="form-control  validate[required,minSize[6]. maxSize[12]]">
+                            <select name="client_code" id="client_code" class="form-control  validate[required]">
 								<option value="">Select Client Code</option>
                                 @foreach($clients as $cli)
                                     <option value="{{$cli->client_code}}">{{$cli->client_code}}</option>
@@ -64,7 +64,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-6">
-                        <select class="form-control validate[required,minSize[6]. maxSize[12]]" id="from_uom" value="" name="from_uom" placeholder="">    
+                        <select class="form-control validate[required]" id="from_uom" value="" name="from_uom" placeholder="">    
                             <option value="">Select From UOM</option>
                             @foreach($uoms as $u)
                             <option value="{{$u->uom_code}}">{{$u->description}}</option>
@@ -79,7 +79,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-6">
-                        <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="conversion_rate" value="" name="conversion_rate" placeholder="Conversion Rate">  
+                        <input type="text" class="form-control validate[required]" id="conversion_rate" value="" name="conversion_rate" placeholder="Conversion Rate">  
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-6">
-                        <select class="form-control validate[required,minSize[3]. maxSize[12]]" id="uom_id" value="" name="uom_id" placeholder="">    
+                        <select class="form-control validate[required]" id="uom_id" value="" name="uom_id" placeholder="">    
                             <option value="">Select To UOM</option>
                             @foreach($uoms as $u)
                             <option value="{{$u->uom_code}}">{{$u->description}}</option>

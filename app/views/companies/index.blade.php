@@ -52,7 +52,7 @@
 						</label>
                         <div class="col-sm-7">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
-                            <input type="text" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]" 
+                            <input type="text" class="form-control validate[required]" 
 								id="company_name" name="company_name" value="" placeholder="Enter Company Name e.g. Acme Corp.">
                         </div>
                     </div>
@@ -63,7 +63,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-7">
-                            <select name="currency" id="currency" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]" >
+                            <select name="currency" id="currency" class="form-control validate[required]" >
                                 <option value="AF">AFN</option>
                                 <option value="AL">ALL</option>
                                 <option value="DZ">DZD</option>
@@ -320,7 +320,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-7">
-                            <select name="country" id="country" class="form-control validate[required,minSize[6]. maxSize[12]]">
+                            <select name="country" id="country" class="form-control validate[required]">
                                 <option value="0" label="Select a country ... " selected="selected">Select a country ... </option>
                                 <option value="AF" label="Afghanistan">Afghanistan</option>
                                 <option value="AL" label="Albania">Albania</option>

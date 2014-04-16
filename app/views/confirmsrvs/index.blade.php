@@ -37,7 +37,7 @@
 						</label>
                         <div class="col-sm-8">
                            <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                           <select name="client_code" id="client_code" class="form-control validate[required,minSize[6]">
+                           <select name="client_code" id="client_code" class="form-control validate[required]">
 								<option value="">Select Client Code</option>
                                 <option>0001</option>
                                 <option>0002</option>
@@ -53,7 +53,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control validate[required,minSize[6]" id="rv_no" name="rv_no" value="" placeholder="">    
+                            <input type="text" class="form-control validate[required]" id="rv_no" name="rv_no" value="" placeholder="">    
                         </div>
                     </div>
                 </div>

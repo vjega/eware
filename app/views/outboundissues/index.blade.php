@@ -37,7 +37,7 @@
 						</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
-                            <select name="client_code" id="client_code" class="form-control validate[required,minSize[6]">
+                            <select name="client_code" id="client_code" class="form-control validate[required]">
 								<option value="">Select Client Code</option>
                                 <option>0001</option>
                                 <option>0002</option>
@@ -54,7 +54,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control validate[required,minSize[6]" id="order_no" name="order_no" value="" placeholder="Enter Order No.">
+                            <input type="text" class="form-control validate[required]" id="order_no" name="order_no" value="" placeholder="Enter Order No.">
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control datepicker validate[required,minSize[6] " id="order_date" name="order_date" value="" placeholder="Enter Fax Number">
+                            <input type="email" class="form-control datepicker validate[required] " id="order_date" name="order_date" value="" placeholder="Enter Fax Number">
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control validate[required,minSize[6]" id="issue_no" value="" name="issue_no" placeholder="Enter Issue No">
+                            <input type="text" class="form-control validate[required]" id="issue_no" value="" name="issue_no" placeholder="Enter Issue No">
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control datepicker validate[required,minSize[6]" id="issue_date" value="" name="issue_date" placeholder="Enter Issue Date">    
+                        <input type="text" class="form-control datepicker validate[required]" id="issue_date" value="" name="issue_date" placeholder="Enter Issue Date">    
                         </div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control validate[required,minSize[6]" id="product_no" value="" name="product_no" placeholder="Enter Product No">    
+                        <input type="text" class="form-control validate[required]" id="product_no" value="" name="product_no" placeholder="Enter Product No">    
                         </div>
                     </div>
                 </div>
@@ -230,7 +230,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control validate[required,minSize[6]" id="issue_qty" value="" name="issue_qty" placeholder="">  
+                        <input type="text" class="form-control validate[required]" id="issue_qty" value="" name="issue_qty" placeholder="">  
                         </div>
                     </div>
                 </div>

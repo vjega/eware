@@ -36,7 +36,7 @@
 						</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-   							<select name="client_code" id="client_code" class="form-control  validate[required,minSize[6]. maxSize[12]]">
+   							<select name="client_code" id="client_code" class="form-control  validate[required]">
     						    <option value="">Select Client</option>    
                                 @foreach ($clients as $c)
                                 <option value="{{$c->client_code}}">{{$c->client_code}}</option>
@@ -62,7 +62,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="reference_no" name="reference_no" value="" placeholder="">
+                            <input type="text" class="form-control  validate[required]" id="reference_no" name="reference_no" value="" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="cycle_count_no" name="cycle_count_no" value="" placeholder="">
+                            <input type="text" class="form-control  validate[required]" id="cycle_count_no" name="cycle_count_no" value="" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control  validate[required,minSize[6]. maxSize[12]]" id="stock" name="stock" value="" placeholder="Stock">
+                            <input type="text" class="form-control  validate[required]" id="stock" name="stock" value="" placeholder="Stock">
                         </div>
                     </div>
                 </div>
@@ -133,8 +133,8 @@
 						  <tr class="trow">  
 							<td><a class="btn" href="#">Delete</a></td>  
 							<td><select class="form-control products" id="skuproduct"></select></td>  
-							<td><input readonly="" class="form-control locations  validate[required,minSize[6]. maxSize[12]]" type="text" /></td>  
-							<td><input class="form-control  validate[required,minSize[6]. maxSize[12]]" type="text" /></td>
+							<td><input readonly="" class="form-control locations  validate[required]" type="text" /></td>  
+							<td><input class="form-control  validate[required]" type="text" /></td>
 						  </tr>
 						</tbody>  
 					  </table>  

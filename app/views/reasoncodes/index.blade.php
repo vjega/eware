@@ -36,7 +36,7 @@
 						</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                            <input type="text" class="form-control validate[required,minSize[6]. maxSize[12]]" id="reason_code" name="reason_code" value="" placeholder="Enter Reason Code.">
+                            <input type="text" class="form-control validate[required]" id="reason_code" name="reason_code" value="" placeholder="Enter Reason Code.">
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control validate[required,minSize[6]. maxSize[12]]" id="description" name="description" value="" placeholder="Enter Description .">
+                            <input type="email" class="form-control validate[required]" id="description" name="description" value="" placeholder="Enter Description .">
                         </div>
                     </div>
                 </div>

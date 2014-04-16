@@ -32,10 +32,12 @@
             <div class="row">
                  <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Client Code</label>
+                        <label for="" class="col-sm-4 control-label">Client Code
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="id" value="18" placeholder="">
-                           <select name="client_code" id="client_code" class="form-control validate[required,minSize[6]">
+                           <select name="client_code" id="client_code" class="form-control validate[required]">
 								<option value="">Select Client Code</option>
                                 @foreach ($clients as $cli)
                                 <option value="{{$cli->client_code}}">{{$cli->client_code}}</option>
@@ -46,9 +48,11 @@
                 </div>
 				<div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Grn Date</label>
+                        <label for="" class="col-sm-4 control-label">Grn Date
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
-							<input type="text" class="form-control datepicker validate[required,custom[date]" id="grn_date" name="grn_date" value="" placeholder="Grn Date">
+							<input type="text" class="form-control datepicker validate[required]" id="grn_date" name="grn_date" value="" placeholder="Grn Date">
                         </div>
 					</div>
                 </div>
@@ -56,9 +60,11 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Grn No</label>
+                        <label for="" class="col-sm-4 control-label">Grn No
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control validate[required,minSize[6]" id="grn_no" name="grn_no" value="" placeholder="Grn No">
+                            <input type="text" class="form-control validate[required]" id="grn_no" name="grn_no" value="" placeholder="Grn No">
                         </div>
                     </div>
                 </div>
@@ -74,9 +80,11 @@
             <div class="row">
                  <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Invoice No</label>
+                        <label for="" class="col-sm-4 control-label">Invoice No
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control validate[required,minSize[6]" id="invoice_no" value="" name="invoice_no" placeholder="Invoice No">
+                            <input type="text" class="form-control validate[required]" id="invoice_no" value="" name="invoice_no" placeholder="Invoice No">
                         </div>
                     </div>
                 </div>
@@ -111,9 +119,11 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Rv No</label>
+                        <label for="" class="col-sm-4 control-label">Rv No
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control validate[required,minSize[6]" id="rv_no" value="" name="rv_no" placeholder="">  
+                        <input type="text" class="form-control validate[required]" id="rv_no" value="" name="rv_no" placeholder="">  
                         </div>
                     </div>
                 </div>
@@ -130,9 +140,11 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Product Name</label>
+                        <label for="" class="col-sm-4 control-label">Product Name
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control validate[required,minSize[6]" id="product_name" value="" name="product_name" placeholder="">    
+                        <input type="text" class="form-control validate[required]" id="product_name" value="" name="product_name" placeholder="">    
                         </div>
                     </div>
                 </div>
@@ -189,9 +201,11 @@
 			<div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Accepted Qty</label>
+                        <label for="" class="col-sm-4 control-label">Accepted Qty
+							<span class="error">*</span>
+						</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control validate[required,minSize[6]" id="accepted_qty" value="" name="accepted_qty" placeholder="Accepted Qty">    
+                        <input type="text" class="form-control validate[required]" id="accepted_qty" value="" name="accepted_qty" placeholder="Accepted Qty">    
                         </div>
                     </div>
                 </div>

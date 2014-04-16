@@ -46,7 +46,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]] " id="name" name="name" value="" placeholder="Enter Site Name e.g. Acme Corp.">
+                            <input type="text" class="form-control validate[required] " id="name" name="name" value="" placeholder="Enter Site Name e.g. Acme Corp.">
                         </div>
                     </div>
                 </div>
@@ -345,7 +345,7 @@
 						</label>
                         <div class="col-sm-8">
 						
-                            <input type="text" class="form-control validate[required,custom[onlyLetterSp],minSize[5],maxSize[50]]"  
+                            <input type="text" class="form-control validate[required]"  
 							id="city" name="city" value="" placeholder="Enter City Name">
                         </div>
                     </div>
