@@ -150,7 +150,7 @@ class InboundReceiptsAPIController extends \BaseController {
 	
 	private function save_sku_extra($sku_extra)
     {
-            $sku_code = $sku_extra['po_no'];
+            $receipt_code = $sku_extra['po_no'];
             $normalfield = ['client_code','grn_date',
                 'grn_no', 'po_no',
                 'invoice_no','transport_mode', 
@@ -165,7 +165,7 @@ class InboundReceiptsAPIController extends \BaseController {
                 if (!in_array($key, $normalfield) && $val) {
 
                     $skue = new Skuextra;
-                    $skue->skucode = $sku_code;
+                    $skue->receipt_code = $receipt_code;
                     $skue->attribute = $key;
                     $skue->value = $val;
                     $skue->save();
