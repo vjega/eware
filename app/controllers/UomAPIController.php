@@ -10,7 +10,7 @@ class UomAPIController extends \BaseController {
      */
     public function index()
     {
-        $uom_arr = UOM::all()->toArray();
+        $uom_arr = Uom::all()->toArray();
         $uom['page'] = 1;
         $uom['total'] = 1;
         $uom['records'] = count($uom_arr);
