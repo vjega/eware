@@ -229,10 +229,10 @@ var save_uom = function() {
         $(this).find('input,select').each(function(cidx){
             switch(cidx) {
                 case 0:
-                    lineitems[idx]['location'] = $(this).val();
+                    lineitems[idx]['itemcode'] = $(this).val();
                     break;
                 case 1:
-                    lineitems[idx]['itemcode'] = $(this).val();
+                    lineitems[idx]['location'] = $(this).val();
                     break;
                 case 2:
                     lineitems[idx]['qty'] = $(this).val();
@@ -336,7 +336,7 @@ var update_product_dropdown = function (elm) {
     .done(function(data) {
         var optList = "";
         for(var d in data) {
-           	optList += "<option value='"+data[d].id+"'>"+data[d].product_code+"</option>";
+           	optList += "<option value='"+data[d].product_code+"'>"+data[d].product_code+"</option>";
         }
         $(".products").html(optList);
         $(".locations").val(data[0].location_area);
