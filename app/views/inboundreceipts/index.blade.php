@@ -54,6 +54,7 @@
                         <div class="col-sm-8">
 							<input type="text" class="form-control datepicker validate[required]" id="grn_date" name="grn_date" value="" placeholder="Grn Date">
                         </div>
+						
 					</div>
                 </div>
             </div>
@@ -312,6 +313,10 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
+	$(".datepicker").datepicker({
+		format: 'yyyy-mm-dd'
+
+	});
     
     myDropzone = $("#dropzone").dropzone({
         url :'upload/receiptxlsimport',
@@ -337,7 +342,7 @@ $(document).ready(function(){
         update_product_dropdown(this);
     })
 
-    $(".datepicker").datepicker();
+    // $(".datepicker").datepicker();
 	
     $("#save-uom").click(function(){
 		if (($("#adduomfrm").validationEngine("validate"))===true) {
@@ -474,18 +479,37 @@ var show_edit_modal = function () {
         $('#addUom').modal('show');
     });
 }
+// var update_product_dropdown = function (elm) {
+    // $.ajax({
+        // url:"api/v1/skuproducts?client_code="+$(elm).val(),
+        // method:"GET"
+    // })
+    // .done(function(data) {
+        // WMS.sku = data;
+        // var optList = ""
+        // for(var d in data) {
+            // optList += "<option value='"+data[d].product_code+"'>"+data[d].product_code+"</option>";
+        // }
+        // $("#product_no").html(optList);
+    // })
+    // .fail(function() {
+        // console.log( "error" );
+    // });
+// }
+
 var update_product_dropdown = function (elm) {
     $.ajax({
         url:"api/v1/skuproducts?client_code="+$(elm).val(),
         method:"GET"
     })
     .done(function(data) {
-        WMS.sku = data;
-        var optList = ""
+        var optList = "";
         for(var d in data) {
-            optList += "<option value='"+data[d].product_code+"'>"+data[d].product_code+"</option>";
+           	optList += "<option value='"+data[d].id+"'>"+data[d].product_code+"</option>";
         }
-        $("#product_no").html(optList);
+        $(".products").html(optList);
+        $(".locations").val(data[0].location_area);
+        $(".prodQty").val(data[0].quantity);
     })
     .fail(function() {
         console.log( "error" );

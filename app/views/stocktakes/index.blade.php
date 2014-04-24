@@ -126,7 +126,9 @@
 							<th>Delete</th>  
 							<th>Product <span class="error">*</span></th>  
 							<th>Location <span class="error">*</span></th>  
-							<th>Quantity <span class="error">*</span></th>  
+							<th>Quantity <span class="error">*</span></th> 
+							<th>Plus Qty <span class="error">*</span></th>  
+							<th>Minus Qty <span class="error">*</span></th> 							
 						  </tr>  
 						</thead>  
 						<tbody>  
@@ -135,6 +137,8 @@
 							<td><select class="form-control products" id="skuproduct"></select></td>  
 							<td><input readonly="" class="form-control locations  validate[required]" type="text" /></td>  
 							<td><input class="form-control  validate[required]" type="text" /></td>
+							<td><input class="form-control validate[required]" type="text" /></td>  
+							<td><input class="form-control validate[required]" type="text" /></td>
 						  </tr>
 						</tbody>  
 					  </table>  

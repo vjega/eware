@@ -611,7 +611,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control validate[required,minSize[5],maxSize[50]]" id="addrs1" name="addrs1" value="" placeholder="Enter Address">
+                            <input type="text" class="form-control validate[required]" id="addrs1" name="addrs1" value="" placeholder="Enter Address">
                         </div>
                     </div>
                 </div>

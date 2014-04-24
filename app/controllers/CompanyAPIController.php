@@ -78,7 +78,7 @@ class CompanyAPIController extends \BaseController {
 		$company->address1		=$postObj->address1;
 		#$company->address2		=$postObj->address2;
 		#$company->address3		=$postObj->address3;
-		$company->state			=$postObj->state;
+		#$company->state			=$postObj->state;
 		$company->postal_code	=$postObj->postal_code;
 		$company->email			=$postObj->email;
 		$company->tel_number1	=$postObj->tel_number1;

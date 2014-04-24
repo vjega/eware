@@ -50,7 +50,9 @@
                         <label for="" class="col-sm-6 control-label">Product Number</label>
                         <div class="col-sm-6">
                             <select class="form-control" id="product_number" value="" name="product_number" placeholder="">
-
+								<option value="">Product Number</option>
+                               
+                                    <option value="">test123</option>
                             </select>    
                         </div>
                     </div>

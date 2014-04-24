@@ -384,5 +384,38 @@ var show_edit_modal = function () {
     });
 }
 
+var update_product_dropdown = function (elm) {
+    $.ajax({
+        url:"api/v1/skuproducts?client_code="+$(elm).val(),
+        method:"GET"
+    })
+    .done(function(data) {
+        var optList = "";
+        for(var d in data) {
+           	optList += "<option value='"+data[d].product_code+"'>"+data[d].product_code+"</option>";
+        }
+        $(".products").html(optList);
+        $(".locations").val(data[0].location_area);
+        $(".prodQty").val(data[0].quantity);
+    })
+    .fail(function() {
+        console.log( "error" );
+    });
+}
+
+// var update_product_qty_dropdown = function (elm) {
+    // $.ajax({
+        // url:"api/v1/skuproducts?product_code="+$("#skuproduct option:selected" ).val(),
+        // method:"GET"
+    // })
+    // .done(function(data) {
+        // $(".locations").val(data[0].location_area);
+        // $(".prodQty").val(data[0].quantity);
+    // })
+    // .fail(function() {
+        // console.log( "error" );
+    // });
+// }
+
 </script>
 @stop
