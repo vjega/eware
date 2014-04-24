@@ -15,40 +15,40 @@ Route::resource('companies', 'CompaniesController');
 
 Route::resource('sites', 'SitesController');
 
-	/****** MASTERS SUBMENU ROUTES STARTS HERE ******/
+/****** MASTERS SUBMENU ROUTES STARTS HERE ******/
 
-	Route::resource('clients', 'ClientsController');
-	Route::resource('skuproducts', 'SKUProductsController');
-	Route::resource('locations', 'LocationsController');
-	Route::resource('uoms', 'UomController');
-	Route::resource('uomconversion', 'UOMConversionController');
-	Route::resource('reasoncodes', 'ReasonCodesController');
+Route::resource('clients', 'ClientsController');
+Route::resource('skuproducts', 'SKUProductsController');
+Route::resource('locations', 'LocationsController');
+Route::resource('uoms', 'UomController');
+Route::resource('uomconversion', 'UOMConversionController');
+Route::resource('reasoncodes', 'ReasonCodesController');
 
-	/****** MASTERS SUBMENU ROUTES ENDS HERE ******/
+/****** MASTERS SUBMENU ROUTES ENDS HERE ******/
 
-	/****** TRANSACTIONS SUBMENU ROUTES STARTS HERE ******/
+/****** TRANSACTIONS SUBMENU ROUTES STARTS HERE ******/
 
-	Route::resource('adjustments', 'AdjustmentsController');
-	Route::resource('loctransfers', 'LocTransfersController');
-	//Route::resource('adjustments', 'AdjustmentsController');
-	Route::resource('stocktakes', 'StockTakesController');
+Route::resource('adjustments', 'AdjustmentsController');
+Route::resource('loctransfers', 'LocTransfersController');
+//Route::resource('adjustments', 'AdjustmentsController');
+Route::resource('stocktakes', 'StockTakesController');
 
-	/****** TRANSACTIONS SUBMENU ROUTES ENDS HERE ******/
+/****** TRANSACTIONS SUBMENU ROUTES ENDS HERE ******/
 
 
-	/****** INBOUND SUBMENU ROUTES STARTS HERE ******/
+/****** INBOUND SUBMENU ROUTES STARTS HERE ******/
 
-	Route::resource('inboundreceipts', 'InboundReceiptsController');
-	Route::resource('confirmsrvs', 'ConfirmSRVsController');
+Route::resource('inboundreceipts', 'InboundReceiptsController');
+Route::resource('confirmsrvs', 'ConfirmSRVsController');
 
-	/****** INBOUND SUBMENU ROUTES ENDS HERE ******/
+/****** INBOUND SUBMENU ROUTES ENDS HERE ******/
 
-	/****** OUTBOUND SUBMENU ROUTES STARTS HERE ******/
+/****** OUTBOUND SUBMENU ROUTES STARTS HERE ******/
 
-	Route::resource('outboundissues', 'OutboundIssuesController');
-	Route::resource('outboundenquires', 'OutboundEnquiresController');
+Route::resource('outboundissues', 'OutboundIssuesController');
+Route::resource('outboundenquires', 'OutboundEnquiresController');
 
-	/****** OUTBOUND SUBMENU ROUTES ENDS HERE ******/
+/****** OUTBOUND SUBMENU ROUTES ENDS HERE ******/
 
 Route::resource('products', 'ProductsController');
 
@@ -118,6 +118,12 @@ Route::group(array('prefix' => 'api/v1'), function()
 
 Route::group(array('prefix' => 'upload'), function()
 {
-	    Route::resource('skuxlsimport', 'SkuproductsAPIController@excelimport');
-	    Route::resource('receiptxlsimport', 'InboundReceiptsAPIController@excelimport');
+	Route::resource('skuxlsimport', 'SkuproductsAPIController@excelimport');
+	Route::resource('receiptxlsimport', 'InboundReceiptsAPIController@excelimport');
+});
+
+Route::group(array('prefix' => 'reports'), function()
+{
+	Route::resource('issues', 'reportFilterController@issues');
+	Route::resource('issuexlimport', 'reportFilterController@issuesxlimport');
 });

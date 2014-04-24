@@ -269,7 +269,7 @@
 
                                 </li>
                                 <li>
-                                       <a href="{{ url('/')}}">
+                                       <a href="{{ url('/reports', 'issues')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Issue Report</span> 
                                 </a>
 
