@@ -39,10 +39,9 @@
                             <input type="hidden" class="form-control" id="id" value="" placeholder="">
                             <select name="client_code" id="client_code" class="form-control validate[required]">
 								<option value="">Select Client Code</option>
-                                <option>0001</option>
-                                <option>0002</option>
-                                <option>0003</option>
-                                <option>0004</option>
+                                @foreach ($clients as $cli)
+                                <option value="{{$cli->client_code}}">{{$cli->client_code}}</option>
+                                @endforeach
                             </select>
 
                         </div>
@@ -166,7 +165,8 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control validate[required]" id="product_no" value="" name="product_no" placeholder="Enter Product No">    
+                        <select type="text" class="form-control validate[required]" id="product_no" value="" name="product_no" placeholder="Enter Product No">    
+                        </select>
                         </div>
                     </div>
                 </div>
@@ -311,6 +311,9 @@ $(document).ready(function(){
     $("#post-uom").click(function(){
         update_uom();
     });
+    $("#client_code").change(function(){
+        update_product_dropdown($(this));
+    })
 });
 
 var panelWidth = jQuery(".panel").width()-45;
@@ -428,9 +431,30 @@ var show_edit_modal = function () {
                 $('#'+item).val(data[item]);
             }
         };
-        $('#addUom').modal('show');
+        $('#addUom'
+            ).modal('show');
     });
 }
 
+
+
+var update_product_dropdown = function (elm) {
+    $.ajax({
+        url:"api/v1/skuproducts?client_code="+$(elm).val(),
+        method:"GET"
+    })
+    .done(function(data) {
+        var optList = "";
+        for(var d in data) {
+            optList += "<option value='"+data[d].product_code+"'>"+data[d].product_code+"</option>";
+        }
+        $("#product_no").html(optList);
+        //$(".locations").val(data[0].location_area);
+        //$(".prodQty").val(data[0].quantity);
+    })
+    .fail(function() {
+        console.log( "error" );
+    });
+}
 </script>
 @stop	

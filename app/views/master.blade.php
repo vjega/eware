@@ -67,11 +67,11 @@
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
-                        <!-- div class="pull-left image">
-                            <img src="https://lh5.googleusercontent.com/-goWTAkCe2Z8/AAAAAAAAAAI/AAAAAAAAAAA/ObSsWA6eTmA/s32-c/photo.jpg" class="img-circle" alt="User Image" />
-                        </div -->
+                        <div class="pull-left image">
+                            {{ HTML::image('static/img/singapore-flag.jpg', $alt="DRCSports", $attributes = array()) }}
+                        </div>
                         <div class="pull-left info">
-                            <p>Hello, User</p>
+                            <p><strong style="font-size:1.5em">TRICORE</strong></p>
 
                             <!-- a href="#"><i class="fa fa-circle text-success"></i> Online</a -->
                         </div>
@@ -235,15 +235,44 @@
                                 <li>
 
                                     <a href="{{ url('/')}}">
-                                <i class="fa fa-angle-double-right"></i> <span>Report 1</span> 
+                                <i class="fa fa-angle-double-right"></i> <span>Client Master List</span> 
                                 </a>
                                                     
                                 </li>
                                 <li>
                                        <a href="{{ url('/')}}">
-                                <i class="fa fa-angle-double-right"></i> <span>Report 2</span> 
+                                <i class="fa fa-angle-double-right"></i> <span>SKU Product Master List</span> 
                                 </a>
                                     
+                                </li>
+                                <li>
+                                       <a href="{{ url('/')}}">
+                                <i class="fa fa-angle-double-right"></i> <span>Locationwise Stock Ledger</span> 
+                                </a>
+                                    
+                                </li>
+                                <li>
+                                       <a href="{{ url('/')}}">
+                                <i class="fa fa-angle-double-right"></i> <span>Stock Ledger</span> 
+                                </a>
+                                    
+                                </li>
+                                <li>
+                                       <a href="{{ url('/')}}">
+                                <i class="fa fa-angle-double-right"></i> <span>Location Movement Ledger</span> 
+                                </a>
+                                </li>
+                                <li>
+                                       <a href="{{ url('/')}}">
+                                <i class="fa fa-angle-double-right"></i> <span>Receipt Report</span> 
+                                </a>
+
+                                </li>
+                                <li>
+                                       <a href="{{ url('/reports', 'issues')}}">
+                                <i class="fa fa-angle-double-right"></i> <span>Issue Report</span> 
+                                </a>
+
                                 </li>
                             </ul>
                         </li>

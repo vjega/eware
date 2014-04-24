@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddClientsTable extends Migration {
+class AddInboundreceiptsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,9 @@ class AddClientsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('clients', function(Blueprint $table) {
-			$table->string('site_id')->default('');
+		Schema::table('inboundreceipts', function(Blueprint $table) {
+			$table->string('location_code')->default('');
 		});
-		DB::update('alter table clients modify client_code varchar(50)');
 	}
 
 
@@ -26,7 +25,7 @@ class AddClientsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('clients', function(Blueprint $table) {
+		Schema::table('inboundreceiipts', function(Blueprint $table) {
 			
 		});
 	}

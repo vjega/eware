@@ -107,7 +107,7 @@
 						</thead>  
 						<tbody>  
 						  <tr class="trow">  
-							<td><a class="btn" href="#">Delete</a></td>  
+							<td><a class="btn deleteRow" href="#">Delete</a></td>  
 							<td>
 								<select class="form-control products " id="skuproduct">
 								</select>
@@ -193,10 +193,15 @@ $(document).ready(function(){
 
     $("#client_code").change(function(){
         update_product_dropdown(this);
-    })
+    });
     $("#skuproduct").change(function(){
         update_product_qty_dropdown(this);
-    })
+    });
+    $("body").on("click", ".deleteRow", function(){
+        if ($(".deleteRow").length > 1) {
+            $(this).parent().parent().remove();
+        }
+    });
 });
 
 var panelWidth = jQuery(".panel").width()-45;

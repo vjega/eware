@@ -90,9 +90,13 @@
                 </div>
 				 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="" class="col-sm-4 control-label">Transport Mode</label>
+                        <label for="" class="col-sm-4 control-label">Location Code</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="transport_mode" value="" name="transport_mode" placeholder="">    
+                        <select type="text" class="form-control" id="location_code" value="" name="location_code" placeholder="">    
+                            @foreach($locs as $loc)
+                            <option value="{{$loc->location_no}}">{{$loc->warehouse_name}}</option>
+                            @endforeach
+                        </select>
                         </div>
                     </div>
                 </div>
@@ -165,7 +169,7 @@
                         <select type="text" class="form-control" id="uom" value="" name="uom" placeholder="Uom">    
                             <option value="">Select UOM Code</option>
                                 @foreach ($uoms as $uom)
-                                <option value="{{$cli->uom_code}}">{{$uom->description}}</option>
+                                <option value="{{$uom->uom_code}}">{{$uom->uom_code}}</option>
                                 @endforeach
                         </select>
                         </div>
@@ -284,6 +288,11 @@
 </style>
 <script>
 
+/**
+ * Creating a WMS Namespace
+ * @type {[type]}
+ */
+window.WMS = window.WMS || {};
 var serilaizeJson =  function (form, stripfromAttr){
     var unindexed_array = $(form).serializeArray();
     unindexed_array = unindexed_array.concat(
@@ -313,6 +322,14 @@ $(document).ready(function(){
         }
     });
 
+    $("#product_no").change(function(){
+        for (var idx in WMS.sku) {
+            if (WMS.sku[idx].product_code === $(this).val()) {
+                $("#product_name").val(WMS.sku[idx].product_name);
+                break;
+            }
+        }
+    });
     $("#impXl").click(function(){
         $("#impExlModal").modal("show");
     })
@@ -463,12 +480,12 @@ var update_product_dropdown = function (elm) {
         method:"GET"
     })
     .done(function(data) {
+        WMS.sku = data;
         var optList = ""
         for(var d in data) {
-            optList += "<option value='"+data[d].id+"'>"+data[d].product_code+"</option>";
+            optList += "<option value='"+data[d].product_code+"'>"+data[d].product_code+"</option>";
         }
         $("#product_no").html(optList);
-        console.log()
     })
     .fail(function() {
         console.log( "error" );

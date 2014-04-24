@@ -11,9 +11,11 @@ class InboundReceiptsController extends \BaseController {
 	{
 		$clients = Client::all(['client_code', 'name']);
         $uoms = Uom::all(['uom_code', 'description']);
+        $loc  = Location::all(['location_no','warehouse_name']);
         return View::make('inboundreceipts.index')
             ->with('clients', $clients)
-            ->with('uoms', $uoms);
+            ->with('uoms', $uoms)
+            ->with('locs',$loc);
 	}
 
 }

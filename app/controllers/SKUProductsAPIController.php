@@ -38,20 +38,28 @@ class SkuproductsAPIController extends \BaseController {
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
         $product = new Skuproduct;
-        $product->client_code =$postObj->client_code;
-        $product->product_code =        $postObj->product_code;
-        $product->product_name =        $postObj->product_name;
-        $product->description =        $postObj->description;
-        $product->product_category =        $postObj->product_category;
+        $product->client_code =     $postObj->client_code;
+        $product->product_code =    $postObj->product_code;
+        $product->product_name =    $postObj->product_name;
+        $product->description =     $postObj->description;
+        $product->product_category =    $postObj->product_category;
         $product->quantity =        $postObj->quantity;
-        $product->uom_id =        $postObj->uom_id;
-        $product->product_dimensions =        $postObj->product_dimensions;
-        $product->serial_number =        $postObj->serial_number;
-        $product->expiry_date =        $postObj->expiry_date;
-        $product->storage_form =        $postObj->storage_form;
-        $product->location_area =        $postObj->location_area;
-       
-        $product->save(); 
+        $product->uom_id =          $postObj->uom_id;
+        $product->product_dimensions =  $postObj->product_dimensions;
+        $product->serial_number =   $postObj->serial_number;
+        $product->expiry_date =     $postObj->expiry_date;
+        $product->storage_form =    $postObj->storage_form;
+        $product->location_area =   $postObj->location_area;
+        $product->save();
+        $itemledger = new Itemledger;
+        $itemledger->cust_code   = $postObj->client_code;
+        $itemledger->location_code = $postObj->location_area;
+        $itemledger->item_code     = $postObj->product_code;
+        $itemledger->ref_no        = "";
+        $itemledger->qty           = $postObj->quantity;
+        $itemledger->narration     = "SKU-ENTRY";
+        $itemledger->status        = "1";
+        $itemledger->save();
         return $product->id;
     }
 
