@@ -34,7 +34,34 @@ class StockTakesAPIController extends \BaseController {
         $stock->stock  			   = $postObj->stock;
         $stock->mark  			   = $postObj->mark;
         // $stock->confirm_cycle_count= $postObj->confirm_cycle_count;
-        $stock->save(); 
+        $stock->save();
+		$stock_id = $stock->id;
+        $postLineData =  Input::get("lineitems");
+		$postLineObj = json_decode($postLineData);
+        foreach ($postLineObj as $lines) {
+		$stocktakesline = new Stocktakesline;
+			// if($lines->adjminusqty){
+				// $qtyPlusMinus = '-'.$lines->adjminusqty;
+			// }else{
+				// $qtyPlusMinus = $lines->adjplusqty;
+			// }
+
+			$stocktakesline->stocktake_id   		= $stock->id;
+			$stocktakesline->location_id    	= $lines->location;
+			$stocktakesline->product_id			= $lines->itemcode;
+			$stocktakesline->qty          		= $lines->qty;
+			// $stocktakesline->qty_plus_minus     = $qtyPlusMinus;
+			$stocktakesline->save();
+			$itemledger = new Itemledger;
+            $itemledger->qty             = $lines->qty;
+            $itemledger->cust_code       = $postObj->client_code;
+            $itemledger->location_code   = $lines->location;
+            $itemledger->item_code       = $lines->itemcode;
+            $itemledger->ref_no    = $postObj->reference_no;
+            $itemledger->narration       = "StockTakes";
+            $itemledger->status          =  "1";
+            $itemledger->save();
+        }
         return $stock->id;
     }
 
@@ -58,24 +85,24 @@ class StockTakesAPIController extends \BaseController {
         $stock->mark  			   = $postObj->mark;
         // $stock->confirm_cycle_count= $postObj->confirm_cycle_count;
         $stock->save(); 
-		$stock_id = $stock->id;
-        $postLineData =  Input::get("lineitems");
-		$postLineObj = json_decode($postLineData);
-		$stocktakesline = new StocktakesLine;
-        foreach ($postLineObj as $lines) {
-			if($lines->adjminusqty){
-				$qtyPlusMinus = '-'.$lines->adjminusqty;
-			}else{
-				$qtyPlusMinus = $lines->adjplusqty;
-			}
+		// $stock_id = $stock->id;
+        // $postLineData =  Input::get("lineitems");
+		// $postLineObj = json_decode($postLineData);
+		// $stocktakesline = new StocktakesLine;
+        // foreach ($postLineObj as $lines) {
+			// if($lines->adjminusqty){
+				// $qtyPlusMinus = '-'.$lines->adjminusqty;
+			// }else{
+				// $qtyPlusMinus = $lines->adjplusqty;
+			// }
 
-			$stocktakesline->adjustment_id   	= $adjust->id;
-			$stocktakesline->location_id    	= $lines->location;
-			$stocktakesline->product_id			= $lines->itemcode;
-			$stocktakesline->qty          		= $lines->qty;
-			$stocktakesline->qty_plus_minus     = $qtyPlusMinus;
-			$stocktakesline->save();
-        }
+			// $stocktakesline->adjustment_id   	= $adjust->id;
+			// $stocktakesline->location_id    	= $lines->location;
+			// $stocktakesline->product_id			= $lines->itemcode;
+			// $stocktakesline->qty          		= $lines->qty;
+			// $stocktakesline->qty_plus_minus     = $qtyPlusMinus;
+			// $stocktakesline->save();
+        // }
         return $stock->id;
     }
 

@@ -126,9 +126,7 @@
 							<th>Delete</th>  
 							<th>Product <span class="error">*</span></th>  
 							<th>Location <span class="error">*</span></th>  
-							<th>Quantity <span class="error">*</span></th> 
-							<th>Plus Qty <span class="error">*</span></th>  
-							<th>Minus Qty <span class="error">*</span></th> 							
+							<th>Quantity <span class="error">*</span></th> 							
 						  </tr>  
 						</thead>  
 						<tbody>  
@@ -137,8 +135,6 @@
 							<td><select class="form-control products" id="skuproduct"></select></td>  
 							<td><input readonly="" class="form-control locations  validate[required]" type="text" /></td>  
 							<td><input class="form-control  validate[required]" type="text" /></td>
-							<td><input class="form-control validate[required]" type="text" /></td>  
-							<td><input class="form-control validate[required]" type="text" /></td>
 						  </tr>
 						</tbody>  
 					  </table>  
@@ -253,14 +249,35 @@ jQuery("#stockTakeList").jqGrid({
 });
 
 var save_stocktakes = function() {
+  var lineitems = [];
+    $('#locTransfer tr').each(function(idx){
+        lineitems[idx] = {}
+        $(this).find('input,select').each(function(cidx){
+            switch(cidx) {
+                case 0:
+                    lineitems[idx]['itemcode'] = $(this).val();
+                    break;
+                case 1:
+                    lineitems[idx]['location'] = $(this).val();
+                    break;
+                case 2:
+                    lineitems[idx]['qty'] = $(this).val();
+                    break;
+            }
+           
+        })
+    });
+	 lineitems.shift();
     $.ajax({
         type: "POST",
-        data: {'data':serilaizeJson("#addstocktakesfrm")},
+        data: {'data':serilaizeJson("#addstocktakesfrm"),
+				'lineitems' : JSON.stringify(lineitems)
+			  },
         url: "api/v1/stocktakes",
     }).done(function(data){
         if(data) {
             $('#addStockTakes').modal('hide');
-            location.reload();
+            // location.reload();
         }
     });
     
