@@ -84,6 +84,7 @@ Route::group(array('prefix' => 'api/v1'), function()
 	
 	Route::resource('clients', 'ClientsAPIController');
 	Route::resource('skuproducts', 'SKUProductsAPIController');
+	Route::resource('skuproductsall', 'SKUProductsAPIController@all');
 	Route::resource('locations', 'LocationsAPIController');
 	Route::resource('uoms', 'UomAPIController');
 	Route::resource('uomconversion', 'UOMConversionAPIController');

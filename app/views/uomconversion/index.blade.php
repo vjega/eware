@@ -52,7 +52,7 @@
                             <select class="form-control" id="product_number" value="" name="product_number" placeholder="">
 								<option value="">Product Number</option>
                                
-                                    <option value="">test123</option>
+                                    <option value=""></option>
                             </select>    
                         </div>
                     </div>
@@ -138,6 +138,7 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
+
     $("#save-uom").click(function(){
 		if (($("#adduomconversionfrm").validationEngine("validate"))===true) {
 			 save_uom();
@@ -270,7 +271,7 @@ var show_edit_modal = function () {
 
 var update_product_dropdown = function (elm) {
     $.ajax({
-        url:"api/v1/skuproducts?client_code="+$(elm).val(),
+        url:"api/v1/skuproductsall?client_code="+$(elm).val(),
         method:"GET"
     })
     .done(function(data) {

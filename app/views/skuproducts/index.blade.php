@@ -395,8 +395,8 @@ var update_product_dropdown = function (elm) {
            	optList += "<option value='"+data[d].product_code+"'>"+data[d].product_code+"</option>";
         }
         $(".products").html(optList);
-        $(".locations").val(data[0].location_area);
-        $(".prodQty").val(data[0].quantity);
+        //$(".locations").val(data[0].location_area);
+        //$(".prodQty").val(data[0].quantity);
     })
     .fail(function() {
         console.log( "error" );

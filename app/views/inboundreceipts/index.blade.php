@@ -136,7 +136,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">Product No</label>
                         <div class="col-sm-8">
-                        <select type="text" class="form-control" id="product_no" value="" name="product_no" placeholder="">    
+                        <select class="form-control" id="product_no"  name="product_no">    
                         </select>
                         </div>
                     </div>
@@ -329,7 +329,7 @@ $(document).ready(function(){
 
     $("#product_no").change(function(){
         for (var idx in WMS.sku) {
-            if (WMS.sku[idx].product_code === $(this).val()) {
+            if (WMS.sku[idx].id == $(this).val()) {
                 $("#product_name").val(WMS.sku[idx].product_name);
                 break;
             }
@@ -402,7 +402,7 @@ jQuery("#inboundReceiptsList").jqGrid({
 });
 
 var save_uom = function() {
-    $.ajax({
+	$.ajax({
         type: "POST",
         data: {'data':serilaizeJson("#adduomfrm")},
         url: "api/v1/inboundreceipts",
@@ -412,7 +412,6 @@ var save_uom = function() {
             location.reload();
         }
     });
-    
 };
 
 var update_uom = function() {
@@ -479,37 +478,21 @@ var show_edit_modal = function () {
         $('#addUom').modal('show');
     });
 }
-// var update_product_dropdown = function (elm) {
-    // $.ajax({
-        // url:"api/v1/skuproducts?client_code="+$(elm).val(),
-        // method:"GET"
-    // })
-    // .done(function(data) {
-        // WMS.sku = data;
-        // var optList = ""
-        // for(var d in data) {
-            // optList += "<option value='"+data[d].product_code+"'>"+data[d].product_code+"</option>";
-        // }
-        // $("#product_no").html(optList);
-    // })
-    // .fail(function() {
-        // console.log( "error" );
-    // });
-// }
 
 var update_product_dropdown = function (elm) {
-    $.ajax({
-        url:"api/v1/skuproducts?client_code="+$(elm).val(),
+	$.ajax({
+        url:"api/v1/skuproductsall?client_code="+$(elm).val(),
         method:"GET"
     })
     .done(function(data) {
-        var optList = "";
+        WMS.sku = data
+		var optList = "";
         for(var d in data) {
            	optList += "<option value='"+data[d].id+"'>"+data[d].product_code+"</option>";
         }
-        $(".products").html(optList);
-        $(".locations").val(data[0].location_area);
-        $(".prodQty").val(data[0].quantity);
+        $("#product_no").html(optList);
+		$("#product_name").val(data[0].product_name);
+		
     })
     .fail(function() {
         console.log( "error" );
