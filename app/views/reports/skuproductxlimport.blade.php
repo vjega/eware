@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/eware/app/views/reports/clientimportfrm.blade.php
+/Applications/MAMP/htdocs/eware/app/views/reports/skuproductimportfrm.blade.php
