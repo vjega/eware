@@ -10,7 +10,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">From</label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" name="from_dt" id="from_dt" value="">
+                            <input type="date" class="form-control datepicker" name="from_dt" id="from_dt" value="">
                         </div>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">To</label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" name="to_dt" id="to_dt" value="">
+                            <input type="date" class="form-control datepicker" name="to_dt" id="to_dt" value="">
                         </div>
                     </div>
                 </div>
@@ -34,11 +34,19 @@
 
 <!-- Page based Scripts -->
 @section('script')
+<style>
+.datepicker{z-index:1561!important;}
+</style>
 <script>
 $(document).ready(function(){
     $("#xldownload").click(function(){
         $("#issueimportfrm").submit();
     })
+	
+	$(".datepicker").datepicker({
+		format: 'yyyy-mm-dd'
+
+	});
 })
 </script>
 @stop

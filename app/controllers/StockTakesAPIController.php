@@ -58,7 +58,7 @@ class StockTakesAPIController extends \BaseController {
             $itemledger->location_code   = $lines->location;
             $itemledger->item_code       = $lines->itemcode;
             $itemledger->ref_no    = $postObj->reference_no;
-            $itemledger->narration       = "StockTakes";
+            $itemledger->narration       = "STOCKTAKE";
             $itemledger->status          =  "1";
             $itemledger->save();
         }

@@ -234,13 +234,13 @@
                             <ul class="treeview-menu">
                                 <li>
 
-                                    <a href="{{ url('/')}}">
+                                    <a href="{{ url('/reports', 'clientmaster')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Client Master List</span> 
                                 </a>
                                                     
                                 </li>
                                 <li>
-                                       <a href="{{ url('/')}}">
+                                       <a href="{{ url('/reports', 'skuproductmaster')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>SKU Product Master List</span> 
                                 </a>
                                     

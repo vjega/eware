@@ -277,7 +277,7 @@ var save_stocktakes = function() {
     }).done(function(data){
         if(data) {
             $('#addStockTakes').modal('hide');
-            // location.reload();
+             location.reload();
         }
     });
     

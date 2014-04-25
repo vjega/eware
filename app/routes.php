@@ -127,4 +127,10 @@ Route::group(array('prefix' => 'reports'), function()
 {
 	Route::resource('issues', 'reportFilterController@issues');
 	Route::resource('issuexlimport', 'reportFilterController@issuesxlimport');
+	
+	Route::resource('clientmaster', 'reportFilterController@clientmaster');
+	Route::resource('clientxlimport', 'reportFilterController@clientxlimport');
+	
+	Route::resource('skuproductmaster', 'reportFilterController@skuproductmaster');
+	Route::resource('skuproductxlimport', 'reportFilterController@skuproductxlimport');
 });
