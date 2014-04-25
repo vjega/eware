@@ -111,7 +111,7 @@ Route::group(array('prefix' => 'api/v1'), function()
 	
 	/****** OUTBOUND SUBMENU ROUTES STARTS HERE ******/		
 
-	Route::resource('outboundissues', 'outboundissuesAPIController');
+	Route::resource('outboundissues', 'OutboundIssuesAPIController');
 	Route::resource('outboundenquires', 'OutboundEnquiresAPIController');
 
 	/****** OUTBOUND SUBMENU ROUTES ENDS HERE ******/
