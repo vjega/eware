@@ -48,7 +48,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-							<input class="form-control validate[required]" name="client_code" id="client_code" placeholder="Enter Client Code e.g. ACCP" />
+							<input class="form-control validate[required] custom[onlyLetterNumber]" name="client_code" id="client_code" placeholder="Enter Client Code e.g. ACCP" />
                         </div>
                     </div>
                 </div>

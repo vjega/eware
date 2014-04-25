@@ -52,7 +52,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control  validate[required] " id="product_code" name="product_code" value="" placeholder="NOK2332">
+                            <input type="text" class="form-control  validate[required] " id="product_code" name="product_code" value="" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
 							<span class="error">*</span>
 						</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control  validate[required]" id="product_name" name="product_name" value="" placeholder="Nokia 2332">
+                            <input type="text" class="form-control  validate[required]" id="product_name" name="product_name" value="" placeholder="">
                         </div>
                     </div>
                 </div>
