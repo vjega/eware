@@ -247,7 +247,11 @@ $(document).ready(function(){
         }
     });
     
-    $(".datepicker").datepicker();
+   $(".datepicker").datepicker({
+		format: 'yyyy-mm-dd'
+
+	});
+    
 	$("#impExcel").click(function(){
         $("#importModal").modal('show');
     });
@@ -403,19 +407,6 @@ var update_product_dropdown = function (elm) {
     });
 }
 
-// var update_product_qty_dropdown = function (elm) {
-    // $.ajax({
-        // url:"api/v1/skuproducts?product_code="+$("#skuproduct option:selected" ).val(),
-        // method:"GET"
-    // })
-    // .done(function(data) {
-        // $(".locations").val(data[0].location_area);
-        // $(".prodQty").val(data[0].quantity);
-    // })
-    // .fail(function() {
-        // console.log( "error" );
-    // });
-// }
 
 </script>
 @stop

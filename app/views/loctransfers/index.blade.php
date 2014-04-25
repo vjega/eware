@@ -171,7 +171,11 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
-	$(".datepicker").datepicker();
+
+	$(".datepicker").datepicker({
+		format: 'yyyy-mm-dd'
+
+	});
 	
     $("#save-LocTransfer").click(function(){
 		if (($("#addloctransferfrm").validationEngine("validate"))===true) {

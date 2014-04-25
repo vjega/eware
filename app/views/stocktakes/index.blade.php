@@ -188,7 +188,11 @@ var serilaizeJson =  function (form, stripfromAttr){
 }
 
 $(document).ready(function(){
-	$(".datepicker").datepicker();
+
+	$(".datepicker").datepicker({
+		format: 'yyyy-mm-dd'
+
+	});
 	
     $("#save-stocktakes").click(function(){
 		if (($("#addstocktakesfrm").validationEngine("validate"))===true) {
