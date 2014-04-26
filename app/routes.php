@@ -126,11 +126,11 @@ Route::group(array('prefix' => 'upload'), function()
 Route::group(array('prefix' => 'reports'), function()
 {
 	Route::resource('issues', 'ReportFilterControlle@issues');
-	Route::resource('issuexlimport', 'ReportFilterControlle@issuesxlimport');
+	Route::resource('issuexlimport', 'ReportFilterController@issuesxlimport');
 	
-	Route::resource('clientmaster', 'ReportFilterControlle@clientmaster');
-	Route::resource('clientxlimport', 'ReportFilterControlle@clientxlimport');
+	Route::resource('clientmaster', 'ReportFilterController@clientmaster');
+	Route::resource('clientxlimport', 'ReportFilterController@clientxlimport');
 	
-	Route::resource('skuproductmaster', 'ReportFilterControlle@skuproductmaster');
-	Route::resource('skuproductxlimport', 'ReportFilterControlle@skuproductxlimport');
+	Route::resource('skuproductmaster', 'ReportFilterController@skuproductmaster');
+	Route::resource('skuproductxlimport', 'ReportFilterController@skuproductxlimport');
 });
