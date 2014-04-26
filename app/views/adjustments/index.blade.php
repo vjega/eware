@@ -114,7 +114,7 @@
 								<select class="form-control products " id="skuproduct">
 								</select>
 							</td>  
-							<td><input readonly="" class="form-control locations validate[required]" type="text" /></td>  
+							<td><input class="form-control locations validate[required]" type="text" /></td>  
 							<td><input class="form-control prodQty validate[required]" type="text" /></td>  
 							<td><input class="form-control validate[required]" type="text" /></td>  
 							<td><input class="form-control validate[required]" type="text" /></td>  

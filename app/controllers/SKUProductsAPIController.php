@@ -71,13 +71,20 @@ class SkuproductsAPIController extends \BaseController {
 	
 	public function all()
 	{
-		$cliet_code = Input::get('client_code');
-        if ($cliet_code) {
-		  return Skuproduct::where('client_code', '=', $cliet_code)->get();
+		// $client_code = Input::get('client_code');
+		$product_code  = Input::get('product_code');
+		$client_code = Input::get('client_code');
+        if ($client_code) {
+			$item_ledger =  DB::select('SELECT cust_code, client_code, location_code as location_area, item_code as product_code, SUM(qty) AS quantity FROM itemledgers 
+										WHERE client_code =? GROUP BY item_code ', array( $client_code)
+									   );
+			return $item_ledger;
         }
         $product_code = Input::get('product_code');
         if ($product_code) {
-          return Skuproduct::where('product_code', '=', $product_code)->get();
+		   $item_ledgers =  DB::select('SELECT cust_code, client_code, location_code as location_area, item_code as product_code, SUM(qty) AS quantity FROM itemledgers 
+										WHERE item_code =? GROUP BY item_code', array( $product_code) );
+			return $item_ledgers;
         }
 	}
 
