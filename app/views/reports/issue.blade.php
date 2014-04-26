@@ -10,7 +10,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">From</label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control datepicker" name="from_dt" id="from_dt" value="">
+                            <input type="text" class="form-control datepicker" name="from_dt" id="from_dt" value="">
                         </div>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">To</label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control datepicker" name="to_dt" id="to_dt" value="">
+                            <input type="text" class="form-control datepicker" name="to_dt" id="to_dt" value="">
                         </div>
                     </div>
                 </div>
