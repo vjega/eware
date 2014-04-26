@@ -105,46 +105,37 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-
+                            <!-- Master Sub Menu -->
+                            <li>
+                                <a href="{{ url('/', 'locations')}}">
+                                    <i class="fa fa-angle-double-right"></i> <span>Location Master</span> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/', 'uoms')}}">
+                                    <i class="fa fa-angle-double-right"></i> <span>UOM Master</span> 
+                                </a>
+                            </li>
                             <li>
                                  <a href="{{ url('/', 'clients')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Client Master</span> 
                             </a>
-                                             
                             </li>
                             <li>
-                                 <a href="{{ url('/', 'skuproducts')}}">
-                                <i class="fa fa-angle-double-right"></i> <span>SKU Product Master</span> 
+                                <a href="{{ url('/', 'skuproducts')}}">
+                                    <i class="fa fa-angle-double-right"></i> <span>SKU Product Master</span> 
                                 </a>
-                                                     
                             </li>
                             <li>
-
-                                <a href="{{ url('/', 'locations')}}">
-                                <i class="fa fa-angle-double-right"></i> <span>Location Master</span> 
-                                </a>
-                                                       
-                            </li>
-                            <li>
-
-                                 <a href="{{ url('/', 'uoms')}}">
-                                <i class="fa fa-angle-double-right"></i> <span>UOM Master</span> 
-                                </a>
-                                                     
-                            </li>
-                            <li>
-
                                 <a href="{{ url('/', 'uomconversion')}}">
-                                <i class="fa fa-angle-double-right"></i> <span>UOM Conversion Master</span> 
+                                    <i class="fa fa-angle-double-right"></i> <span>UOM Conversion Master</span> 
                                 </a>
-                                                             
                             </li>
-                            <li>
-                                 <a href="{{ url('/', 'reasoncodes')}}">
-                                <i class="fa fa-angle-double-right"></i> <span>Reason Code Master</span> 
+                            <!-- li>
+                                <a href="{{ url('/', 'reasoncodes')}}">
+                                    <i class="fa fa-angle-double-right"></i> <span>Reason Code Master</span> 
                                 </a>
-                                                       
-                            </li>
+                            </li -->
                             </ul>
                         </li>
                         <li class="treeview">
@@ -157,7 +148,7 @@
 
                             <li>
                                  <a href="{{ url('/', 'adjustments')}}">
-                                <i class="fa fa-angle-double-right"></i> <span>Adjustment</span> 
+                                <i class="fa fa-angle-double-right"></i> <span>Stock Take</span> 
                                 </a>
                                                      
                             </li>
@@ -195,11 +186,11 @@
                                 </a>
                                                             
                             </li>
-                            <li>
+                            <!-- li>
                                 <a href="{{ url('/', 'confirmsrvs')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Confirm SRV Putaway</span> 
                                 </a>                           
-                            </li>
+                            </li -->
                             </ul>
                         </li>
                         <li class="treeview">
@@ -215,12 +206,12 @@
                                 </a>
                                                     
                                 </li>
-                                <li>
+                                <!-- li>
                                        <a href="{{ url('/', 'outboundenquires')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Enquiry</span> 
                                 </a>
                                     
-                                </li>
+                                </li -->
 
                                
                             </ul>
@@ -245,23 +236,23 @@
                                 </a>
                                     
                                 </li>
-                                <li>
+                                <!-- li>
                                       <a href="{{ url('/reports', 'locationstockledger')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Locationwise Stock Ledger</span> 
                                 </a>
                                     
-                                </li>
+                                </li -->
                                 <li>
                                         <a href="{{ url('/reports', 'stockledger')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Stock Ledger</span> 
                                 </a>
                                     
                                 </li>
-                                <li>
+                                <!-- li>
                                        <a href="{{ url('/reports', 'locationmovementledger')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Location Movement Ledger</span> 
                                 </a>
-                                </li>
+                                </li -->
                                 <li>
                                        <a href="{{ url('/reports', 'receipt')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Receipt Report</span> 
