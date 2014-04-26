@@ -125,7 +125,7 @@ Route::group(array('prefix' => 'upload'), function()
 
 Route::group(array('prefix' => 'reports'), function()
 {
-	Route::resource('issues', 'ReportFilterControlle@issues');
+	Route::resource('issues', 'ReportFilterController@issues');
 	Route::resource('issuexlimport', 'ReportFilterController@issuesxlimport');
 	
 	Route::resource('clientmaster', 'ReportFilterController@clientmaster');
