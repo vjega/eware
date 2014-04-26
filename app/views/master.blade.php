@@ -246,24 +246,24 @@
                                     
                                 </li>
                                 <li>
-                                       <a href="{{ url('/')}}">
+                                      <a href="{{ url('/reports', 'locationstockledger')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Locationwise Stock Ledger</span> 
                                 </a>
                                     
                                 </li>
                                 <li>
-                                       <a href="{{ url('/')}}">
+                                        <a href="{{ url('/reports', 'stockledger')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Stock Ledger</span> 
                                 </a>
                                     
                                 </li>
                                 <li>
-                                       <a href="{{ url('/')}}">
+                                       <a href="{{ url('/reports', 'locationmovementledger')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Location Movement Ledger</span> 
                                 </a>
                                 </li>
                                 <li>
-                                       <a href="{{ url('/')}}">
+                                       <a href="{{ url('/reports', 'receipt')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Receipt Report</span> 
                                 </a>
 

@@ -2,7 +2,7 @@
 <!-- Main Content -->
 @section('content')
 <div class="panel panel-default">
-        <div class="panel-heading">Issue Report</div>
+        <div class="panel-heading">Client Report</div>
         <form id="clientimportfrm" action="clientxlimport" method="GET">
         <div class="panel-body">
         </div>

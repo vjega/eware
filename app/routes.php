@@ -133,4 +133,18 @@ Route::group(array('prefix' => 'reports'), function()
 	
 	Route::resource('skuproductmaster', 'ReportFilterController@skuproductmaster');
 	Route::resource('skuproductxlimport', 'ReportFilterController@skuproductxlimport');
+	
+	Route::resource('stockledger', 'ReportFilterController@stockledger');
+	Route::resource('stockledgerxlimport', 'ReportFilterController@stockledgerxlimport');
+	
+	Route::resource('locationmovementledger', 'ReportFilterController@locationmovementledger');
+	Route::resource('locationledgerxlimport', 'ReportFilterController@locationledgerxlimport');
+	
+	Route::resource('locationstockledger', 'ReportFilterController@locationstockledger');
+	Route::resource('locationstockledgerxlimport', 'ReportFilterController@locationstockledgerxlimport');
+	
+	Route::resource('receipt', 'ReportFilterController@receipt');
+	Route::resource('receiptxlimport', 'ReportFilterController@receiptxlimport');
+	
+	
 });

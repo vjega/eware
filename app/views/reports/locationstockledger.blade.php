@@ -2,8 +2,8 @@
 <!-- Main Content -->
 @section('content')
 <div class="panel panel-default">
-        <div class="panel-heading">Issue Report</div>
-        <form id="issueimportfrm" action="issuexlimport" method="GET">
+        <div class="panel-heading">Location Stock Ledger</div>
+        <form id="locationstockimportfrm" action="locationstockledgerxlimport" method="GET">
         <div class="panel-body">
              <div class="row">
                 <div class="col-sm-6">
@@ -43,9 +43,9 @@
 </style>
 <script>
 $(document).ready(function(){
-	$("#issueimportfrm").validationEngine();
+	$("#locationstockimportfrm").validationEngine();
     $("#xldownload").click(function(){
-        $("#issueimportfrm").submit();
+        $("#locationstockimportfrm").submit();
     })
 	
 	$(".datepicker").datepicker({

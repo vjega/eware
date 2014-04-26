@@ -2,10 +2,10 @@
 <!-- Main Content -->
 @section('content')
 <div class="panel panel-default">
-        <div class="panel-heading">Issue Report</div>
-        <form id="issueimportfrm" action="issuexlimport" method="GET">
+        <div class="panel-heading">Receipt Report</div>
+        <form id="receiptimportfrm" action="receiptxlimport" method="GET">
         <div class="panel-body">
-             <div class="row">
+			<div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="" class="col-sm-4 control-label">From
@@ -43,9 +43,8 @@
 </style>
 <script>
 $(document).ready(function(){
-	$("#issueimportfrm").validationEngine();
     $("#xldownload").click(function(){
-        $("#issueimportfrm").submit();
+        $("#receiptimportfrm").submit();
     })
 	
 	$(".datepicker").datepicker({

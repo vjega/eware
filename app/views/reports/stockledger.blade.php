@@ -2,8 +2,8 @@
 <!-- Main Content -->
 @section('content')
 <div class="panel panel-default">
-        <div class="panel-heading">Product Report</div>
-        <form id="skuproductimportfrm" action="skuproductxlimport" method="GET">
+        <div class="panel-heading">StockLedger Report</div>
+        <form id="stockledgerimportfrm" action="stockledgerxlimport" method="GET">
         <div class="panel-body">
         </div>
         </form>
@@ -22,7 +22,7 @@
 <script>
 $(document).ready(function(){
     $("#xldownload").click(function(){
-        $("#skuproductimportfrm").submit();
+        $("#stockledgerimportfrm").submit();
     })
 	
 	$(".datepicker").datepicker({
