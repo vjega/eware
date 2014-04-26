@@ -9,8 +9,8 @@
         </div>
         <div class="panel-footer">
             <button class="btn btn-inverse" data-toggle="modal" id="showUomPop">New Adjustment</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="editUomPop">Edit Selected Adjustment</button>
-            <button class="btn btn-inverse" data-toggle="modal" id="delUom">Delete Selected Adjustment</button>
+            <!-- button class="btn btn-inverse" data-toggle="modal" id="editUomPop">Edit Selected Adjustment</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="delUom">Delete Selected Adjustment</button -->
         </div>
     </div>
 @stop
@@ -334,7 +334,7 @@ var show_edit_modal = function () {
 
 var update_product_dropdown = function (elm) {
     $.ajax({
-        url:"api/v1/skuproducts?client_code="+$(elm).val(),
+        url:"api/v1/skuproductsall?client_code="+$(elm).val(),
         method:"GET"
     })
     .done(function(data) {
@@ -352,7 +352,7 @@ var update_product_dropdown = function (elm) {
 }
 var update_product_qty_dropdown = function (elm) {
     $.ajax({
-        url:"api/v1/skuproducts?product_code="+$("#skuproduct option:selected" ).val(),
+        url:"api/v1/skuproductsall?product_code="+$("#skuproduct option:selected" ).val(),
         method:"GET"
     })
     .done(function(data) {

@@ -72,7 +72,13 @@ class SkuproductsAPIController extends \BaseController {
 	public function all()
 	{
 		$cliet_code = Input::get('client_code');
-		return Skuproduct::where('client_code', '=', $cliet_code)->get();
+        if ($cliet_code) {
+		  return Skuproduct::where('client_code', '=', $cliet_code)->get();
+        }
+        $product_code = Input::get('product_code');
+        if ($product_code) {
+          return Skuproduct::where('product_code', '=', $product_code)->get();
+        }
 	}
 
     public function update($id)
