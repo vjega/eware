@@ -110,7 +110,7 @@ class ReportFilterController extends \BaseController {
 		
 		$rows = [];
 		$rows[] = ["Client Code","Product No", "Product Name","QTY"];
-		$stocklines =  DB::select('SELECT il.client_code, il.item_code,
+		$stocklines =  DB::select('SELECT il.cust_code, il.item_code,
 										  SUM(il.qty) AS qty,sk.product_name,
 										  sk.product_code, il.posting_date 
 									FROM itemledgers il
@@ -118,7 +118,7 @@ class ReportFilterController extends \BaseController {
 									GROUP BY il.client_code,il.item_code
 									');
 		foreach ($stocklines as $stockline ) {
-			$rows[] = [$stockline->client_code, 
+			$rows[] = [$stockline->cust_code, 
 					   $stockline->product_code,
 					   $stockline->product_name,
 					   $stockline->qty,
