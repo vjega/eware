@@ -62,8 +62,8 @@ class ReportFilterController extends \BaseController {
 				  ];
 		}
 
-		return Excel::create('IssueReport')
-        	->sheet('Issue Report')
+		return Excel::create('Client Report')
+        	->sheet('Client Report')
             ->with($rows)
         	->export('xlsx');
 		
@@ -93,7 +93,7 @@ class ReportFilterController extends \BaseController {
 				  ];
 		}
 
-		return Excel::create('IssueReport')
+		return Excel::create('Product Report')
         	->sheet('SkuProduct Report')
             ->with($rows)
         	->export('xlsx');
@@ -125,8 +125,8 @@ class ReportFilterController extends \BaseController {
 				  ];
 		}
 
-		return Excel::create('IssueReport')
-        	->sheet('SkuProduct Report')
+		return Excel::create('Stockledger Report')
+        	->sheet('Stockledger Report')
             ->with($rows)
         	->export('xlsx');
 		
@@ -158,8 +158,8 @@ class ReportFilterController extends \BaseController {
 				  ];
 		}
 
-		return Excel::create('IssueReport')
-        	->sheet('SkuProduct Report')
+		return Excel::create('Location Movement Report')
+        	->sheet('Location Movement Report')
             ->with($rows)
         	->export('xlsx');
 		
@@ -191,8 +191,8 @@ class ReportFilterController extends \BaseController {
 				  ];
 		}
 
-		return Excel::create('Locationstock Report')
-        	->sheet('Locationstock Report')
+		return Excel::create('Stock LocationReport')
+        	->sheet('StockLocation Report')
             ->with($rows)
         	->export('xlsx');
 		
