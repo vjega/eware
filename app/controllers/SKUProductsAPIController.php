@@ -76,7 +76,7 @@ class SkuproductsAPIController extends \BaseController {
 		$client_code = Input::get('client_code');
         if ($client_code) {
 			$item_ledger =  DB::select('SELECT cust_code, client_code, location_code as location_area, item_code as product_code, SUM(qty) AS quantity FROM itemledgers 
-										WHERE client_code =? GROUP BY item_code ', array( $client_code)
+										WHERE cust_code =? GROUP BY item_code ', array( $client_code)
 									   );
 			return $item_ledger;
         }

@@ -30,6 +30,10 @@ ClassLoader::addDirectories(array(
 | build a basic log file setup which creates a single file for logs.
 |
 */
+Event::listen("illuminate.query", function($query, $bindings, $time, $name){
+        \Log::info($query."\n");
+            \Log::info(json_encode($bindings)."\n");
+});
 
 Log::useFiles(storage_path().'/logs/laravel.log');
 
