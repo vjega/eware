@@ -158,19 +158,19 @@
                                 </a>
                                                               
                             </li>
-                            <!-- li>
+                            <li>
 
                                 <a href="{{ url('/', 'locations')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Location Details</span> 
                                 </a>
                                                       
-                            </li -->
-                            <li>
+                            </li>
+                            <!-- li>
                                  <a href="{{ url('/', 'stocktakes')}}">
                                 <i class="fa fa-angle-double-right"></i> <span>Stock Take</span> 
                                 </a>
                                                       
-                            </li>
+                            </li -->
                             </ul>
                         </li>
                         <li class="treeview">
