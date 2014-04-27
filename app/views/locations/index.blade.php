@@ -190,7 +190,7 @@ jQuery("#locationList").jqGrid({
     colModel:[
         {name:'select'},
 		{name:'location_no'},
-		{name:'warehouse_name'},
+		{name:'site_name'},
 		{name:'location_area'},
 		{name:'location_type'},
 		{name:'bin_number'},
@@ -198,6 +198,7 @@ jQuery("#locationList").jqGrid({
 		{name:'minimum_volume'},
 		{name:'location_condition'},
 		{name:'location_indicator'},
+		
     ], 
     rowNum:10, 
     rowList:[10,20,30], 

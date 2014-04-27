@@ -38,21 +38,21 @@ class SkuproductsAPIController extends \BaseController {
         $postData =  Input::get("data");
         $postObj = json_decode($postData);
         $product = new Skuproduct;
-        $product->client_code =     $postObj->client_code;
-        $product->product_code =    $postObj->product_code;
-        $product->product_name =    $postObj->product_name;
-        $product->description =     $postObj->description;
-        $product->product_category =    $postObj->product_category;
-        $product->quantity =        $postObj->quantity;
-        $product->uom_id =          $postObj->uom_id;
+        $product->client_code 		 =   $postObj->client_code;
+        $product->product_code 		 =  $postObj->product_code;
+        $product->product_name	     =  $postObj->product_name;
+        $product->description 		 =  $postObj->description;
+        $product->product_category   = 	$postObj->product_category;
+        $product->quantity		     =  $postObj->quantity;
+        $product->uom_id 			 =  $postObj->uom_id;
         $product->product_dimensions =  $postObj->product_dimensions;
-        $product->serial_number =   $postObj->serial_number;
-        $product->expiry_date =     $postObj->expiry_date;
-        $product->storage_form =    $postObj->storage_form;
-        $product->location_area =   $postObj->location_area;
+        $product->serial_number 	 =  $postObj->serial_number;
+        $product->expiry_date 		 =  $postObj->expiry_date;
+        $product->storage_form	 	 =  $postObj->storage_form;
+        $product->location_area 	 =  $postObj->location_area;
         $product->save();
         $itemledger = new Itemledger;
-        $itemledger->cust_code   = $postObj->client_code;
+        $itemledger->cust_code     = $postObj->client_code;
         $itemledger->location_code = $postObj->location_area;
         $itemledger->item_code     = $postObj->product_code;
         $itemledger->ref_no        = "";
@@ -75,8 +75,10 @@ class SkuproductsAPIController extends \BaseController {
 		$product_code  = Input::get('product_code');
 		$client_code = Input::get('client_code');
         if ($client_code) {
-			$item_ledger =  DB::select('SELECT cust_code, client_code, location_code as location_area, item_code as product_code, SUM(qty) AS quantity FROM itemledgers 
-										WHERE cust_code =? GROUP BY item_code ', array( $client_code)
+			$item_ledger =  DB::select('SELECT il.cust_code, il.client_code, il.location_code as location_area, il.item_code as product_code, sp.product_name, SUM(qty) AS quantity 
+										FROM itemledgers il
+										LEFT JOIN skuproducts sp ON il.item_code = sp.product_code
+										WHERE il.cust_code =? GROUP BY item_code ', array( $client_code)
 									   );
 			return $item_ledger;
         }

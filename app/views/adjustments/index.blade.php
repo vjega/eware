@@ -2,13 +2,13 @@
 <!-- Main Content -->
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading"><h3>Adjustments</h3></div>
+        <div class="panel-heading"><h3>Stock Take</h3></div>
         <div class="panel-body">
             <table id="adjustmentList"></table>
             <div id="adjustmentPager"></div>
         </div>
         <div class="panel-footer">
-            <button class="btn btn-inverse" data-toggle="modal" id="showUomPop">New Adjustment</button>
+            <button class="btn btn-inverse" data-toggle="modal" id="showUomPop">New Stock Take</button>
             <!-- button class="btn btn-inverse" data-toggle="modal" id="editUomPop">Edit Selected Adjustment</button>
             <button class="btn btn-inverse" data-toggle="modal" id="delUom">Delete Selected Adjustment</button -->
         </div>
@@ -24,7 +24,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add/Edit  Adjustment</h4>
+        <h4 class="modal-title" id="myModalLabel">Add/Edit  Stock Take</h4>
       </div>
       <form class="form-horizontal" role="form" name="adduomfrm" id="adduomfrm">
       <div class="modal-body">     
@@ -127,8 +127,8 @@
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save-uom">Save Adjustment</button>
-        <button type="button" class="btn btn-primary" id="post-uom">Update Adjustment</button>
+        <button type="button" class="btn btn-primary" id="save-uom">Save Stock Take</button>
+        <button type="button" class="btn btn-primary" id="post-uom">Update Stock Take</button>
       </div>
     </div>
 </div>

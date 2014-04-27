@@ -10,7 +10,9 @@ class LocationsAPIController extends \BaseController {
      */
     public function index()
     {
-        $location_arr = Location::all()->toArray();
+        //$location_arr = Location::all()->toArray();
+		Config::set('database.fetch', PDO::FETCH_ASSOC);
+		$location_arr = DB::select('Select l.*, s.name as site_name from locations l INNER JOIN sites s ON s.id = l.warehouse_name'); 
         $location['page'] = 1;
         $location['total'] = 1;
         $location['records'] = count($location_arr);

@@ -330,7 +330,7 @@ $(document).ready(function(){
 
     $("#product_no").change(function(){
         for (var idx in WMS.sku) {
-            if (WMS.sku[idx].id == $(this).val()) {
+            if (WMS.sku[idx].product_code == $(this).val()) {
                 $("#product_name").val(WMS.sku[idx].product_name);
                 break;
             }
@@ -403,6 +403,7 @@ jQuery("#inboundReceiptsList").jqGrid({
 });
 
 var save_uom = function() {
+	console.log(serilaizeJson("#adduomfrm"));
 	$.ajax({
         type: "POST",
         data: {'data':serilaizeJson("#adduomfrm")},
@@ -489,7 +490,7 @@ var update_product_dropdown = function (elm) {
         WMS.sku = data
 		var optList = "";
         for(var d in data) {
-           	optList += "<option value='"+data[d].id+"'>"+data[d].product_code+"</option>";
+           	optList += "<option value='"+data[d].product_code+"'>"+data[d].product_code+"</option>";
         }
         $("#product_no").html(optList);
 		$("#product_name").val(data[0].product_name);
