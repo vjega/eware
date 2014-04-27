@@ -111,7 +111,7 @@ class ReportFilterController extends \BaseController {
 		$rows = [];
 		$rows[] = ["Client Code","Product No", "Product Name","QTY"];
 		$stocklines =  DB::select('SELECT il.cust_code, il.item_code,
-										  SUM(il.qty) AS qty,sk.product_name,
+										  SUM(il.qty) AS qty, sk.product_name,
 										  sk.product_code, il.posting_date 
 									FROM itemledgers il
 									INNER JOIN skuproducts sk ON sk.client_code = il.cust_code
