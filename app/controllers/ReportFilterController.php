@@ -115,7 +115,7 @@ class ReportFilterController extends \BaseController {
 										  sk.product_code, il.posting_date 
 									FROM itemledgers il
 									INNER JOIN skuproducts sk ON sk.client_code = il.cust_code
-									GROUP BY il.client_code,il.item_code
+									GROUP BY il.cust_code,il.item_code
 									');
 		foreach ($stocklines as $stockline ) {
 			$rows[] = [$stockline->cust_code, 
