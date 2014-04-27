@@ -114,7 +114,7 @@ class ReportFilterController extends \BaseController {
 										  SUM(il.qty) AS qty,sk.product_name,
 										  sk.product_code, il.posting_date 
 									FROM itemledgers il
-									INNER JOIN skuproducts sk ON sk.client_code = il.client_code
+									INNER JOIN skuproducts sk ON sk.client_code = il.cust_code
 									GROUP BY il.client_code,il.item_code
 									');
 		foreach ($stocklines as $stockline ) {
